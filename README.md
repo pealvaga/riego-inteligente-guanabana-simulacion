@@ -1,6 +1,6 @@
 # Simulación de un sistema de riego inteligente para cultivos de guanábana
 
-> **Estado actual: documentación inicial.** Los programas, modelos de IA y conjuntos de datos originales todavía no se han incorporado ni verificado; el repositorio aún no es una reproducción ejecutable.
+> **Estado actual: documentación y código Python inicial.** Ya está incluido `01_Python/Sensores.py`; aún faltan los proyectos CODESYS y Factory I/O, los modelos de IA, los datos y los scripts de entrenamiento y evaluación. No se ha verificado la ejecución integral en otro equipo.
 
 Trabajo de grado de Ingeniería Mecatrónica, modalidad diplomado, Universitaria Agustiniana (2026). Se presenta una simulación para cultivos de guanábana (*Annona muricata* L.) a cielo abierto.
 
@@ -29,9 +29,9 @@ El informe utiliza límites de 60 % para iniciar y 75 % para detener el riego (e
 
 ## Reproducción
 
-Consultar la [guía de instalación y ejecución](08_Documentacion/INSTALACION_Y_EJECUCION.md), **todavía en preparación**. Las versiones de software, librerías, rutas, códigos originales y pasos validados se incorporarán al verificar el entorno de trabajo.
+Consultar la [guía de instalación y ejecución](08_Documentacion/INSTALACION_Y_EJECUCION.md), **todavía en preparación**. La aplicación Python cuenta con una [guía específica](01_Python/README.md) y un [archivo provisional de dependencias](01_Python/requirements.txt). Las versiones exactas y los pasos de integración con CODESYS y Factory I/O siguen pendientes de verificación.
 
-La [tabla de registros Modbus](08_Documentacion/MAPA_MODBUS.md) presenta las direcciones documentadas en el informe, pendientes de contrastar con el programa final.
+La [tabla de registros Modbus](08_Documentacion/MAPA_MODBUS.md) refleja el código Python actual, incluidos HR5–HR7 para el reloj simulado; queda pendiente contrastarla con CODESYS. Ver el [estado de reproducibilidad](08_Documentacion/ESTADO_REPRODUCIBILIDAD.md).
 
 ## Procedencia de los datos y limitaciones
 
