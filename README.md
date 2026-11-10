@@ -21,7 +21,7 @@ La arquitectura no equivale a una validación agronómica en campo. En particula
 | Ruta | Descripción |
 |---|---|
 | [01_Python](01_Python/) | Aplicación de simulación, interfaz y comunicación |
-| [02_CODESYS](02_CODESYS/) | Controlador, automatización y SCADA |
+| [02_CODESYS](02_CODESYS/) | [Paquete CODESYS](02_CODESYS/Codesys.zip), controlador, automatización y SCADA |
 | [03_Factory_IO](03_Factory_IO/) | Escena virtual y conexiones |
 | [04_Random_Forest](04_Random_Forest/) | Entrenamiento, predicción y evaluación de humedad |
 | [05_MobileNetV2](05_MobileNetV2/) | Clasificación de imágenes y evaluación |
