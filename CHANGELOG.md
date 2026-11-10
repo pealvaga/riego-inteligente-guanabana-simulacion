@@ -11,5 +11,6 @@ El historial documenta cambios de código, datos, modelos, evaluaciones e interf
 - Documentación del mapa Modbus TCP y la estructura requerida para verificar modelos y datos.
 - Preparación de las guías de evaluación independiente para Random Forest y MobileNetV2.
 - Incorporación y análisis de `Grado.factoryio`: versión 2.5.10, dos tanques y 14 vínculos `OPCClientDA` (`CoDeSys.OPC.DA`).
+- Incorporación de `ia_imagen.py` y `mejor_modelo_hojas_finetuning.keras`; documentación del esquema 70/15/15 y del procedimiento de evaluación del checkpoint con umbral operativo 0,90.
 
 Los resultados cuantitativos deben asociarse a la versión concreta de los modelos y datos que los produzca.
