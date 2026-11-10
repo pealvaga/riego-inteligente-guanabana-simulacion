@@ -7,6 +7,16 @@
 
 El código original y el modelo se conservan sin alteraciones. El nombre del archivo coincide con el checkpoint de fine-tuning configurado en el script. **La presencia del artefacto no constituye, por sí sola, una validación de sus métricas o de su contenido interno.**
 
+## Acceso al conjunto de imágenes utilizado
+
+La carpeta de Google Drive indicada por el autor para consultar el conjunto de imágenes se encuentra en el siguiente enlace:
+
+**[Carpeta IA — Google Drive](https://drive.google.com/drive/folders/1dSFK86hFvjr4cZiNZvvqDZDGeydOIcys?usp=sharing)**
+
+El inventario generado en Colab sobre la carpeta `IA` registró 2.247 imágenes (1.220 en `Sanas` y 1.027 en `Nutrientes`). El tamaño del dataset hace conveniente mantener las fotografías fuera de GitHub y publicar aquí el código, el modelo y los metadatos necesarios para su reproducción.
+
+**Condiciones de acceso y trazabilidad:** el enlace fue facilitado por el autor; su apertura sin iniciar sesión y los permisos de redistribución de las imágenes aún deben comprobarse. Las etiquetas originales, fuentes, identificadores de imagen y particiones independientes deben cotejarse con el inventario antes de atribuir resultados al modelo final. La disponibilidad del enlace no equivale por sí sola a la reproducción de la evaluación.
+
 ## Base de datos de gran tamaño
 
 No es necesario alojar todas las fotografías en GitHub. Se puede mantener el conjunto original en Google Drive o descargarlo desde sus fuentes oficiales, siempre que el acceso y los derechos de uso permitan revisar los datos.
