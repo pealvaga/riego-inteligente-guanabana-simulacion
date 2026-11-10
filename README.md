@@ -50,6 +50,10 @@ El [inventario de imágenes verificado](06_Datos/ANALISIS_INVENTARIO_MOBILENETV2
 
 Las cifras de desempeño deben leerse junto con el conjunto de prueba, el script de evaluación y la configuración que las generó.
 
+## Acceso a las imágenes de entrenamiento
+
+La base de imágenes de MobileNetV2 se mantiene fuera del repositorio por su tamaño. El autor ha facilitado el [enlace a la carpeta IA en Google Drive](https://drive.google.com/drive/folders/1dSFK86hFvjr4cZiNZvvqDZDGeydOIcys?usp=sharing). Consultar el [README de MobileNetV2](05_MobileNetV2/README.md) para la estructura, el inventario y las condiciones de trazabilidad. El acceso público y los derechos de redistribución deben comprobarse antes de utilizar o compartir fotografías de terceros.
+
 ## Demostración
 
 [Video de funcionamiento del sistema](https://youtu.be/djTeff68Glk)
