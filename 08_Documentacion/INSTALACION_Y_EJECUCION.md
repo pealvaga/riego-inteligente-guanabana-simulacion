@@ -1,21 +1,23 @@
-# Instalación y ejecución — revisión inicial
+# Instalación y ejecución del sistema de simulación
 
-> **Alcance:** guía provisional basada en `01_Python/Sensores.py`. Sin verificación en un entorno limpio. Los archivos de CODESYS, Factory I/O y modelos entrenados aún están pendientes.
+Esta guía describe la arquitectura del sistema y el procedimiento de configuración de la aplicación Python. El funcionamiento integral depende de los proyectos CODESYS, Factory I/O y los modelos de IA utilizados en la simulación.
 
-## Requisitos del entorno
+## Software necesario
 
-| Componente | Estado |
+| Software o componente | Finalidad |
 |---|---|
-| Windows | Plataforma de referencia; versión exacta pendiente |
-| Python | Código requiere sintaxis de Python 3.9+; versión efectiva pendiente |
-| Paquetes Python | [Lista provisional](../01_Python/requirements.txt), sin versiones fijadas |
-| Tkinter | Interfaz gráfica incluida en instalaciones compatibles de Python |
-| CODESYS, Control Win, bibliotecas | Pendiente de incorporar/verificar |
-| Factory I/O y OPC UA | Pendiente de incorporar/verificar |
+| Windows | Ejecución del entorno de simulación |
+| Python 3.9 o superior con Tkinter | Aplicación de simulación e interfaz |
+| Bibliotecas de Python | Dependencias de [requirements.txt](../01_Python/requirements.txt) |
+| CODESYS y CODESYS Control Win | Controlador virtual y HMI |
+| Factory I/O | Representación del proceso virtual |
+| Modelos `.pkl` y `.keras` | Predicción de humedad y clasificación de imágenes |
+
+Las versiones concretas de Python, TensorFlow, CODESYS, Factory I/O y bibliotecas deben corresponder a las utilizadas para generar y ejecutar los artefactos finales.
 
 ## Preparación de Python en Windows
 
-Abrir terminal en `01_Python`:
+Desde una terminal ubicada en `01_Python`:
 
 ```powershell
 python -m venv .venv
@@ -24,35 +26,31 @@ python -m pip install -r requirements.txt
 python Sensores.py
 ```
 
-La creación del entorno virtual y el comando de inicio son propuestas de ejecución, no un procedimiento probado con el sistema del autor. Validar especialmente compatibilidad de Python, TensorFlow y `pymodbus`. Si no está disponible `tkinter`, instalar una distribución de Python que lo incluya.
+Si PowerShell no permite activar el entorno, se puede ejecutar `.venv\Scripts\python.exe` directamente para instalar paquetes y ejecutar la aplicación.
 
-## Archivos de modelos buscados por la aplicación
+Colocar en el directorio de `Sensores.py` los archivos `modelo_prediccion_humedad.pkl` y `mejor_modelo_hojas_finetuning.keras` que correspondan a los modelos entrenados.
 
-En la misma carpeta que `Sensores.py`:
-- `modelo_prediccion_humedad.pkl`
-- `mejor_modelo_hojas_finetuning.keras`
+## Comunicación e integración
 
-Sin dichos archivos, los componentes de IA respectivos no funcionarán. El modelo Random Forest debe ser compatible con el esquema de variables y la versión de dinámica del suelo indicada en [documentación Python](../01_Python/README.md).
+1. Abrir el proyecto CODESYS y seleccionar el controlador virtual.
+2. Verificar las variables Modbus TCP y los símbolos OPC UA utilizados por Factory I/O.
+3. Abrir la escena de Factory I/O y conectar el intercambio de señales con CODESYS.
+4. Ejecutar `Sensores.py`.
+5. Configurar la conexión Modbus TCP en Python. Valores iniciales de la interfaz: IP `127.0.0.1`, puerto `502` e identificador `1`.
+6. Conectar Modbus y comprobar el intercambio de las variables. El programa Python escribe HR0–HR7 y lee IR0.
+7. Iniciar la simulación y observar la humedad, los estados de riego y los indicadores SCADA.
+8. Consultar los registros de operación y ejecutar los scripts de evaluación de modelos con los conjuntos correspondientes.
 
-## Comunicación prevista
+Consulte el [mapa Modbus](MAPA_MODBUS.md) para la descripción de los registros.
 
-Configuración predeterminada en el código Python: IP `127.0.0.1`, puerto `502`, Device ID `1`. Es modificable en la interfaz. Se escribe HR0–HR7 y se lee IR0. Ver [mapa actualizado](MAPA_MODBUS.md).
+## Comprobaciones de funcionamiento
 
-## Orden previsto de ejecución integral
+Las pruebas de reproducción deben verificar que el balance hídrico evoluciona con temperatura, precipitación y riego; que los umbrales del controlador corresponden a 60 % y 75 % de agua disponible; que el tiempo simulado es coherente; y que las salidas de ambos modelos corresponden a los formatos previstos.
 
-1. Abrir el proyecto de CODESYS, compilarlo y habilitar su controlador virtual y Modbus TCP.
-2. Cargar la escena Factory I/O y confirmar OPC UA con CODESYS.
-3. Ejecutar `Sensores.py` con los modelos correspondientes.
-4. Conectar Modbus y comprobar las lecturas/escrituras.
-5. Iniciar la simulación, verificar histéresis y tiempos simulados.
-6. Verificar el registro CSV en CODESYS y la evaluación de cada IA.
+## Registro y análisis de datos
 
-Este orden es preliminar: faltan el proyecto, los archivos y las pruebas de extremo a extremo.
+El proyecto documenta el archivo de historial `HistorialCultivo.csv` generado por CODESYS. Para reentrenamiento, el conjunto de registros usado y los scripts de preparación deben permitir distinguir sesiones e identificar la versión de la dinámica ambiental. Los resultados de modelos se documentan en [04_Random_Forest](../04_Random_Forest/) y [05_MobileNetV2](../05_MobileNetV2/).
 
-## Estado de registro para reentrenamiento
+## Recomendación de seguridad
 
-`Sensores.py` **no escribe un CSV de datos de simulación**. En el documento de grado se menciona que el registro histórico `HistorialCultivo.csv` se realiza en CODESYS; hay que contrastarlo con su programa antes de utilizar el CSV para entrenamiento. Reincorporar la generación de datos desde Python será una tarea separada, incluyendo identificación de trayectorias y condiciones de simulación.
-
-## Evidencia pendiente
-
-Versiones exactas, capturas de ejecución, archivos fuente completos, particiones independientes, scripts de entrenamiento, métricas y resultados replicados.
+No publicar direcciones, contraseñas, tokens, claves ni configuraciones privadas de redes. No cargar modelos `.pkl` de procedencia desconocida.
