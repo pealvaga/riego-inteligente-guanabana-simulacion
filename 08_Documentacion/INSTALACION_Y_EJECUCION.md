@@ -47,6 +47,12 @@ El archivo [`02_CODESYS/Codesys.zip`](../02_CODESYS/Codesys.zip) contiene `Grado
 
 Consulte el [mapa Modbus](MAPA_MODBUS.md) para el canal Python–CODESYS y la [documentación de Factory I/O](../03_Factory_IO/README.md) para el canal OPC DA entre la planta virtual y CODESYS. Son dos conexiones diferentes.
 
+## Acceso a datos de MobileNetV2
+
+La carpeta de imágenes declarada para el entrenamiento puede consultarse mediante [Google Drive — carpeta IA](https://drive.google.com/drive/folders/1dSFK86hFvjr4cZiNZvvqDZDGeydOIcys?usp=sharing), sujeto a permisos de acceso y licencias de las fuentes. El script `05_MobileNetV2/ia_imagen.py` espera dos carpetas dentro de `/content/drive/MyDrive/IA`: `Sanas` y `Nutrientes`. Si las imágenes se descargan en otra ubicación, será necesario adaptar la ruta de entrada en una copia del script de entrenamiento.
+
+El [inventario documentado](../06_Datos/ANALISIS_INVENTARIO_MOBILENETV2.md) facilita la identificación de los 2.247 archivos. Para reproducir métricas se deben verificar las clases originales, las particiones y la evaluación del checkpoint final con umbral operativo de 0,90.
+
 ## Comprobaciones de funcionamiento
 
 Las pruebas de reproducción deben verificar que el balance hídrico evoluciona con temperatura, precipitación y riego; que los umbrales del controlador corresponden a 60 % y 75 % de agua disponible; que el tiempo simulado es coherente; y que las salidas de ambos modelos corresponden a los formatos previstos.
