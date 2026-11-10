@@ -24,7 +24,7 @@ La arquitectura no equivale a una validación agronómica en campo. En particula
 | [02_CODESYS](02_CODESYS/) | [Paquete CODESYS](02_CODESYS/Codesys.zip), controlador, automatización y SCADA |
 | [03_Factory_IO](03_Factory_IO/) | [Escena Grado.factoryio](03_Factory_IO/Grado.factoryio) y sus 14 señales OPC DA |
 | [04_Random_Forest](04_Random_Forest/) | Entrenamiento, predicción y evaluación de humedad |
-| [05_MobileNetV2](05_MobileNetV2/) | Clasificación de imágenes y evaluación |
+| [05_MobileNetV2](05_MobileNetV2/) | [Script de entrenamiento](05_MobileNetV2/ia_imagen.py), [modelo fine-tuned](05_MobileNetV2/mejor_modelo_hojas_finetuning.keras) y [guía de evaluación](05_MobileNetV2/GUIA_EVALUACION_FINAL.md) |
 | [06_Datos](06_Datos/) | Datos, procedencia y particiones |
 | [07_Resultados](07_Resultados/) | Resultados, métricas y evidencias |
 | [08_Documentacion](08_Documentacion/) | Configuración, reproducibilidad y mapa Modbus |
@@ -42,7 +42,7 @@ La ejecución integral requiere los proyectos y modelos correspondientes, ademá
 
 La evaluación de Random Forest debe preservar el orden temporal y separar las trayectorias destinadas a entrenamiento, validación y prueba. Sus resultados deben compararse con una referencia de persistencia y acompañarse de un error del momento estimado del próximo riego.
 
-Para MobileNetV2, las particiones deben separar las imágenes originales de sus transformaciones aumentadas. La decisión operativa sobre fertirriego usa un umbral de **probabilidad de deficiencia ≥ 0,90**, que también debe aplicarse al evaluar la matriz de confusión correspondiente a esa decisión.
+Para MobileNetV2, el script aportado usa 70/15/15 y crea sus métricas iniciales con umbral 0,50 antes de la fase fine-tuning. La evaluación del checkpoint final se documenta por separado y debe comprobar la independencia por imagen original y la matriz de confusión con el umbral operativo de **probabilidad de deficiencia ≥ 0,90**.
 
 Los datasets de referencia son [CoLeaf](https://doi.org/10.17632/brfgw46wzb.1) y [SoursopBD](https://doi.org/10.17632/hjrhrt5hs8.2). Las etiquetas originales requieren justificación explícita: síntomas fitosanitarios en guanábana o deficiencias en café no son automáticamente equivalentes a una deficiencia nutricional de guanábana.
 
