@@ -2,6 +2,16 @@
 
 Este componente del proyecto utiliza un regresor Random Forest para predecir la humedad disponible del suelo y apoyar la estimación del próximo riego dentro del entorno simulado.
 
+## Separación del entrenamiento y la aplicación
+
+La versión de simulación instalada en `01_Python/Sensores.py` se conserva **sin modificaciones**. En esta carpeta se desarrollan de forma independiente los procesos de preparación de datos, entrenamiento, validación y evaluación del modelo.
+
+**Flujo de trabajo:** registros CSV originales → preparación y separación de trayectorias → entrenamiento y validación temporal → evaluación independiente → exportación del modelo `.pkl` → copia del modelo final a `01_Python/modelo_prediccion_humedad.pkl`.
+
+La copia a `01_Python` debe realizarse únicamente después de comprobar la compatibilidad del paquete y las métricas. No es necesario modificar la interfaz Python, la lógica de CODESYS ni la escena Factory I/O para cambiar el modelo serializado si conserva su interfaz esperada.
+
+El historial de CODESYS se describe como `HistorialCultivo.csv` y contiene columnas `Dia`, `Hora`, `Minuto`, `Temperatura`, `Precipitacion`, `HumedadSuelo`, `NivelAgua`, `NivelNutrientes`, `RiegoActivo` y `TipoRiego`. Como no incorpora un identificador de sesión, los archivos de distintas ejecuciones se deben etiquetar **antes** de construir rezagos, de modo que no se combinen trayectorias discontinuas.
+
 ## Datos y variables
 
 Las entradas emplean cuatro señales: temperatura, precipitación, humedad del suelo y riego activo, más dos rezagos temporales para cada señal. El paso de predicción es de **10 minutos simulados**.
