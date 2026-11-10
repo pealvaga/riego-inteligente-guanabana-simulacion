@@ -32,7 +32,7 @@ Colocar en el directorio de `Sensores.py` los archivos `modelo_prediccion_humeda
 
 ## Comunicación e integración
 
-1. Abrir el proyecto CODESYS y seleccionar el controlador virtual.
+1. Descargar y extraer [`02_CODESYS/Codesys.zip`](../02_CODESYS/Codesys.zip); abrir el archivo de proyecto en CODESYS y seleccionar el controlador virtual.
 2. Verificar las variables Modbus TCP y los símbolos OPC UA utilizados por Factory I/O.
 3. Abrir la escena de Factory I/O y conectar el intercambio de señales con CODESYS.
 4. Ejecutar `Sensores.py`.
