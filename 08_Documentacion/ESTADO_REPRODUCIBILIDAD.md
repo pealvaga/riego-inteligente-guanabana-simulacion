@@ -1,33 +1,39 @@
 # Procedimiento de verificación y reproducibilidad
 
-Esta guía sirve como referencia para revisar la coherencia entre el código publicado, los modelos de inteligencia artificial, los datos de origen y los resultados documentados.
+Esta guía establece la secuencia de comprobación de la simulación y sus dos modelos de IA.
 
-## Comprobaciones del entorno
+## Componentes de la simulación
 
-1. Contrastar la versión de cada herramienta con las instrucciones del proyecto.
-2. Descargar y extraer el [paquete CODESYS](../02_CODESYS/Codesys.zip), abrir el proyecto y comprobar compilación, bibliotecas y configuración del controlador; luego conectar la escena de Factory I/O.
-3. Ejecutar la aplicación Python y verificar Modbus TCP: HR0–HR7, IR0.
-4. Comprobar cambios de humedad, actuación por histéresis, reloj simulado y almacenamiento de históricos.
-5. Cargar los modelos serializados correspondientes a la versión de la simulación.
+- **Python:** `01_Python/Sensores.py`, comunicación Modbus TCP y simulación ambiental.
+- **CODESYS:** `02_CODESYS/Codesys.zip` contiene `Grado.project`, servidor Modbus TCP, programas `OPERACIONES`, `RIEGO` y `REGISTRO_DATOS`.
+- **Factory I/O:** escenario virtual y comunicación mediante los símbolos declarados en CODESYS.
+- **Datos:** `HistorialCultivo.csv`, que contempla muestreo cada 10 minutos simulados mediante CAA File.
 
-## Revisión del modelo Random Forest
+## Verificación de funcionamiento
 
-- Confirmar identidad del conjunto de entrenamiento y número de trayectorias.
-- Respetar orden temporal y evitar reutilización de muestras de una trayectoria entre etapas.
-- Documentar variables, rezagos, método de selección y parámetros finales.
-- Ejecutar una prueba independiente y comparar contra una referencia de persistencia.
-- Calcular RMSE y error de estimación del próximo momento de riego.
+1. Abrir y compilar `Grado.project` en CODESYS, contrastando bibliotecas y dispositivo.
+2. Confirmar que el servidor Modbus TCP utiliza el puerto 502 y que HR0–HR7/IR0 se corresponden con las variables programadas.
+3. Ejecutar Factory I/O, abrir la HMI y comprobar la correspondencia entre símbolos y actuadores.
+4. Iniciar la simulación Python y verificar las lecturas/escrituras Modbus.
+5. Confirmar el comportamiento de la histéresis y el estado real del riego.
+6. Ubicar el archivo `HistorialCultivo.csv`, comprobar sus diez columnas y guardar una ejecución de prueba.
+7. Comprobar el manejo de reinicios de reloj y separar las trayectorias antes de construir los conjuntos de aprendizaje.
 
-## Revisión del clasificador MobileNetV2
+## Reproducción del entrenamiento Random Forest
 
-- Identificar la especie, fuente y etiqueta original de cada imagen.
-- Confirmar la correspondencia y justificación de las clases operativas.
-- Verificar que aumentos del mismo original no pasen a conjuntos diferentes.
-- Evaluar por clase, fuente y errores de clasificación.
-- Aplicar el umbral operativo de 0,90 en la matriz de confusión utilizada para analizar la decisión de fertirriego.
+Mantener la separación por sesiones, respetar el orden temporal y asegurar que no se filtren observaciones futuras entre conjuntos. Comparar las predicciones con persistencia y evaluar el error del próximo momento de riego además del RMSE de humedad.
 
-## Correspondencia con el trabajo escrito
+## Reproducción de MobileNetV2
 
-Cada indicador final reportado en el documento debe vincularse con su base de datos, partición, programa de evaluación y configuración del modelo. Las cifras históricas no deben combinarse con las de otros entrenamientos como si provinieran de una sola prueba.
+Documentar procedencia y etiquetas, separar imágenes originales y versiones aumentadas, y reportar la matriz de confusión bajo el umbral operativo de 0,90 de probabilidad de deficiencia.
 
-**Alcance de resultados:** la simulación verifica el comportamiento de la arquitectura en condiciones modeladas, pero no demuestra por sí sola el ahorro real de agua, el rendimiento agrícola ni un diagnóstico nutricional validado en campo.
+## Correspondencia académica
+
+La documentación técnica debe acompañarse de evidencias de ejecución, configuración y resultados medidos con los mismos artefactos publicados. La comprobación de componentes a partir de archivos **no equivale** a una prueba funcional realizada en CODESYS/Factory I/O.
+
+### Aspectos que requieren conciliación en el documento escrito
+
+- El proyecto de CODESYS incluye comparaciones estrictas `< 60` y `> 75`; el trabajo escrito utiliza límites inclusivos.
+- La Tabla 1 del trabajo describe HR0–HR4 e IR0, mientras que Python utiliza HR0–HR7 para incluir día, hora y minuto.
+- El CSV registra `RiegoActivo` a partir de `GVL.Riego`, mientras que Python lee un registro construido desde `GVL.Regando`: verificar que ambas variables representen efectivamente el mismo estado.
+- El CSV no incluye identificador de sesión; documentar los cambios de trayectoria al preparar los datos para evaluación temporal independiente.
