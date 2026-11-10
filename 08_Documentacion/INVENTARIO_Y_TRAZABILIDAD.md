@@ -1,15 +1,18 @@
 # Inventario y trazabilidad
 
-**Documento en preparación.** Cada elemento definitivo deberá registrar versión, fecha, ruta, propósito, entradas, salidas, configuración, procedencia y, cuando aplique, SHA-256.
+Inventario provisional para organizar la evidencia de reproducción. Cada artefacto final debería registrar versión, origen, configuración, entradas, salidas, fecha y, cuando aplique, huella SHA-256.
 
-| Artefacto | Estado | Verificaciones pendientes |
+| Artefacto | Estado | Verificación pendiente |
 |---|---|---|
-| Python simulador | No incorporado | Versión, archivo principal, configuración |
-| CODESYS | No incorporado | Proyecto, librerías, PLC virtual, HMI |
-| Factory I/O | No incorporado | Escena, comunicaciones |
-| CSV simulación | No incorporado | Origen, intervalo, esquema y sesiones |
-| Random Forest | No incorporado | Script, partición, parámetros, evaluación, modelo |
-| MobileNetV2 | No incorporado | Etiquetas, partición, scripts, modelo, umbral 0,90 |
-| Datasets originales | No incorporados | Fuentes, permisos, clases, cantidades |
+| `01_Python/Sensores.py` | Incorporado y revisado estáticamente | Ejecución en entorno limpio, registro de versiones |
+| `01_Python/requirements.txt` | Incorporado, sin fijar versiones | Confirmar versiones del entorno del autor |
+| CODESYS | No incorporado | Proyecto, bibliotecas, PLC virtual, HMI y registro |
+| Factory I/O | No incorporado | Escena, configuración OPC UA |
+| CSV de simulación | No incorporado | Esquema, sesiones, origen y seguimiento de trayectorias |
+| Random Forest | No incorporado | Script, partición, parámetros, evaluación y modelo |
+| MobileNetV2 | No incorporado | Modelo, etiquetas, partición, scripts y umbral 0,90 |
+| Datasets originales | No incorporados | Fuentes, cantidades, clases y permisos de uso |
 
-No debe declararse una evaluación reproducida hasta verificar que los insumos, la configuración y los resultados son accesibles.
+Ver [hallazgos y limitaciones actuales](ESTADO_REPRODUCIBILIDAD.md).
+
+No se debe declarar una evaluación reproducida hasta verificar insumos, configuración y resultados.
