@@ -10,7 +10,7 @@ Esta guía describe la arquitectura del sistema y el procedimiento de configurac
 | Python 3.9 o superior con Tkinter | Aplicación de simulación e interfaz |
 | Bibliotecas de Python | Dependencias de [requirements.txt](../01_Python/requirements.txt) |
 | CODESYS y CODESYS Control Win | Controlador virtual y HMI |
-| Factory I/O | Representación del proceso virtual |
+| Factory I/O | Escena `Grado.factoryio` (versión guardada 2.5.10), con vínculo OPC DA |
 | Modelos `.pkl` y `.keras` | Predicción de humedad y clasificación de imágenes |
 
 Las versiones concretas de Python, TensorFlow, CODESYS, Factory I/O y bibliotecas deben corresponder a las utilizadas para generar y ejecutar los artefactos finales.
@@ -37,15 +37,15 @@ El archivo [`02_CODESYS/Codesys.zip`](../02_CODESYS/Codesys.zip) contiene `Grado
 ## Comunicación e integración
 
 1. Descargar y extraer [`02_CODESYS/Codesys.zip`](../02_CODESYS/Codesys.zip); abrir el archivo de proyecto en CODESYS y seleccionar el controlador virtual.
-2. Verificar las variables Modbus TCP y los símbolos OPC UA utilizados por Factory I/O.
-3. Abrir la escena de Factory I/O y conectar el intercambio de señales con CODESYS.
+2. Verificar las variables Modbus TCP para Python y los símbolos `FO_*` publicados por el controlador para Factory I/O.
+3. Abrir [`03_Factory_IO/Grado.factoryio`](../03_Factory_IO/Grado.factoryio) en Factory I/O. Revisar su configuración `OPCClientDA` hacia `CoDeSys.OPC.DA` y los 14 vínculos `PLC1.Application.GVL.FO_*`; comprobar la disponibilidad del servidor OPC clásico antes de ejecutar la planta.
 4. Ejecutar `Sensores.py`.
 5. Configurar la conexión Modbus TCP en Python. Valores iniciales de la interfaz: IP `127.0.0.1`, puerto `502` e identificador `1`.
 6. Conectar Modbus y comprobar el intercambio de las variables. El programa Python escribe HR0–HR7 y lee IR0.
 7. Iniciar la simulación y observar la humedad, los estados de riego y los indicadores SCADA.
 8. Consultar los registros de operación y ejecutar los scripts de evaluación de modelos con los conjuntos correspondientes.
 
-Consulte el [mapa Modbus](MAPA_MODBUS.md) para la descripción de los registros.
+Consulte el [mapa Modbus](MAPA_MODBUS.md) para el canal Python–CODESYS y la [documentación de Factory I/O](../03_Factory_IO/README.md) para el canal OPC DA entre la planta virtual y CODESYS. Son dos conexiones diferentes.
 
 ## Comprobaciones de funcionamiento
 
