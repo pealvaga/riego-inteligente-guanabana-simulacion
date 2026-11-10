@@ -22,3 +22,9 @@ La división por grupos de imágenes originales debe realizarse antes del aument
 Para Random Forest: separar trayectorias y mantener el orden temporal. Para MobileNetV2: dividir por imagen original o planta identificada y evitar versiones aumentadas del mismo original en conjuntos diferentes.
 
 Conservar la manifestación de las particiones y sus semillas, para reconstruir exactamente la evaluación que se presente en el documento de grado.
+
+## Inventario ligero de MobileNetV2
+
+No es necesario distribuir las fotografías en este repositorio para documentar el conjunto de entrenamiento. La [guía de inventario de MobileNetV2](../05_MobileNetV2/COMO_GENERAR_INVENTARIO.md) permite calcular un manifiesto CSV, conteos por clase/subcarpeta y duplicados exactos directamente sobre la carpeta de Google Drive.
+
+Después de comprobar procedencia, clases y licencias, se deben conservar en esta carpeta los archivos de metadatos y las particiones verificables. Un resumen por carpetas no basta para demostrar que la prueba sea independiente por imagen original, y el resultado de inventario no sustituye una evaluación del modelo final.
