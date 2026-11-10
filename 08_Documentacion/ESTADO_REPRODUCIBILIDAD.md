@@ -1,27 +1,33 @@
-# Estado de reproducibilidad — evaluación preliminar
+# Procedimiento de verificación y reproducibilidad
 
-Actualizado con la inspección del archivo `01_Python/Sensores.py`.
+Esta guía sirve como referencia para revisar la coherencia entre el código publicado, los modelos de inteligencia artificial, los datos de origen y los resultados documentados.
 
-| Elemento | Presencia | Estado de revisión |
-|---|---|---|
-| Código principal Python | Sí, `Sensores.py` | Revisado estáticamente; ejecución pendiente |
-| Dependencias declaradas | Sí, `01_Python/requirements.txt` | Nombres identificados; falta fijar versiones |
-| Modelo de Random Forest `.pkl` | Pendiente | Carga requiere esquema y versión definidos en Python |
-| Modelo MobileNetV2 `.keras` | Pendiente | Requiere verificar etiquetas, preprocesamiento y umbral |
-| Generación de base CSV desde Python | No implementada en el archivo revisado | Restauración pendiente |
-| CODESYS y registro `HistorialCultivo.csv` | Pendiente | Verificar programa y configuraciones |
-| Escena Factory I/O | Pendiente | Verificar comunicación OPC UA |
-| Datos y particiones | Pendiente | Documentar orígenes, licencias y conjuntos independientes |
-| Scripts de entrenamiento y evaluación IA | Pendiente | Necesarios para auditar métricas |
-| Ejecución integral de la simulación | No verificada | Requiere entorno y proyectos completos |
+## Comprobaciones del entorno
 
-**Alcance de la inspección:** lectura estática del código; sin ejecución de CODESYS, Factory I/O ni modelos de IA.
+1. Contrastar la versión de cada herramienta con las instrucciones del proyecto.
+2. Compilar el programa CODESYS y conectar la escena de Factory I/O.
+3. Ejecutar la aplicación Python y verificar Modbus TCP: HR0–HR7, IR0.
+4. Comprobar cambios de humedad, actuación por histéresis, reloj simulado y almacenamiento de históricos.
+5. Cargar los modelos serializados correspondientes a la versión de la simulación.
 
-## Hallazgos que impactan el informe
+## Revisión del modelo Random Forest
 
-1. La tabla de registros Modbus del informe debe ampliarse a HR5–HR7.
-2. La aplicación Python actual solo guarda tres muestras en memoria y no genera dataset CSV.
-3. La captura de muestras para el predictor queda condicionada a que Random Forest se haya cargado correctamente.
-4. Se debe verificar el umbral operativo de 0,90 con el que se evalúa la matriz de confusión de MobileNetV2.
-5. Para la evaluación del regresor se necesitan conjuntos independientes por trayectoria y criterio temporal, además de una referencia sencilla de persistencia.
-6. Se requiere trazabilidad entre archivos, datos y resultados.
+- Confirmar identidad del conjunto de entrenamiento y número de trayectorias.
+- Respetar orden temporal y evitar reutilización de muestras de una trayectoria entre etapas.
+- Documentar variables, rezagos, método de selección y parámetros finales.
+- Ejecutar una prueba independiente y comparar contra una referencia de persistencia.
+- Calcular RMSE y error de estimación del próximo momento de riego.
+
+## Revisión del clasificador MobileNetV2
+
+- Identificar la especie, fuente y etiqueta original de cada imagen.
+- Confirmar la correspondencia y justificación de las clases operativas.
+- Verificar que aumentos del mismo original no pasen a conjuntos diferentes.
+- Evaluar por clase, fuente y errores de clasificación.
+- Aplicar el umbral operativo de 0,90 en la matriz de confusión utilizada para analizar la decisión de fertirriego.
+
+## Correspondencia con el trabajo escrito
+
+Cada indicador final reportado en el documento debe vincularse con su base de datos, partición, programa de evaluación y configuración del modelo. Las cifras históricas no deben combinarse con las de otros entrenamientos como si provinieran de una sola prueba.
+
+**Alcance de resultados:** la simulación verifica el comportamiento de la arquitectura en condiciones modeladas, pero no demuestra por sí sola el ahorro real de agua, el rendimiento agrícola ni un diagnóstico nutricional validado en campo.
