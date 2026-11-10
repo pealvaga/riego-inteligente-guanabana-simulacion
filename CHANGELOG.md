@@ -10,5 +10,6 @@ El historial documenta cambios de código, datos, modelos, evaluaciones e interf
 - Publicación del código `Sensores.py` y guías de sus requisitos.
 - Documentación del mapa Modbus TCP y la estructura requerida para verificar modelos y datos.
 - Preparación de las guías de evaluación independiente para Random Forest y MobileNetV2.
+- Incorporación y análisis de `Grado.factoryio`: versión 2.5.10, dos tanques y 14 vínculos `OPCClientDA` (`CoDeSys.OPC.DA`).
 
 Los resultados cuantitativos deben asociarse a la versión concreta de los modelos y datos que los produzca.
