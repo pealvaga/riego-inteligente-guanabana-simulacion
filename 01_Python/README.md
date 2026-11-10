@@ -1,26 +1,12 @@
-# Aplicación Python de simulación ambiental
+# Simulador ambiental: Python
 
-## Archivo original
+La aplicación [Sensores.py](Sensores.py) integra una interfaz Tkinter, la evolución de la humedad del suelo, la comunicación Modbus TCP y la inferencia de dos modelos de IA.
 
-- [Sensores.py](Sensores.py): aplicación Tkinter que simula la evolución de la humedad del suelo, se comunica por Modbus TCP con CODESYS y utiliza dos modelos de inteligencia artificial.
-- **Estado:** archivo fuente incorporado por el autor. La ejecución integral aún no se ha comprobado en otro equipo.
+## Dependencias
 
-## Requisitos identificados en el código
+Python 3.9 o posterior con Tkinter, más los paquetes descritos en [requirements.txt](requirements.txt). La instalación deberá utilizar versiones compatibles con los artefactos serializados de los modelos.
 
-Python con soporte para `tuple[float, float]` (Python 3.9 o posterior), Tkinter y estos paquetes de terceros:
-- `numpy`
-- `pandas`
-- `Pillow` (módulo `PIL`)
-- `pymodbus`
-- `joblib` (carga de Random Forest)
-- `scikit-learn` (dependencia del modelo de regresión serializado)
-- `tensorflow` (carga y ejecución de MobileNetV2 mediante `tensorflow.keras`)
-
-Consultar [requirements.txt](requirements.txt). **Las versiones son provisionales, no fijadas**; registrar versiones del entorno real antes de anunciar resultados reproducibles.
-
-## Inicio básico (aún sin validación externa)
-
-Desde una terminal en `01_Python`:
+Desde una terminal de Windows, ubicada en `01_Python`:
 
 ```powershell
 python -m venv .venv
@@ -29,50 +15,49 @@ python -m pip install -r requirements.txt
 python Sensores.py
 ```
 
-Tkinter debe encontrarse disponible en la instalación de Python. La compatibilidad entre versiones de TensorFlow y Python necesita validarse en el entorno original.
+Las dependencias aún no están fijadas a versiones concretas en el archivo, por lo que deben contrastarse con el entorno utilizado para generar los modelos.
 
-## Modelos externos requeridos
+## Archivos de modelo
 
-La aplicación busca **en la misma carpeta que `Sensores.py`**:
+`Sensores.py` busca los modelos en su mismo directorio:
 
-| Archivo | Uso | Estado en el repositorio |
-|---|---|---|
-| `modelo_prediccion_humedad.pkl` | Regresión Random Forest | Pendiente de incorporar/verificar |
-| `mejor_modelo_hojas_finetuning.keras` | Clasificación MobileNetV2 | Pendiente de incorporar/verificar |
+| Nombre esperado | Función |
+|---|---|
+| `modelo_prediccion_humedad.pkl` | Predicción de humedad mediante Random Forest |
+| `mejor_modelo_hojas_finetuning.keras` | Clasificación foliar mediante MobileNetV2 |
 
-El archivo `.pkl` debe ser un diccionario `joblib` con:
-- `modelo`: estimador entrenado con método `predict`
-- `variables`: **lista exacta y ordenada** de 12 variables esperadas por la aplicación
-- `simulador_modelo_version`: `balance_hidrico_temperatura_v2`
-- `paso_minutos`: 10
+**Formato del paquete Random Forest:** el archivo `.pkl` se carga mediante `joblib` y debe contener un diccionario con `modelo`, `variables`, `simulador_modelo_version` y `paso_minutos`. La versión del modelo ambiental solicitada por el código es `balance_hidrico_temperatura_v2` y el paso es de **10 minutos simulados**.
 
-Lista de variables: `Temperatura`, `Precipitacion`, `HumedadSuelo`, `RiegoActivo`; para cada variable se incluyen los rezagos `lag1` y `lag2` en el orden especificado dentro del propio código. No cargar modelos `.pkl` de fuentes no confiables: `joblib.load` puede ejecutar contenido malicioso.
+El orden exacto de las 12 variables que espera la aplicación es:
 
-Si falta el archivo `.pkl` o es incompatible, la simulación ambiental y Modbus pueden seguir operando, pero las predicciones Random Forest quedan deshabilitadas. Si falta `.keras`, la clasificación foliar no estará disponible.
+```text
+Temperatura, Precipitacion, HumedadSuelo, RiegoActivo,
+HumedadSuelo_lag1, HumedadSuelo_lag2,
+Temperatura_lag1, Temperatura_lag2,
+Precipitacion_lag1, Precipitacion_lag2,
+RiegoActivo_lag1, RiegoActivo_lag2
+```
 
-## Parámetros confirmados por inspección
+Para inferencia de imágenes, el código convierte a RGB y redimensiona a **224 × 224**. El modelo debe ser consistente con la convención de salida del programa: un único valor que representa la probabilidad de la clase «deficiencia», con el preprocesamiento integrado en la red.
 
-- Interfaz: tres pestañas, simulación ambiental, IA foliar y comunicación Modbus.
-- Escala temporal: 60 segundos reales = 1 hora simulada.
-- Muestreo predictivo: cada 10 minutos simulados (memoria `deque(maxlen=3)`).
-- Umbral inferior de humedad disponible: 60 %; superior de detención implementado en CODESYS: 75 %.
-- Humedad: porcentaje de **agua disponible**, no humedad volumétrica directa.
-- Tanque radicular simplificado: 90 mm útiles; caudal 32 L/h, eficiencia 85 %, superficie efectiva 20 m².
-- Visión artificial: entrada RGB 224 × 224; el código supone que la salida escalar del modelo es la probabilidad de deficiencia; riego de tipo 2 solo con probabilidad >= 0,90.
-- Modbus predeterminado: IP `127.0.0.1`, puerto `502`, ID `1`; estos valores pueden cambiarse desde la interfaz.
-- Escritura Python → CODESYS: HR0–HR7; lectura del estado de riego: IR0. Ver [mapa Modbus](../08_Documentacion/MAPA_MODBUS.md).
+No cargar archivos `.pkl` de procedencia desconocida: los formatos de serialización basados en Python pueden ejecutar código al deserializar.
 
-## Registro de datos: advertencia importante
+## Variables de simulación
 
-**El archivo `Sensores.py` subido no contiene llamadas a `to_csv`, `read_csv` ni escritura de archivos de historial.** El método `_capture_ai_sample` únicamente agrega muestras a una cola temporal y, además, retorna sin registrar si no está cargado el predictor Random Forest.
+- Balance hídrico con almacenamiento útil máximo de 90 mm, profundidad radicular de 0,60 m y área efectiva de 20 m².
+- Caudal de referencia de riego de 32 L/h y eficiencia de aplicación del 85 %.
+- Un minuto real equivale a una hora simulada.
+- El modelo predictivo toma muestras cada 10 minutos simulados y emplea dos rezagos.
+- El umbral de activación es 60 % de agua disponible; la finalización al 75 % depende de CODESYS.
+- En la interfaz, Modbus inicia con IP `127.0.0.1`, puerto `502` y Device ID `1`.
+- Se escriben ocho Holding Registers, HR0–HR7; IR0 devuelve el estado de riego.
 
-Por tanto **no hay generación de un dataset de entrenamiento por esta aplicación, en su estado actual**. El informe atribuye el registro histórico a CODESYS mediante `HistorialCultivo.csv`. Para regenerar un dataset desde Python debe incorporarse un registrador de sesiones independiente del estado de carga de Random Forest, conservando la dinámica hídrica y marcando los reinicios de las trayectorias.
+## Registro de datos y reentrenamiento
 
-## Validación pendiente
+El programa realiza muestras temporales en memoria para la predicción. El histórico del proyecto se describe en CODESYS como `HistorialCultivo.csv`. La metodología de generación de nuevos conjuntos, separación por sesiones y reentrenamiento debe documentarse junto a los scripts y archivos de la carpeta [04_Random_Forest](../04_Random_Forest/).
 
-1. Incorporar y comprobar los archivos de modelos definitivos.
-2. Registrar versiones exactas de bibliotecas y sistema operativo.
-3. Verificar la correspondencia entre el mapa de registros y el proyecto CODESYS.
-4. Confirmar las etiquetas y el preprocesamiento del modelo de imagen con el script de entrenamiento.
-5. Verificar el manejo de pausa, reinicio, interrupciones Modbus y escritura de historial.
-6. Publicar scripts y particiones reproducibles para evaluar ambos modelos.
+No confundir el almacenamiento en memoria de tres muestras para inferencia con la persistencia de un conjunto de entrenamiento.
+
+## Pruebas de funcionamiento
+
+La verificación incluye: apertura de la interfaz, conexión Modbus, variación del balance hídrico, lectura del estado de riego, coherencia del tiempo simulado, carga de ambos modelos y validación de sus salidas. Ver [procedimiento general](../08_Documentacion/INSTALACION_Y_EJECUCION.md).
