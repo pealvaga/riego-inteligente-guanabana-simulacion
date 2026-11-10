@@ -1,48 +1,57 @@
 # Simulación de un sistema de riego inteligente para cultivos de guanábana
 
-> **Estado actual: documentación y código Python inicial.** Ya está incluido `01_Python/Sensores.py`; aún faltan los proyectos CODESYS y Factory I/O, los modelos de IA, los datos y los scripts de entrenamiento y evaluación. No se ha verificado la ejecución integral en otro equipo.
+Proyecto de grado de Ingeniería Mecatrónica (Universitaria Agustiniana, 2026) orientado a la simulación de un sistema de riego para guanábana (*Annona muricata* L.) a cielo abierto. Integra un modelo ambiental, control automático, supervisión SCADA y dos componentes de inteligencia artificial.
 
-Trabajo de grado de Ingeniería Mecatrónica, modalidad diplomado, Universitaria Agustiniana (2026). Se presenta una simulación para cultivos de guanábana (*Annona muricata* L.) a cielo abierto.
+## Arquitectura del sistema
 
-## Arquitectura del proyecto
-
-- **Python:** simulación ambiental y dinámica de humedad; interfaz y comunicación Modbus TCP.
-- **CODESYS:** controlador virtual, lógica de riego, HMI SCADA y registro histórico.
-- **Factory I/O:** escena virtual con tanques, actuadores e indicadores; comunicación OPC UA con CODESYS.
-- **Random Forest:** predicción de humedad y estimación del siguiente riego.
-- **MobileNetV2:** clasificación foliar para apoyar la selección entre riego normal y fertirriego; **no constituye un diagnóstico nutricional validado en campo**.
-
-El informe utiliza límites de 60 % para iniciar y 75 % para detener el riego (escala simulada de agua disponible); 1 minuto real representa 1 hora simulada, y el registro periódico se describe cada 10 minutos simulados.
-
-## Organización del repositorio
-
-| Carpeta | Propósito |
+| Componente | Función |
 |---|---|
-| [01_Python](01_Python/) | Simulador ambiental y cliente Modbus |
-| [02_CODESYS](02_CODESYS/) | PLC virtual, control e interfaz SCADA |
-| [03_Factory_IO](03_Factory_IO/) | Planta virtual y comunicación |
-| [04_Random_Forest](04_Random_Forest/) | Regresión y pronóstico de humedad |
-| [05_MobileNetV2](05_MobileNetV2/) | Clasificación visual foliar |
+| **Python** | Simulación ambiental y balance hídrico, interfaz gráfica y comunicación Modbus TCP |
+| **CODESYS** | Controlador virtual, control por histéresis, HMI SCADA y registro histórico |
+| **Factory I/O** | Representación virtual de tanques, actuadores y señales del proceso |
+| **Random Forest** | Pronóstico de humedad del suelo y estimación del próximo riego |
+| **MobileNetV2** | Clasificación visual foliar como apoyo a la elección entre riego normal y fertirriego |
+
+Las condiciones de operación utilizadas en la simulación incluyen umbrales de 60 % (inicio) y 75 % (fin) de agua disponible, así como una escala de tiempo acelerada de **1 minuto real por 1 hora simulada**. Los intervalos de predicción del modelo de humedad son de 10 minutos simulados.
+
+La arquitectura no equivale a una validación agronómica en campo. En particular, las clasificaciones visuales no sustituyen un análisis nutricional del cultivo.
+
+## Contenido
+
+| Ruta | Descripción |
+|---|---|
+| [01_Python](01_Python/) | Aplicación de simulación, interfaz y comunicación |
+| [02_CODESYS](02_CODESYS/) | Controlador, automatización y SCADA |
+| [03_Factory_IO](03_Factory_IO/) | Escena virtual y conexiones |
+| [04_Random_Forest](04_Random_Forest/) | Entrenamiento, predicción y evaluación de humedad |
+| [05_MobileNetV2](05_MobileNetV2/) | Clasificación de imágenes y evaluación |
 | [06_Datos](06_Datos/) | Datos, procedencia y particiones |
-| [07_Resultados](07_Resultados/) | Métricas y evidencias |
-| [08_Documentacion](08_Documentacion/) | Instrucciones, trazabilidad y comunicaciones |
+| [07_Resultados](07_Resultados/) | Resultados, métricas y evidencias |
+| [08_Documentacion](08_Documentacion/) | Configuración, reproducibilidad y mapa Modbus |
 
-## Reproducción
+## Instalación y ejecución
 
-Consultar la [guía de instalación y ejecución](08_Documentacion/INSTALACION_Y_EJECUCION.md), **todavía en preparación**. La aplicación Python cuenta con una [guía específica](01_Python/README.md) y un [archivo provisional de dependencias](01_Python/requirements.txt). Las versiones exactas y los pasos de integración con CODESYS y Factory I/O siguen pendientes de verificación.
+- [Guía del entorno y secuencia de ejecución](08_Documentacion/INSTALACION_Y_EJECUCION.md)
+- [Configuración de la aplicación Python](01_Python/README.md)
+- [Mapa de registros Modbus TCP](08_Documentacion/MAPA_MODBUS.md)
+- [Guía de verificación de resultados](08_Documentacion/ESTADO_REPRODUCIBILIDAD.md)
 
-La [tabla de registros Modbus](08_Documentacion/MAPA_MODBUS.md) refleja el código Python actual, incluidos HR5–HR7 para el reloj simulado; queda pendiente contrastarla con CODESYS. Ver el [estado de reproducibilidad](08_Documentacion/ESTADO_REPRODUCIBILIDAD.md).
+La ejecución integral requiere los proyectos y modelos correspondientes, además de las herramientas CODESYS y Factory I/O. Los nombres y rutas de los modelos utilizados por Python están especificados en su documentación.
 
-## Procedencia de los datos y limitaciones
+## Reproducibilidad y alcance de las IA
 
-Las bases CoLeaf (hojas de café) y SoursopBD (hojas de guanábana con categorías fitosanitarias) no acreditan automáticamente diagnóstico de deficiencias nutricionales de guanábana. Se documentarán clases originales, reglas de reclasificación, particiones y licencias antes de publicar datos y resultados.
+La evaluación de Random Forest debe preservar el orden temporal y separar las trayectorias destinadas a entrenamiento, validación y prueba. Sus resultados deben compararse con una referencia de persistencia y acompañarse de un error del momento estimado del próximo riego.
 
-No se deben interpretar las métricas históricas como resultado de una evaluación independiente reproducida hasta publicar sus scripts, datos y configuración.
+Para MobileNetV2, las particiones deben separar las imágenes originales de sus transformaciones aumentadas. La decisión operativa sobre fertirriego usa un umbral de **probabilidad de deficiencia ≥ 0,90**, que también debe aplicarse al evaluar la matriz de confusión correspondiente a esa decisión.
+
+Los datasets de referencia son [CoLeaf](https://doi.org/10.17632/brfgw46wzb.1) y [SoursopBD](https://doi.org/10.17632/hjrhrt5hs8.2). Las etiquetas originales requieren justificación explícita: síntomas fitosanitarios en guanábana o deficiencias en café no son automáticamente equivalentes a una deficiencia nutricional de guanábana.
+
+Las cifras de desempeño deben leerse junto con el conjunto de prueba, el script de evaluación y la configuración que las generó.
 
 ## Demostración
 
-[Video de funcionamiento](https://youtu.be/djTeff68Glk)
+[Video de funcionamiento del sistema](https://youtu.be/djTeff68Glk)
 
-## Licencia
+## Autoría y uso
 
-Pendiente de definir. La disponibilidad pública del repositorio no equivale a una licencia que autorice la reutilización de código, imágenes, datasets o componentes de terceros.
+Trabajo académico de elaboración propia. El código, los modelos, las escenas y los datos externos pueden tener condiciones de uso diferentes; consultar las licencias respectivas antes de redistribuir componentes de terceros. La publicación en GitHub no otorga por sí sola una licencia de reutilización.
