@@ -30,6 +30,10 @@ Si PowerShell no permite activar el entorno, se puede ejecutar `.venv\Scripts\py
 
 Colocar en el directorio de `Sensores.py` los archivos `modelo_prediccion_humedad.pkl` y `mejor_modelo_hojas_finetuning.keras` que correspondan a los modelos entrenados.
 
+## Proyecto CODESYS incluido
+
+El archivo [`02_CODESYS/Codesys.zip`](../02_CODESYS/Codesys.zip) contiene `Grado.project` y `Grado.Device.Application.xml`, además de archivos auxiliares. En el proyecto se identifican CODESYS Control Win V3, Modbus TCP Slave (puerto 502), programas `OPERACIONES`, `RIEGO` y `REGISTRO_DATOS`, y una tarea cíclica `T#20ms`. Los metadatos mencionan componentes 3.5.9.0/3.5.9.10: las versiones de instalación deben cotejarse con el entorno de apertura. Consultar [documentación CODESYS](../02_CODESYS/README.md).
+
 ## Comunicación e integración
 
 1. Descargar y extraer [`02_CODESYS/Codesys.zip`](../02_CODESYS/Codesys.zip); abrir el archivo de proyecto en CODESYS y seleccionar el controlador virtual.
@@ -49,7 +53,7 @@ Las pruebas de reproducción deben verificar que el balance hídrico evoluciona 
 
 ## Registro y análisis de datos
 
-El proyecto documenta el archivo de historial `HistorialCultivo.csv` generado por CODESYS. Para reentrenamiento, el conjunto de registros usado y los scripts de preparación deben permitir distinguir sesiones e identificar la versión de la dinámica ambiental. Los resultados de modelos se documentan en [04_Random_Forest](../04_Random_Forest/) y [05_MobileNetV2](../05_MobileNetV2/).
+El proyecto documenta el archivo de historial `HistorialCultivo.csv` generado por CODESYS. El proyecto contiene una rutina con bloques CAA File que construye un CSV separado por punto y coma y considera `MB_MINUTO MOD 10 = 0` para el muestreo. Es necesario localizar y comprobar el archivo generado en el sistema de ejecución de CODESYS, ya que el ZIP entregado incluye el proyecto pero no una base CSV de entrenamiento. Para reentrenamiento, el conjunto de registros usado y los scripts de preparación deben permitir distinguir sesiones e identificar la versión de la dinámica ambiental. Los resultados de modelos se documentan en [04_Random_Forest](../04_Random_Forest/) y [05_MobileNetV2](../05_MobileNetV2/).
 
 ## Recomendación de seguridad
 
