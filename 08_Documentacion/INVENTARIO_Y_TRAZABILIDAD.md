@@ -8,7 +8,7 @@ Cada artefacto del sistema se relaciona con su función, parámetros de configur
 | Controlador y SCADA | [Codesys.zip](../02_CODESYS/Codesys.zip) | `Grado.project`, programas `OPERACIONES`, `RIEGO` y `REGISTRO_DATOS`, controlador virtual y símbolos |
 | Planta virtual | [`Grado.factoryio`](../03_Factory_IO/Grado.factoryio) | Formato Factory I/O 2.5.10, dos tanques, controles y 14 variables vía `OPCClientDA` / `CoDeSys.OPC.DA` |
 | Predicción de humedad | [04_Random_Forest](../04_Random_Forest/) | Datos, particiones, código de entrenamiento, modelo y evaluación |
-| Clasificación foliar | [05_MobileNetV2](../05_MobileNetV2/) | Etiquetas, modelo, particiones y resultados |
+| Clasificación foliar | [Script `ia_imagen.py`](../05_MobileNetV2/ia_imagen.py) y [modelo `.keras`](../05_MobileNetV2/mejor_modelo_hojas_finetuning.keras) | Script Colab con 70/15/15 y umbral de evaluación 0,50 anterior al fine-tuning; evaluación final a 0,90 y manifiesto por origen descritos en [guía](../05_MobileNetV2/GUIA_EVALUACION_FINAL.md) |
 | Datos | [06_Datos](../06_Datos/) | Procedencia, sesiones, licencias, esquema y separación temporal |
 | Resultados | [07_Resultados](../07_Resultados/) | Comparaciones, métricas y evidencias por versión |
 
