@@ -1,13 +1,24 @@
-# 06 — Datos: fuentes y particiones
+# Datos y trazabilidad
 
-**Estado: no hay bases de datos ni imágenes cargadas.**
+Esta sección organiza los conjuntos de datos asociados a la simulación hídrica y a la clasificación visual foliar.
 
-Registrar por cada conjunto: origen, DOI/URL, versión, licencia, especie, clases originales y finales, criterio de reclasificación, cantidad de imágenes originales, derivados y particiones.
+## Registros de simulación
 
-Las particiones de imágenes deben efectuarse antes del aumento de datos y mantener juntos los derivados de cada original. La validación de Random Forest debe preservar la estructura temporal y evitar fugas entre trayectorias.
+Cada trayectoria debe conservar su identificador de sesión, origen, condiciones iniciales y variables registradas. Para el pronóstico de humedad se utilizan temperatura, precipitación, humedad disponible y estado de riego, con intervalos de 10 minutos simulados. Es importante distinguir datos de entrenamiento y datos independientes de prueba.
 
-Fuentes mencionadas en el trabajo:
-- CoLeaf: https://doi.org/10.17632/brfgw46wzb.1
-- SoursopBD: https://doi.org/10.17632/hjrhrt5hs8.2
+## Bases de imágenes
 
-Verificar los permisos de redistribución antes de publicar datos de terceros.
+Fuentes citadas en el documento académico:
+
+- **CoLeaf:** https://doi.org/10.17632/brfgw46wzb.1
+- **SoursopBD:** https://doi.org/10.17632/hjrhrt5hs8.2
+
+La trazabilidad requiere registrar especie, clase original, clase agrupada, justificación, cantidad de imágenes originales y su distribución en entrenamiento, validación y prueba.
+
+La división por grupos de imágenes originales debe realizarse antes del aumento de datos. No redistribuir imágenes de terceros sin comprobar su licencia.
+
+## Esquema recomendado de particiones
+
+Para Random Forest: separar trayectorias y mantener el orden temporal. Para MobileNetV2: dividir por imagen original o planta identificada y evitar versiones aumentadas del mismo original en conjuntos diferentes.
+
+Conservar la manifestación de las particiones y sus semillas, para reconstruir exactamente la evaluación que se presente en el documento de grado.
