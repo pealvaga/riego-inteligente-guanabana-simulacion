@@ -1,18 +1,27 @@
-# Inventario y trazabilidad
+# Inventario técnico y trazabilidad de artefactos
 
-Inventario provisional para organizar la evidencia de reproducción. Cada artefacto final debería registrar versión, origen, configuración, entradas, salidas, fecha y, cuando aplique, huella SHA-256.
+Esta guía define la información necesaria para vincular cada parte del proyecto con su respectiva evidencia de ejecución y evaluación.
 
-| Artefacto | Estado | Verificación pendiente |
+| Componente | Artefactos de referencia | Datos técnicos a documentar |
 |---|---|---|
-| `01_Python/Sensores.py` | Incorporado y revisado estáticamente | Ejecución en entorno limpio, registro de versiones |
-| `01_Python/requirements.txt` | Incorporado, sin fijar versiones | Confirmar versiones del entorno del autor |
-| CODESYS | No incorporado | Proyecto, bibliotecas, PLC virtual, HMI y registro |
-| Factory I/O | No incorporado | Escena, configuración OPC UA |
-| CSV de simulación | No incorporado | Esquema, sesiones, origen y seguimiento de trayectorias |
-| Random Forest | No incorporado | Script, partición, parámetros, evaluación y modelo |
-| MobileNetV2 | No incorporado | Modelo, etiquetas, partición, scripts y umbral 0,90 |
-| Datasets originales | No incorporados | Fuentes, cantidades, clases y permisos de uso |
+| Simulación Python | `01_Python/Sensores.py` | Dependencias, parámetros, versión y ejecución |
+| SCADA y automatización | `02_CODESYS/` | Programa, GVL, bibliotecas, HMI, registro de datos |
+| Planta virtual | `03_Factory_IO/` | Escena, variables y configuración OPC UA |
+| Predicción de humedad | `04_Random_Forest/` | Dataset, particiones, configuración, modelo y métricas |
+| Clasificación foliar | `05_MobileNetV2/` | Fuentes, etiquetado, particiones, modelo y métricas |
+| Bases y particiones | `06_Datos/` | Procedencia, esquema, licencias, sesiones y particiones |
+| Evidencia y métricas | `07_Resultados/` | Fecha, versión, script e insumos de cada resultado |
 
-Ver [hallazgos y limitaciones actuales](ESTADO_REPRODUCIBILIDAD.md).
+## Convenciones de identificación
 
-No se debe declarar una evaluación reproducida hasta verificar insumos, configuración y resultados.
+Para cada modelo registrar:
+- Archivo y formato del modelo.
+- Versión de los datos, generador y scripts.
+- Variables de entrada, etiquetas y preprocesamiento.
+- Particiones de entrenamiento, validación y prueba.
+- Parámetros, semilla aleatoria y librerías utilizadas.
+- Métricas sobre prueba independiente y rutas de los archivos utilizados para producirlas.
+
+Para la aplicación Python, el paquete de Random Forest debe incluir la versión `balance_hidrico_temperatura_v2` y ser compatible con las doce variables esperadas por `Sensores.py`.
+
+La reproducibilidad requiere que los artefactos y sus referencias permitan contrastar resultados y configuración sin depender exclusivamente de fragmentos de código incluidos en el documento.
