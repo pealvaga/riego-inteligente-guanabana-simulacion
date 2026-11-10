@@ -218,3 +218,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Archivos locales y sensibles específicos del proyecto
+.env.*
+!.env.example
+*.pem
+*.key
+*secret*
+logs/
+cache/
+~$*
+*.bak
+*.swp
