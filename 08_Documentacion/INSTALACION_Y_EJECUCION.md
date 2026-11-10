@@ -1,35 +1,58 @@
-# Instalación y ejecución — borrador pendiente de verificación
+# Instalación y ejecución — revisión inicial
 
-> **Importante:** todavía no están incorporados los programas originales, las dependencias ni las versiones verificadas. Esta guía **no** constituye un procedimiento ejecutable validado.
+> **Alcance:** guía provisional basada en `01_Python/Sensores.py`. Sin verificación en un entorno limpio. Los archivos de CODESYS, Factory I/O y modelos entrenados aún están pendientes.
 
-## Entorno de referencia pendiente de completar
+## Requisitos del entorno
 
-| Componente | Versión exacta |
+| Componente | Estado |
 |---|---|
-| Windows | Por verificar |
-| Python | Por verificar |
-| Librerías Python | Generar `requirements.txt` desde entorno funcional |
-| CODESYS y controlador virtual | Por verificar |
-| Factory I/O | Por verificar |
-| Modbus TCP (IP, puerto, unit ID) | Por verificar |
-| OPC UA (endpoint y variables) | Por verificar |
+| Windows | Plataforma de referencia; versión exacta pendiente |
+| Python | Código requiere sintaxis de Python 3.9+; versión efectiva pendiente |
+| Paquetes Python | [Lista provisional](../01_Python/requirements.txt), sin versiones fijadas |
+| Tkinter | Interfaz gráfica incluida en instalaciones compatibles de Python |
+| CODESYS, Control Win, bibliotecas | Pendiente de incorporar/verificar |
+| Factory I/O y OPC UA | Pendiente de incorporar/verificar |
 
-## Orden previsto de ejecución
+## Preparación de Python en Windows
 
-1. Abrir y compilar el proyecto de CODESYS.
-2. Iniciar el controlador virtual y configurar las comunicaciones.
-3. Abrir la escena Factory I/O y comprobar el vínculo con CODESYS.
-4. Ejecutar el simulador Python y comprobar Modbus TCP.
-5. Verificar el control por histéresis y el registro histórico.
-6. Cargar y comprobar los modelos de IA.
+Abrir terminal en `01_Python`:
 
-Este orden, los comandos concretos y las rutas deben probarse antes de dar por cerrada la documentación.
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python Sensores.py
+```
 
-## Pruebas pendientes
+La creación del entorno virtual y el comando de inicio son propuestas de ejecución, no un procedimiento probado con el sistema del autor. Validar especialmente compatibilidad de Python, TensorFlow y `pymodbus`. Si no está disponible `tkinter`, instalar una distribución de Python que lo incluya.
 
-- Condiciones y parámetros iniciales.
-- Inicio, pausa, reinicio y pérdida de conexión.
-- Tiempo simulado y frecuencia de registro.
-- Ubicación y esquema del historial CSV.
-- Scripts, datos, particiones y semillas para entrenamiento/evaluación.
-- Resultados esperados y pruebas de reproducibilidad.
+## Archivos de modelos buscados por la aplicación
+
+En la misma carpeta que `Sensores.py`:
+- `modelo_prediccion_humedad.pkl`
+- `mejor_modelo_hojas_finetuning.keras`
+
+Sin dichos archivos, los componentes de IA respectivos no funcionarán. El modelo Random Forest debe ser compatible con el esquema de variables y la versión de dinámica del suelo indicada en [documentación Python](../01_Python/README.md).
+
+## Comunicación prevista
+
+Configuración predeterminada en el código Python: IP `127.0.0.1`, puerto `502`, Device ID `1`. Es modificable en la interfaz. Se escribe HR0–HR7 y se lee IR0. Ver [mapa actualizado](MAPA_MODBUS.md).
+
+## Orden previsto de ejecución integral
+
+1. Abrir el proyecto de CODESYS, compilarlo y habilitar su controlador virtual y Modbus TCP.
+2. Cargar la escena Factory I/O y confirmar OPC UA con CODESYS.
+3. Ejecutar `Sensores.py` con los modelos correspondientes.
+4. Conectar Modbus y comprobar las lecturas/escrituras.
+5. Iniciar la simulación, verificar histéresis y tiempos simulados.
+6. Verificar el registro CSV en CODESYS y la evaluación de cada IA.
+
+Este orden es preliminar: faltan el proyecto, los archivos y las pruebas de extremo a extremo.
+
+## Estado de registro para reentrenamiento
+
+`Sensores.py` **no escribe un CSV de datos de simulación**. En el documento de grado se menciona que el registro histórico `HistorialCultivo.csv` se realiza en CODESYS; hay que contrastarlo con su programa antes de utilizar el CSV para entrenamiento. Reincorporar la generación de datos desde Python será una tarea separada, incluyendo identificación de trayectorias y condiciones de simulación.
+
+## Evidencia pendiente
+
+Versiones exactas, capturas de ejecución, archivos fuente completos, particiones independientes, scripts de entrenamiento, métricas y resultados replicados.
