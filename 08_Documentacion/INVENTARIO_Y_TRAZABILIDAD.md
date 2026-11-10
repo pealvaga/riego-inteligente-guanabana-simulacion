@@ -5,7 +5,7 @@ Esta guía define la información necesaria para vincular cada parte del proyect
 | Componente | Artefactos de referencia | Datos técnicos a documentar |
 |---|---|---|
 | Simulación Python | `01_Python/Sensores.py` | Dependencias, parámetros, versión y ejecución |
-| SCADA y automatización | `02_CODESYS/` | Programa, GVL, bibliotecas, HMI, registro de datos |
+| SCADA y automatización | [`02_CODESYS/Codesys.zip`](../02_CODESYS/Codesys.zip) | Archivo cargado; contrastar su contenido, bibliotecas, HMI y registro histórico al abrirlo en CODESYS |
 | Planta virtual | `03_Factory_IO/` | Escena, variables y configuración OPC UA |
 | Predicción de humedad | `04_Random_Forest/` | Dataset, particiones, configuración, modelo y métricas |
 | Clasificación foliar | `05_MobileNetV2/` | Fuentes, etiquetado, particiones, modelo y métricas |
