@@ -25,7 +25,7 @@ Mantener la separación por sesiones, respetar el orden temporal y asegurar que 
 
 ## Reproducción de MobileNetV2
 
-Documentar procedencia y etiquetas, separar imágenes originales y versiones aumentadas, y reportar la matriz de confusión bajo el umbral operativo de 0,90 de probabilidad de deficiencia.
+El [script original](../05_MobileNetV2/ia_imagen.py) y el [modelo fine-tuned](../05_MobileNetV2/mejor_modelo_hojas_finetuning.keras) están publicados. El script separa rutas con `train_test_split` (70/15/15, semilla 42), pero no conserva agrupación por imagen original o planta. Calcula métricas con umbral 0,50 **antes** del fine-tuning y luego guarda el checkpoint; la evaluación de dicho checkpoint debe realizarse de forma independiente, usando umbrales 0,50 y 0,90 y documentando la matriz de confusión. Ver [guía de evaluación final](../05_MobileNetV2/GUIA_EVALUACION_FINAL.md) y [plantilla del manifiesto](../06_Datos/plantilla_manifest_imagenes.csv).
 
 ## Correspondencia académica
 
