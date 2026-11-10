@@ -1,23 +1,25 @@
 # Mapa de comunicación Modbus TCP
 
-Mapa contrastado con `01_Python/Sensores.py` (constantes y método `write_all_to_codesys`). **Pendiente de cotejar con el programa de CODESYS.**
+La aplicación Python `01_Python/Sensores.py` actúa como **cliente Modbus TCP**, mientras que el proyecto CODESYS incluye un dispositivo **Modbus TCP Slave**, que funciona como servidor. El puerto configurado en el proyecto es **502**.
 
-| Offset | Dirección convencional | Tipo | Señal | Dirección |
+La tabla corresponde a los offsets enviados y leídos por `Sensores.py`. El proyecto de CODESYS contiene las variables homólogas; para certificar el mapeo físico se debe revisar en línea la asignación de registros del dispositivo.
+
+| Offset Python | Dirección convencional | Área | Señal | Flujo |
 |---:|---:|---|---|---|
-| 0 | 40001 | Holding Register | Temperatura × 10 | Python → CODESYS |
-| 1 | 40002 | Holding Register | Precipitación × 10 | Python → CODESYS |
-| 2 | 40003 | Holding Register | Humedad disponible × 10 | Python → CODESYS |
-| 3 | 40004 | Holding Register | Heartbeat | Python → CODESYS |
-| 4 | 40005 | Holding Register | Tipo de riego (0, 1 o 2) | Python → CODESYS |
-| 5 | 40006 | Holding Register | Día simulado | Python → CODESYS |
-| 6 | 40007 | Holding Register | Hora simulada | Python → CODESYS |
-| 7 | 40008 | Holding Register | Minuto simulado | Python → CODESYS |
-| 0 | 30001 | Input Register | Estado del riego (0 o 1) | CODESYS → Python |
+| 0 | 40001 | Holding Register | Temperatura × 10 (`MB_Temp`) | Python → CODESYS |
+| 1 | 40002 | Holding Register | Precipitación × 10 (`MB_Lluvia`) | Python → CODESYS |
+| 2 | 40003 | Holding Register | Agua disponible × 10 (`MB_Hum`) | Python → CODESYS |
+| 3 | 40004 | Holding Register | Heartbeat (`MB_Heartbeat`) | Python → CODESYS |
+| 4 | 40005 | Holding Register | Tipo de riego (`MB_Tiporiego`) | Python → CODESYS |
+| 5 | 40006 | Holding Register | Día simulado (`MB_DIA`) | Python → CODESYS |
+| 6 | 40007 | Holding Register | Hora simulada (`MB_HORA`) | Python → CODESYS |
+| 7 | 40008 | Holding Register | Minuto simulado (`MB_MINUTO`) | Python → CODESYS |
+| 0 | 30001 | Input Register | Estado de riego (`MB_RiegoOn`) | CODESYS → Python |
 
-La función `write_all_to_codesys` envía en una operación los ocho valores desde HR0. El código de Python lee IR0 para saber si el controlador está regando y actualizar el balance hídrico. El estado de tipo de riego se decide desde la IA foliar (HR4 = 0 sin decisión, 1 normal, 2 fertirriego). La lógica definitiva de actuación, prioridad y paradas debe comprobarse en CODESYS.
+**Escalamiento:** Python multiplica temperatura, precipitación y humedad por 10 y transmite enteros. CODESYS reconstruye sus valores mediante `WORD_TO_REAL(...) / 10.0`.
 
-Configuración inicial de Python: `127.0.0.1:502`, Device ID 1, ajustable desde la pestaña de Modbus. Se intenta la compatibilidad con variantes de `pymodbus` que emplean `device_id` o `slave` en llamadas a registros.
+**Tipo de riego:** 0 = sin decisión; 1 = normal; 2 = fertirriego. En el código Python el tipo 2 se habilita cuando la clasificación foliar supera el umbral operativo del 90 %.
 
-## Correspondencia con el informe
+**Condición de ejecución:** revisar que las señales del histórico, del estado de riego y de la planta virtual correspondan a las mismas variables que el intercambio Modbus y que el dispositivo use los offsets indicados.
 
-La Tabla 1 del documento escrito, pp. 33–34, **solo enumera HR0–HR4 e IR0**, aunque `Sensores.py` también envía HR5, HR6 y HR7 para el reloj simulado. Esta diferencia deberá reconciliarse en la próxima edición del documento.
+La Tabla 1 del trabajo de grado V9(3) registra HR0–HR4 e IR0, pero `Sensores.py` también utiliza HR5–HR7 para el reloj simulado. La tabla del documento deberá actualizarse para reflejar el mapeo completo.
