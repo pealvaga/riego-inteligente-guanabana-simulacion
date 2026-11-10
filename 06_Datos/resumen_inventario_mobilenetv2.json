@@ -1,0 +1,34 @@
+{
+  "descripcion": "Resumen derivado del inventario de imágenes; no incluye fotografías ni evaluación del modelo.",
+  "carpeta_raiz_original": "/content/drive/MyDrive/IA",
+  "total_archivos": 2247,
+  "clases": {
+    "Sana": 1220,
+    "Deficiencia": 1027
+  },
+  "hashes_sha256_distintos": 2173,
+  "grupos_duplicados_exactos": 74,
+  "archivos_en_grupos_duplicados": 148,
+  "grupos_por_clase": {
+    "Sana": 0,
+    "Deficiencia": 74
+  },
+  "grupos_duplicados_entre_clases": 0,
+  "errores_lectura": 0,
+  "bytes_reportados": 1711675418,
+  "informacion_faltante": [
+    "fuente",
+    "especie",
+    "clase_original",
+    "grupo_original",
+    "particion",
+    "criterio_reclasificacion",
+    "licencia_o_referencia"
+  ],
+  "limites": [
+    "No se inspeccionaron imágenes.",
+    "El SHA-256 solo identifica duplicados exactos.",
+    "No se reconstruyeron particiones históricas.",
+    "El inventario no contiene resultados de evaluación."
+  ]
+}
