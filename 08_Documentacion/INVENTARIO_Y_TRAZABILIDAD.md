@@ -1,27 +1,29 @@
-# Inventario técnico y trazabilidad de artefactos
+# Inventario técnico y trazabilidad
 
-Esta guía define la información necesaria para vincular cada parte del proyecto con su respectiva evidencia de ejecución y evaluación.
+Cada artefacto del sistema se relaciona con su función, parámetros de configuración, fuente y evidencia.
 
-| Componente | Artefactos de referencia | Datos técnicos a documentar |
+| Componente | Artefacto | Trazabilidad técnica |
 |---|---|---|
-| Simulación Python | `01_Python/Sensores.py` | Dependencias, parámetros, versión y ejecución |
-| SCADA y automatización | [`02_CODESYS/Codesys.zip`](../02_CODESYS/Codesys.zip) | Archivo cargado; contrastar su contenido, bibliotecas, HMI y registro histórico al abrirlo en CODESYS |
-| Planta virtual | `03_Factory_IO/` | Escena, variables y configuración OPC UA |
-| Predicción de humedad | `04_Random_Forest/` | Dataset, particiones, configuración, modelo y métricas |
-| Clasificación foliar | `05_MobileNetV2/` | Fuentes, etiquetado, particiones, modelo y métricas |
-| Bases y particiones | `06_Datos/` | Procedencia, esquema, licencias, sesiones y particiones |
-| Evidencia y métricas | `07_Resultados/` | Fecha, versión, script e insumos de cada resultado |
+| Simulación ambiental | [Sensores.py](../01_Python/Sensores.py) | Balance hídrico, parámetros, mapa Modbus, interfaz y carga de modelos |
+| Controlador y SCADA | [Codesys.zip](../02_CODESYS/Codesys.zip) | `Grado.project`, programas `OPERACIONES`, `RIEGO` y `REGISTRO_DATOS`, controlador virtual y símbolos |
+| Planta virtual | [03_Factory_IO](../03_Factory_IO/) | Escena, símbolos y vinculación con CODESYS |
+| Predicción de humedad | [04_Random_Forest](../04_Random_Forest/) | Datos, particiones, código de entrenamiento, modelo y evaluación |
+| Clasificación foliar | [05_MobileNetV2](../05_MobileNetV2/) | Etiquetas, modelo, particiones y resultados |
+| Datos | [06_Datos](../06_Datos/) | Procedencia, sesiones, licencias, esquema y separación temporal |
+| Resultados | [07_Resultados](../07_Resultados/) | Comparaciones, métricas y evidencias por versión |
 
-## Convenciones de identificación
+## Identificación del proyecto de controlador
 
-Para cada modelo registrar:
-- Archivo y formato del modelo.
-- Versión de los datos, generador y scripts.
-- Variables de entrada, etiquetas y preprocesamiento.
-- Particiones de entrenamiento, validación y prueba.
-- Parámetros, semilla aleatoria y librerías utilizadas.
-- Métricas sobre prueba independiente y rutas de los archivos utilizados para producirlas.
+- Archivo: `02_CODESYS/Codesys.zip`
+- Proyecto interno: `Codesys/Grado.project`
+- SHA-256 del ZIP: `5d0eeeca385fd6437f93a5bc6c887b8fa57304a7dda9498cdc42dfb0102cd60c`
+- Controlador identificado: CODESYS Control Win V3
+- Servidor de comunicación: Modbus TCP, puerto 502
+- Datos: histórico `HistorialCultivo.csv` con diez columnas y separación `;`
+- Configuración de símbolos: `Grado.Device.Application.xml` con variables `FO_*` para la planta virtual.
 
-Para la aplicación Python, el paquete de Random Forest debe incluir la versión `balance_hidrico_temperatura_v2` y ser compatible con las doce variables esperadas por `Sensores.py`.
+## Criterios de consistencia para el modelo Random Forest
 
-La reproducibilidad requiere que los artefactos y sus referencias permitan contrastar resultados y configuración sin depender exclusivamente de fragmentos de código incluidos en el documento.
+Conservar versiones de `Sensores.py`, `Grado.project`, datos de origen y scripts de entrenamiento. En los registros originales el tiempo se identifica como día, hora y minuto simulados; para separar trayectorias independientes debe preservarse el origen y el identificador de cada sesión.
+
+La compatibilidad del modelo entrenado con Python requiere un paquete `joblib` con el esquema de variables y la versión de dinámica hídrica `balance_hidrico_temperatura_v2`.
