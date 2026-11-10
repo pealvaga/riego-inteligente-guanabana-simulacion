@@ -46,6 +46,8 @@ Para MobileNetV2, el script aportado usa 70/15/15 y crea sus métricas iniciales
 
 El [inventario de imágenes](05_MobileNetV2/COMO_GENERAR_INVENTARIO.md) puede generarse desde Google Colab sin subir las fotografías al repositorio. Los datasets de referencia son [CoLeaf](https://doi.org/10.17632/brfgw46wzb.1) y [SoursopBD](https://doi.org/10.17632/hjrhrt5hs8.2). Las etiquetas originales requieren justificación explícita: síntomas fitosanitarios en guanábana o deficiencias en café no son automáticamente equivalentes a una deficiencia nutricional de guanábana.
 
+El [inventario de imágenes verificado](06_Datos/ANALISIS_INVENTARIO_MOBILENETV2.md) contiene 2.247 archivos y detecta 74 pares de duplicados exactos. La trazabilidad de especies, fuentes y particiones todavía debe establecerse para determinar la independencia de las pruebas.
+
 Las cifras de desempeño deben leerse junto con el conjunto de prueba, el script de evaluación y la configuración que las generó.
 
 ## Demostración
