@@ -74,11 +74,14 @@ La columna `RiegoActivo` se construye según un fragmento que consulta `GVL.Rieg
 
 ## Integración con Factory I/O
 
+La escena [`Grado.factoryio`](../03_Factory_IO/Grado.factoryio) ha sido inspeccionada. Contiene dos tanques, controles, una torre luminosa y **14 vínculos OPC Client DA** al servidor `CoDeSys.OPC.DA`. El archivo no muestra un enlace OPC UA equivalente; las referencias a OPC UA del informe deberán revisarse frente a la configuración efectivamente guardada. La disponibilidad del servidor OPC DA debe comprobarse al ejecutar CODESYS y Factory I/O.
+
+
 El archivo `Grado.Device.Application.xml` declara como símbolos `ReadWrite` las variables:
 
 `FO_EMERGENCIA`, `FO_LEDA`, `FO_LEDR`, `FO_LEDV`, `FO_Llenado1`, `FO_Llenado2`, `FO_Riego1`, `FO_Riego2`, `FO_S_DESCARGA1`, `FO_S_DESCARGA2`, `FO_S_NIVEL1`, `FO_S_NIVEL2`, `FO_START`, `FO_STOP`.
 
-Las vinculaciones y su ejecución efectiva deben comprobarse con la escena de Factory I/O correspondiente.
+Los 14 símbolos de la escena coinciden por nombre con la lista de señales `FO_*` del proyecto CODESYS. La ejecución y comunicación efectivas aún deben validarse en ambos entornos abiertos.
 
 ## Reproducción en CODESYS
 
