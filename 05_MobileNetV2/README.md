@@ -28,6 +28,12 @@ El script recorre subcarpetas recursivamente. **No registra la procedencia indiv
 
 Las fuentes documentadas en el trabajo son [CoLeaf](https://doi.org/10.17632/brfgw46wzb.1) (café) y [SoursopBD](https://doi.org/10.17632/hjrhrt5hs8.2) (guanábana). La clasificación binaria construida a partir de ambas fuentes no demuestra automáticamente un diagnóstico nutricional fiable de guanábana en campo.
 
+## Resultado del inventario de la base
+
+Se documentaron **2.247 archivos** (1.220 Sana y 1.027 Deficiencia), con **74 pares de duplicados exactos** dentro de Deficiencia. El número de hashes diferentes es 2.173. No se identificaron errores de lectura. El inventario aún no determina el origen real de cada fotografía ni su partición histórica.
+
+Ver el [análisis detallado](../06_Datos/ANALISIS_INVENTARIO_MOBILENETV2.md). No deben interpretarse estas cantidades como prueba de independencia del conjunto de evaluación.
+
 ## Configuración del entrenamiento, según el script
 
 | Elemento | Valor en `ia_imagen.py` |
