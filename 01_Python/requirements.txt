@@ -1,0 +1,10 @@
+# Dependencias identificadas por inspección de Sensores.py
+# ATENCIÓN: versiones aún sin fijar. Validar entorno original y congelar versiones
+# exactas para reproducibilidad antes de la entrega final.
+numpy
+pandas
+Pillow
+pymodbus
+joblib
+scikit-learn
+tensorflow
