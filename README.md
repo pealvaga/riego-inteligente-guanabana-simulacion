@@ -8,7 +8,7 @@ Proyecto de grado de Ingeniería Mecatrónica (Universitaria Agustiniana, 2026) 
 |---|---|
 | **Python** | Simulación ambiental y balance hídrico, interfaz gráfica y comunicación Modbus TCP |
 | **CODESYS** | Controlador virtual, control por histéresis, HMI SCADA y registro histórico |
-| **Factory I/O** | Representación virtual de tanques, actuadores y señales del proceso |
+| **Factory I/O** | Escena virtual de tanques, actuadores y señales del proceso; archivo con enlace OPC DA a CODESYS |
 | **Random Forest** | Pronóstico de humedad del suelo y estimación del próximo riego |
 | **MobileNetV2** | Clasificación visual foliar como apoyo a la elección entre riego normal y fertirriego |
 
@@ -22,7 +22,7 @@ La arquitectura no equivale a una validación agronómica en campo. En particula
 |---|---|
 | [01_Python](01_Python/) | Aplicación de simulación, interfaz y comunicación |
 | [02_CODESYS](02_CODESYS/) | [Paquete CODESYS](02_CODESYS/Codesys.zip), controlador, automatización y SCADA |
-| [03_Factory_IO](03_Factory_IO/) | Escena virtual y conexiones |
+| [03_Factory_IO](03_Factory_IO/) | [Escena Grado.factoryio](03_Factory_IO/Grado.factoryio) y sus 14 señales OPC DA |
 | [04_Random_Forest](04_Random_Forest/) | Entrenamiento, predicción y evaluación de humedad |
 | [05_MobileNetV2](05_MobileNetV2/) | Clasificación de imágenes y evaluación |
 | [06_Datos](06_Datos/) | Datos, procedencia y particiones |
@@ -36,7 +36,7 @@ La arquitectura no equivale a una validación agronómica en campo. En particula
 - [Mapa de registros Modbus TCP](08_Documentacion/MAPA_MODBUS.md)
 - [Guía de verificación de resultados](08_Documentacion/ESTADO_REPRODUCIBILIDAD.md)
 
-La ejecución integral requiere los proyectos y modelos correspondientes, además de las herramientas CODESYS y Factory I/O. Los nombres y rutas de los modelos utilizados por Python están especificados en su documentación.
+La ejecución integral requiere los proyectos y modelos correspondientes, además de las herramientas CODESYS y Factory I/O. La escena contiene configuración de **OPC DA** (`CoDeSys.OPC.DA`) para la conexión Factory I/O–CODESYS; Python se comunica con CODESYS mediante **Modbus TCP**. Los nombres y rutas de los modelos utilizados por Python están especificados en su documentación.
 
 ## Reproducibilidad y alcance de las IA
 
