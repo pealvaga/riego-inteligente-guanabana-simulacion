@@ -7,6 +7,14 @@
 
 El código original y el modelo se conservan sin alteraciones. El nombre del archivo coincide con el checkpoint de fine-tuning configurado en el script. **La presencia del artefacto no constituye, por sí sola, una validación de sus métricas o de su contenido interno.**
 
+## Base de datos de gran tamaño
+
+No es necesario alojar todas las fotografías en GitHub. Se puede mantener el conjunto original en Google Drive o descargarlo desde sus fuentes oficiales, siempre que el acceso y los derechos de uso permitan revisar los datos.
+
+Para generar evidencia verificable sin copiar ni publicar imágenes se incorporó [`generar_inventario_imagenes.py`](generar_inventario_imagenes.py) y la [guía paso a paso para ejecutarlo en Google Colab](COMO_GENERAR_INVENTARIO.md).
+
+El inventario resultante incluye rutas relativas, conteos, tamaños, huellas SHA-256 y campos para fuente, especie, etiqueta original/final y partición. Los campos no verificables permanecen vacíos hasta completarlos con información del conjunto real. El inventario **no** equivale a la evaluación de la IA ni reconstruye automáticamente la partición histórica.
+
 ## Entorno y datos de entrada
 
 El script utiliza TensorFlow/Keras, NumPy, Matplotlib, scikit-learn, Pillow y Google Colab. Su ruta de datos está fijada en `/content/drive/MyDrive/IA`; copia el contenido a `/content/IA` y agrupa las imágenes por carpetas:
