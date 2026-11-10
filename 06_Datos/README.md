@@ -28,3 +28,9 @@ Conservar la manifestación de las particiones y sus semillas, para reconstruir 
 No es necesario distribuir las fotografías en este repositorio para documentar el conjunto de entrenamiento. La [guía de inventario de MobileNetV2](../05_MobileNetV2/COMO_GENERAR_INVENTARIO.md) permite calcular un manifiesto CSV, conteos por clase/subcarpeta y duplicados exactos directamente sobre la carpeta de Google Drive.
 
 Después de comprobar procedencia, clases y licencias, se deben conservar en esta carpeta los archivos de metadatos y las particiones verificables. Un resumen por carpetas no basta para demostrar que la prueba sea independiente por imagen original, y el resultado de inventario no sustituye una evaluación del modelo final.
+
+## Resultados cuantitativos del inventario de imágenes
+
+Se revisó un inventario de **2.247 imágenes** (1.220 Sana y 1.027 Deficiencia). Se encontraron **74 pares de archivos exactamente duplicados**, todos dentro de la clase Deficiencia, lo que deja 2.173 hashes SHA-256 distintos. No hubo errores de lectura. Los campos de origen, especie, etiqueta original y partición permanecen sin verificar.
+
+Consultar el [análisis del inventario](ANALISIS_INVENTARIO_MOBILENETV2.md) y el [resumen en JSON](resumen_inventario_mobilenetv2.json). Estos registros no sustituyen las imágenes originales ni los resultados de evaluación independientes.
