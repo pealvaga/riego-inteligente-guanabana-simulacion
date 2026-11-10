@@ -5,7 +5,7 @@ Esta guía sirve como referencia para revisar la coherencia entre el código pub
 ## Comprobaciones del entorno
 
 1. Contrastar la versión de cada herramienta con las instrucciones del proyecto.
-2. Compilar el programa CODESYS y conectar la escena de Factory I/O.
+2. Descargar y extraer el [paquete CODESYS](../02_CODESYS/Codesys.zip), abrir el proyecto y comprobar compilación, bibliotecas y configuración del controlador; luego conectar la escena de Factory I/O.
 3. Ejecutar la aplicación Python y verificar Modbus TCP: HR0–HR7, IR0.
 4. Comprobar cambios de humedad, actuación por histéresis, reloj simulado y almacenamiento de históricos.
 5. Cargar los modelos serializados correspondientes a la versión de la simulación.
