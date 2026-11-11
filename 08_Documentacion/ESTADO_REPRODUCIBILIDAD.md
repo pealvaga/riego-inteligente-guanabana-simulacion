@@ -39,6 +39,8 @@ Se revisaron inicialmente cinco capturas del entorno operativo: Factory I/O mues
 
 **Actualización:** tres capturas adicionales evidencian compilación de `Device.Application` con **0 errores y 0 advertencias**, escena Factory I/O con dos depósitos, y monitor en línea `Device.Application.GVL` con `FO_Riego1=TRUE`, `FO_S_NIVEL1=5.045404`, `FO_S_NIVEL2=9.539644` y `MB_Temp=350` (35,0 °C a escala ×10). **Pendiente:** subir los ocho PNG originales, documentar un cambio de señales OPC antes/después, verificar las lecturas de los registros Modbus HR0–HR7/IR0 con valores conocidos, revisar diagnóstico de Ethernet y realizar evaluaciones independientes de los modelos.
 
+Se aportaron dos capturas adicionales de una prueba del pulsador de emergencia. La variable `FO_EMERGENCIA` aparece **TRUE** en el monitor GVL, frente a **FALSE** en la captura GVL anterior. Esto respalda una **transición de entrada observada** desde la escena hacia el PLC. No demuestra aún el efecto de parada/rearme en válvulas y salidas. Consultar [E9/E10 en el informe](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md).
+
 ## Correspondencia académica
 
 La documentación técnica debe acompañarse de evidencias de ejecución, configuración y resultados medidos con los mismos artefactos publicados. La comprobación de componentes a partir de archivos **no equivale** a una prueba funcional realizada en CODESYS/Factory I/O.
