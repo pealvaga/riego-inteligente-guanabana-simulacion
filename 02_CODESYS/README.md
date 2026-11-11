@@ -2,7 +2,7 @@
 
 ## Proyecto fuente — paquete final publicado
 
-El **archivo final actualmente publicado** es [`Simulación guanabana codesys (2).zip`](Simulaci%C3%B3n%20guanabana%20codesys%20%282%29.zip). Sustituye a `Codesys.zip` y a `Simulación guanabana codesys (2).zip`, ambos retirados de la rama `main`. La última carga fue declarada como una copia de la carpeta completa generada por CODESYS después de guardar el proyecto.
+El **archivo final actualmente publicado** es [`Simulación guanabana codesys (2).zip`](Simulaci%C3%B3n%20guanabana%20codesys%20%282%29.zip). Sustituye a `Codesys.zip` y a `Simulación guanabana codesys.zip`, ambos retirados de la rama `main`. La última carga fue declarada como una copia de la carpeta completa generada por CODESYS después de guardar el proyecto.
 
 **Metadatos verificados en GitHub:**
 - Tamaño: **8.906.941 bytes**.
