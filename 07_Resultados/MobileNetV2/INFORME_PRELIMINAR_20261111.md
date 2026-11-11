@@ -78,7 +78,7 @@ Las **50 fotografías de la clase `Deficiencia` corresponden a hojas de guanába
 
 La identificación de la especie se considera **declarada para esta muestra**, pero todavía no se ha corroborado individualmente mediante las páginas de origen. Asimismo, que una hoja sea de guanábana no confirma que su alteración corresponda a **deficiencia nutricional**: pueden existir otros factores (enfermedades, plagas o estrés ambiental) y errores de etiquetado.
 
-Los resultados cuantitativos **no cambian**: al umbral 0,90 se detectaron **13 de 50** hojas de guanábana etiquetadas con deficiencia y hubo **37 falsos negativos bajo las etiquetas actuales**. La procedencia y especie de las **50 imágenes sanas** no se han especificado todavía. Se mantiene el carácter preliminar de la evaluación.
+Los resultados cuantitativos **no cambian**: al umbral 0,90 se detectaron **13 de 50** hojas de guanábana etiquetadas con deficiencia y hubo **37 falsos negativos bajo las etiquetas actuales**. Las **50 imágenes sanas** también fueron seleccionadas como guanábana; **sus fuentes originales aún no están documentadas** y la identificación de especie no se ha corroborado fotografía por fotografía. Se mantiene el carácter preliminar de la evaluación.
 
 ## Identificación de las dos clases y revisión del ZIP de imágenes
 
