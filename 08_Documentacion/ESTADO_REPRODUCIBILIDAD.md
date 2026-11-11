@@ -21,7 +21,9 @@ Esta guía establece la secuencia de comprobación de la simulación y sus dos m
 
 ## Reproducción del entrenamiento Random Forest
 
-Mantener la separación por sesiones, respetar el orden temporal y asegurar que no se filtren observaciones futuras entre conjuntos. Comparar las predicciones con persistencia y evaluar el error del próximo momento de riego además del RMSE de humedad.
+Los archivos [`simulador_guanabana_grado_registro_RF.py`](../04_Random_Forest/simulador_guanabana_grado_registro_RF.py) y [`RF_Guanaba.ipynb`](../04_Random_Forest/RF_Guanaba.ipynb) permiten generar un Excel por sesión y entrenar con separación de escenarios completos. Sin embargo, el Excel consolidado utilizado en la ejecución guardada (`Base_guanabana_consolidada_para_RF.xlsx`, 2.502 registros) aún no está en el repositorio.
+
+La ejecución visible **no validó** Random Forest: RMSE RF 23,3915, referencia de persistencia 0,6709. No se debe copiar a la aplicación el modelo `.pkl` hasta cotejar su procedencia y obtener un rendimiento satisfactorio en escenarios independientes. Mantener separación por sesiones, respetar el orden temporal y evitar filtraciones; comparar contra persistencia y evaluar también el error del próximo momento de riego en minutos simulados. Ver [revisión técnica](../04_Random_Forest/REVISION_ARCHIVOS_Y_RESULTADOS.md).
 
 ## Reproducción de MobileNetV2
 
