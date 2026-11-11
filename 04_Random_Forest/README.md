@@ -5,11 +5,11 @@ Este componente del proyecto utiliza un regresor Random Forest para predecir la 
 ## Archivos incorporados
 
 - [`simulador_guanabana_grado_registro_RF.py`](simulador_guanabana_grado_registro_RF.py): copia de la aplicación preparada para registrar y exportar datos en Excel sin modificar `01_Python/Sensores.py`.
-- [`RF_Guanaba.ipynb`](RF_Guanaba.ipynb): notebook de entrenamiento con separación de escenarios y comparación con persistencia.
+- [`RF_Guanaba (1).ipynb`](RF_Guanaba%20(1).ipynb): notebook de entrenamiento con separación de escenarios y comparación con persistencia.
 - [`modelo_prediccion_humedad.pkl`](modelo_prediccion_humedad.pkl): modelo publicado; la procedencia y las métricas específicas de este artefacto deben verificarse antes de desplegarlo.
-- [Revisión técnica de archivos y resultados](REVISION_ARCHIVOS_Y_RESULTADOS.md): inventario, salida registrada del notebook y pasos de verificación.
+- [Revisión del entrenamiento vigente](REVISION_ENTRENAMIENTO_ACTUAL.md): confirma el Excel empleado, las métricas y el estado preliminar. La [revisión anterior](REVISION_ARCHIVOS_Y_RESULTADOS.md) se conserva como antecedente histórico.
 
-**Advertencia de evaluación:** la ejecución conservada en el notebook tiene **RMSE 23,3915**, frente a **0,6709 de persistencia**, por lo que se marca **NO VALIDADO**. El código de esa ejecución guardó un archivo con sufijo `_NO_VALIDADO.pkl`; el archivo de nombre estándar publicado en GitHub aún no se ha vinculado a resultados comprobados. No reemplazar el modelo de la aplicación basándose únicamente en su nombre.
+**Estado actual de evaluación:** el cuaderno `RF_Guanaba (1).ipynb` registra **813 muestras del Excel publicado**, con 647 para entrenamiento y 163 para prueba cronológica. Reporta **RMSE RF 0,6144 y RMSE de persistencia 0,1386**: resultado **NO VALIDADO**. Debido a que la hoja `Entrenamiento_RF` contiene un único escenario, la prueba es exploratoria. **No se ha verificado que el `.pkl` de nombre estándar sea el producto de esa ejecución.** No copiarlo a la aplicación hasta validarlo.
 
 ## Separación del entrenamiento y la aplicación
 
@@ -21,9 +21,11 @@ La copia a `01_Python` debe realizarse únicamente después de comprobar la comp
 
 El historial de CODESYS se describe como `HistorialCultivo.csv` y contiene columnas `Dia`, `Hora`, `Minuto`, `Temperatura`, `Precipitacion`, `HumedadSuelo`, `NivelAgua`, `NivelNutrientes`, `RiegoActivo` y `TipoRiego`. Como no incorpora un identificador de sesión, los archivos de distintas ejecuciones se deben etiquetar **antes** de construir rezagos, de modo que no se combinen trayectorias discontinuas.
 
-## Archivo de entrada requerido
+## Archivo de entrada del cuaderno vigente
 
-La ejecución conservada de `RF_Guanaba.ipynb` carga `Base_guanabana_consolidada_para_RF.xlsx` (2.502 registros, 3 escenarios) con hojas `Entrenamiento_RF` y `Parametros`. Se ha publicado un [Excel de registros](../06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx), pero **no es el consolidado usado en esa ejecución**: tiene 2.878 filas en `Registro_10min` y solo 813 en `Entrenamiento_RF`. Por tanto, el archivo `Base_guanabana_consolidada_para_RF.xlsx` sigue siendo el insumo exacto pendiente para reproducir la evaluación guardada. Consultar [revisión del Excel](../06_Datos/REVISION_EXCEL_RANDOM_FOREST.md).
+La salida guardada en `RF_Guanaba (1).ipynb` confirma la lectura de [`Datos_entrenamiento_guanabana_20261110_103013.xlsx`](../06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx), ya disponible en `06_Datos`. Su hoja `Registro_10min` tiene **2.878 registros de tres sesiones**, pero la hoja `Entrenamiento_RF` usada por el notebook incluye **813 muestras de una sola sesión**. La [revisión del Excel](../06_Datos/REVISION_EXCEL_RANDOM_FOREST.md) explica esta diferencia.
+
+La evaluación anterior con otro Excel consolidado de 2.502 muestras se conserva como antecedente histórico en [REVISION_ARCHIVOS_Y_RESULTADOS.md](REVISION_ARCHIVOS_Y_RESULTADOS.md), pero **no debe presentarse como resultado de la ejecución vigente**.
 
 ## Datos y variables
 
