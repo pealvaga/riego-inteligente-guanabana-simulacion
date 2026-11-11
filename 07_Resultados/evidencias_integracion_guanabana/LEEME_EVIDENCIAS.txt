@@ -6,10 +6,11 @@ Evidencias de integración del proyecto de grado (simulación)
 04. CODESYS - Visualización HMI/SCADA con variables y tanques
 05. CODESYS - Grado.project, dispositivo conectado y Application [ejecutar]
 
-Estas capturas fueron aportadas por el autor. No demuestran por sí solas compilación
-sin errores ni evaluación independiente de los modelos de IA. Las horas simuladas
+Estas cinco capturas corresponden a una ejecución de la simulación. Por sí solas
+no muestran la compilación sin errores ni la evaluación independiente de las IA. Las horas simuladas
 en las capturas no son idénticas.
 
-Para subirlas a GitHub: abrir la carpeta 07_Resultados, crear/usar
-evidencias_integracion y cargar las cinco PNG. Mantener sus nombres.
-Ver el informe de texto en 07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md.
+Estado: estas cinco imágenes (E1–E5) están publicadas en esta carpeta.
+Pendientes de cargar: las quince imágenes restantes E6–E20, ya analizadas
+por separado en el informe de evidencias.
+Ver 07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md.
