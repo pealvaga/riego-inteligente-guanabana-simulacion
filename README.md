@@ -23,7 +23,7 @@ La arquitectura no equivale a una validación agronómica en campo. En particula
 | [01_Python](01_Python/) | Aplicación de simulación, interfaz y comunicación |
 | [02_CODESYS](02_CODESYS/) | [Paquete CODESYS](02_CODESYS/Codesys.zip), controlador, automatización y SCADA |
 | [03_Factory_IO](03_Factory_IO/) | [Escena Grado.factoryio](03_Factory_IO/Grado.factoryio) y sus 14 señales OPC DA |
-| [04_Random_Forest](04_Random_Forest/) | Entrenamiento, predicción y evaluación de humedad |
+| [04_Random_Forest](04_Random_Forest/) | [Simulador de registro](04_Random_Forest/simulador_guanabana_grado_registro_RF.py), [notebook de entrenamiento](04_Random_Forest/RF_Guanaba.ipynb), [modelo publicado](04_Random_Forest/modelo_prediccion_humedad.pkl) y [revisión técnica](04_Random_Forest/REVISION_ARCHIVOS_Y_RESULTADOS.md) |
 | [05_MobileNetV2](05_MobileNetV2/) | [Script de entrenamiento](05_MobileNetV2/ia_imagen.py), [modelo fine-tuned](05_MobileNetV2/mejor_modelo_hojas_finetuning.keras) y [guía de evaluación](05_MobileNetV2/GUIA_EVALUACION_FINAL.md) |
 | [06_Datos](06_Datos/) | Datos, procedencia y particiones |
 | [07_Resultados](07_Resultados/) | Resultados, métricas y evidencias |
@@ -40,7 +40,7 @@ La ejecución integral requiere los proyectos y modelos correspondientes, ademá
 
 ## Reproducibilidad y alcance de las IA
 
-La evaluación de Random Forest debe preservar el orden temporal y separar las trayectorias destinadas a entrenamiento, validación y prueba. Sus resultados deben compararse con una referencia de persistencia y acompañarse de un error del momento estimado del próximo riego.
+La evaluación de Random Forest debe preservar el orden temporal y separar las trayectorias destinadas a entrenamiento, validación y prueba. Sus resultados deben compararse con una referencia de persistencia y acompañarse de un error del momento estimado del próximo riego. **La ejecución actualmente guardada en el notebook no superó la persistencia (RMSE 23,3915 frente a 0,6709)**; el archivo `.pkl` publicado requiere cotejar su procedencia y evaluación antes de utilizarlo en la aplicación.
 
 Para MobileNetV2, el script aportado usa 70/15/15 y crea sus métricas iniciales con umbral 0,50 antes de la fase fine-tuning. La evaluación del checkpoint final se documenta por separado y debe comprobar la independencia por imagen original y la matriz de confusión con el umbral operativo de **probabilidad de deficiencia ≥ 0,90**.
 
