@@ -88,6 +88,18 @@ Se examinó el ZIP `Nueva carpeta.zip` proporcionado como material complementari
 
 Estas observaciones no cambian las métricas del modelo ya registradas. El estado de la prueba sigue siendo **preliminar** y los resultados se deben interpretar conforme a las etiquetas utilizadas, no como diagnóstico nutricional certificado.
 
+## Interpretación para la entrega académica
+
+Las 100 imágenes del conjunto de prueba fueron seleccionadas como fotografías de hojas de guanábana. Las 50 clasificadas como deficientes se localizaron mediante Google Imágenes; la fuente y el diagnóstico nutricional original no se han corroborado individualmente.
+
+**Resultado con hojas sanas:** las 50 imágenes etiquetadas como sanas fueron reconocidas como sanas en esta evaluación (**50/50**, sin falsos positivos de deficiencia). Es correcto describir un comportamiento favorable en esa muestra, pero no generalizar a todas las hojas o condiciones de campo.
+
+**Limitación principal:** con el umbral operativo **0,90**, solo **13 de 50** imágenes etiquetadas como deficientes se clasificaron como deficiencia (**recall 26 %**) y **37** se clasificaron como sanas. Algunos síntomas visibles podrían corresponder a enfermedades, plagas u otras causas, no necesariamente a deficiencia nutricional; por ello las etiquetas requieren verificación.
+
+**Criterio de fertirriego:** el programa utiliza un **umbral conservador de 90 %** para considerar suficiente la evidencia del modelo antes de autorizar fertirriego. En este conjunto no hubo falsas detecciones de deficiencia entre las 50 hojas sanas, pero el umbral también provocó una elevada cantidad de deficiencias etiquetadas no detectadas. Se trata de un criterio de decisión configurado, **no de un margen de error medido ni de garantía agronómica**.
+
+**Recomendación:** utilizar en futuras evaluaciones una colección mejor documentada de fotografías de guanábana, con buena nitidez e iluminación, imágenes originales, fuentes y licencias conocidas y **deficiencias nutricionales diagnosticadas de manera confiable**. La evaluación presente se conserva como preliminar y sus cifras no se modifican.
+
 ## Acciones recomendadas
 
 1. **Conservar los 100 ejemplos y esta medición** como prueba exploratoria; no modificar cifras ni presentar el 63 % como validación final.
