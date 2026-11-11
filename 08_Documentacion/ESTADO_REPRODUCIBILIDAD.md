@@ -35,9 +35,9 @@ El [inventario de 2.247 imágenes](../06_Datos/ANALISIS_INVENTARIO_MOBILENETV2.m
 
 ## Evidencia de ejecución integrada aportada
 
-Se revisaron cinco capturas del entorno operativo: Factory I/O muestra servidor **`CoDeSys.OPC.DA (14)`** conectado, Python muestra **«COMUNICACIÓN OK»** mediante Modbus TCP a `127.0.0.1:502`, y CODESYS muestra el dispositivo conectado, la aplicación **`[ejecutar]`** y la visualización SCADA activa. La prueba incorpora el simulador alternativo con registro para Random Forest, cuyo mensaje **«MODELO NUEVO CARGADO» no certifica validez predictiva**. Para detalles y limitaciones consultar [reporte de evidencia integrada](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md).
+Se revisaron inicialmente cinco capturas del entorno operativo: Factory I/O muestra servidor **`CoDeSys.OPC.DA (14)`** conectado, Python muestra **«COMUNICACIÓN OK»** mediante Modbus TCP a `127.0.0.1:502`, y CODESYS muestra el dispositivo conectado, la aplicación **`[ejecutar]`** y la visualización SCADA activa. La prueba incorpora el simulador alternativo con registro para Random Forest, cuyo mensaje **«MODELO NUEVO CARGADO» no certifica validez predictiva**. Para detalles y limitaciones consultar [reporte de evidencia integrada](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md).
 
-**Pendiente:** subir los archivos originales de captura, comprobar compilación sin errores, cambios reales de señales OPC, valores Modbus HR0–HR7/IR0 y evaluaciones independientes de ambos modelos.
+**Actualización:** tres capturas adicionales evidencian compilación de `Device.Application` con **0 errores y 0 advertencias**, escena Factory I/O con dos depósitos, y monitor en línea `Device.Application.GVL` con `FO_Riego1=TRUE`, `FO_S_NIVEL1=5.045404`, `FO_S_NIVEL2=9.539644` y `MB_Temp=350` (35,0 °C a escala ×10). **Pendiente:** subir los ocho PNG originales, documentar un cambio de señales OPC antes/después, verificar las lecturas de los registros Modbus HR0–HR7/IR0 con valores conocidos, revisar diagnóstico de Ethernet y realizar evaluaciones independientes de los modelos.
 
 ## Correspondencia académica
 
