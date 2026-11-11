@@ -54,7 +54,7 @@ Para corregir la selección de solo 813 muestras del Excel de Random Forest se c
 
 La evaluación de Random Forest debe preservar el orden temporal y separar las trayectorias destinadas a entrenamiento, validación y prueba. Sus resultados deben compararse con una referencia de persistencia y acompañarse de un error del momento estimado del próximo riego. **La ejecución actual del cuaderno utiliza el Excel publicado (813 muestras) y no supera la persistencia (RMSE 0,6144 frente a 0,1386)**; el archivo `.pkl` publicado requiere cotejar su procedencia y evaluación antes de utilizarlo en la aplicación.
 
-Para MobileNetV2, el script aportado usa 70/15/15 y crea sus métricas iniciales con umbral 0,50 antes de la fase fine-tuning. La evaluación del checkpoint final se documenta por separado y debe comprobar la independencia por imagen original y la matriz de confusión con el umbral operativo de **probabilidad de deficiencia ≥ 0,90**.
+Para MobileNetV2, el script de entrenamiento utiliza 70/15/15 y crea sus métricas iniciales con umbral 0,50 antes de la fase fine-tuning. La evaluación del checkpoint final se documenta por separado y debe comprobar la independencia por imagen original y la matriz de confusión con el umbral operativo de **probabilidad de deficiencia ≥ 0,90**.
 
 El [inventario de imágenes](05_MobileNetV2/COMO_GENERAR_INVENTARIO.md) puede generarse desde Google Colab sin subir las fotografías al repositorio. Los datasets de referencia son [CoLeaf](https://doi.org/10.17632/brfgw46wzb.1) y [SoursopBD](https://doi.org/10.17632/hjrhrt5hs8.2). Las etiquetas originales requieren justificación explícita: síntomas fitosanitarios en guanábana o deficiencias en café no son automáticamente equivalentes a una deficiencia nutricional de guanábana.
 
@@ -64,7 +64,7 @@ Las cifras de desempeño deben leerse junto con el conjunto de prueba, el script
 
 ## Acceso a las imágenes de entrenamiento
 
-La base de imágenes de MobileNetV2 se mantiene fuera del repositorio por su tamaño. El autor ha facilitado el [enlace a la carpeta IA en Google Drive](https://drive.google.com/drive/folders/1dSFK86hFvjr4cZiNZvvqDZDGeydOIcys?usp=sharing). Consultar el [README de MobileNetV2](05_MobileNetV2/README.md) para la estructura, el inventario y las condiciones de trazabilidad. El acceso público y los derechos de redistribución deben comprobarse antes de utilizar o compartir fotografías de terceros.
+La base de imágenes de MobileNetV2 se mantiene fuera del repositorio por su tamaño. Los datos se encuentran disponibles mediante el [enlace a la carpeta IA en Google Drive](https://drive.google.com/drive/folders/1dSFK86hFvjr4cZiNZvvqDZDGeydOIcys?usp=sharing). Consultar el [README de MobileNetV2](05_MobileNetV2/README.md) para la estructura, el inventario y las condiciones de trazabilidad. El acceso público y los derechos de redistribución deben comprobarse antes de utilizar o compartir fotografías de terceros.
 
 ## Demostración
 
