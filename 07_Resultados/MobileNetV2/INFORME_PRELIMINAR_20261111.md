@@ -80,6 +80,14 @@ La identificación de la especie se considera **declarada para esta muestra**, p
 
 Los resultados cuantitativos **no cambian**: al umbral 0,90 se detectaron **13 de 50** hojas de guanábana etiquetadas con deficiencia y hubo **37 falsos negativos bajo las etiquetas actuales**. La procedencia y especie de las **50 imágenes sanas** no se han especificado todavía. Se mantiene el carácter preliminar de la evaluación.
 
+## Identificación de las dos clases y revisión del ZIP de imágenes
+
+Las **100 imágenes de la prueba (50 en `Sanas` y 50 en `Nutrientes`) fueron seleccionadas como fotografías de guanábana (`Annona muricata`)**. Esta identificación corresponde a la selección de la muestra; sigue pendiente comprobar individualmente la fuente y la etiqueta original de cada fotografía. **No se ha confirmado que todos los casos clasificados como «Deficiencia» correspondan a una carencia nutricional.**
+
+Se examinó el ZIP `Nueva carpeta.zip` proporcionado como material complementario: incluye **50 archivos PNG** en una carpeta general, sin subdivisión de clases y **con 50 huellas SHA-256 distintas**. Las imágenes muestran síntomas visuales como amarillamiento, manchas, lesiones y tejido seco; **estos signos no bastan para distinguir entre deficiencia nutricional, enfermedad, plaga o estrés ambiental**. Se aprecian fotografías con encuadres o contenido muy similares, por lo que la ausencia de hashes idénticos **no acredita que todas correspondan a originales independientes**. El ZIP no se subió a GitHub: es necesario determinar la licencia y la fuente original de cada fotografía.
+
+Estas observaciones no cambian las métricas del modelo ya registradas. El estado de la prueba sigue siendo **preliminar** y los resultados se deben interpretar conforme a las etiquetas utilizadas, no como diagnóstico nutricional certificado.
+
 ## Acciones recomendadas
 
 1. **Conservar los 100 ejemplos y esta medición** como prueba exploratoria; no modificar cifras ni presentar el 63 % como validación final.
