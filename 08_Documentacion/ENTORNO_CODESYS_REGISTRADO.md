@@ -42,7 +42,7 @@ En «Información de versión» se lee:
 
 ## Correspondencia con el proyecto publicado
 
-Los componentes **3.5.9.0** y **3.5.9.10** vistos en las capturas concuerdan con las referencias internas observadas previamente en `02_CODESYS/Codesys.zip`. La presencia de **Device Modbus TCP Slave 3.5.9.10** resulta relevante porque el proyecto contiene un servidor Modbus TCP que comunica con Python en el puerto 502.
+Los componentes **3.5.9.0** y **3.5.9.10** vistos en las capturas concuerdan con las referencias internas observadas en el **paquete CODESYS anterior**; el ZIP actualizado [`Simulación guanabana codesys.zip`](../02_CODESYS/Simulaci%C3%B3n%20guanabana%20codesys.zip) aún requiere comprobación interna. La presencia de **Device Modbus TCP Slave 3.5.9.10** resulta relevante porque el proyecto contiene un servidor Modbus TCP que comunica con Python en el puerto 502.
 
 Esta coincidencia respalda la identificación del entorno de programación, pero no certifica:
 
