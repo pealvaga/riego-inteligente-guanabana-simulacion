@@ -16,8 +16,8 @@ Publicar una versión **identificable y reproducible** del proyecto de simulaci�
 | Acceso documentado a imágenes y fuentes | [x] | [README MobileNetV2](../05_MobileNetV2/README.md); comprobar permisos y licencias |
 | Inventario de imagen, duplicados y trazabilidad parcial | [x] | [`06_Datos/`](../06_Datos/); completar especie, fuente y etiqueta original |
 | Script y cuaderno de RF en carpeta separada | [x] | [`04_Random_Forest/`](../04_Random_Forest/) |
-| Excel inicial de registros RF | [x] | [`06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx`](../06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx) |
-| Cuaderno que prepara múltiples sesiones RF | [x] | [`RF_Guanaba_todas_sesiones.ipynb`](../04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb), pendiente de ejecución sobre datos finales |
+| Excel de registros RF en GitHub | [x] | [Archivo actual](../06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx) reemplazado por una versión con más datos; **conteos y sesiones actuales pendientes de verificar al ejecutar Colab** |
+| Cuaderno que prepara múltiples sesiones RF | [x] | [`RF_Guanaba_todas_sesiones.ipynb`](../04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb) ahora descarga siempre el **Excel actual de `main`**, calcula su huella SHA-256; **pendiente de ejecutar y evaluar sobre los datos nuevos** |
 | Guía de ejecución integrada | [x] | [`GUIA_REPRODUCCION_INTEGRAL.md`](GUIA_REPRODUCCION_INTEGRAL.md) |
 | Captura de versiones instaladas de Python y paquetes | [x] | [`ENTORNO_EJECUTADO.json`](ENTORNO_EJECUTADO.json): CPython 3.12.9, Windows AMD64. **Pendiente confirmar** que es el mismo intérprete con que se ejecuta el sistema y completar `pip freeze` |
 | Versión del IDE CODESYS y componentes mostrados | [x] | [Registro del entorno CODESYS](ENTORNO_CODESYS_REGISTRADO.md): V3.5 SP9 Patch 1; Device Modbus TCP Slave 3.5.9.10 |
