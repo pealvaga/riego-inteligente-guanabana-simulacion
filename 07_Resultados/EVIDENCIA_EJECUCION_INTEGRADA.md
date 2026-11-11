@@ -2,7 +2,7 @@
 
 ## Origen y alcance
 
-Revisión inicial de **cinco capturas de pantalla registradas durante las pruebas del proyecto**, ampliada posteriormente con **quince capturas adicionales** (compilación CODESYS, escena Factory I/O, tabla GVL, emergencia, salidas detenidas, secuencia de rearme y estado de parada con indicador amarillo) de la simulación del sistema de riego para guanábana. Las capturas se obtuvieron durante una sesión operativa, con instantes simulados diferentes; **no se deben interpretar como una única medición sincronizada**. **Estado actual de archivos:** las capturas originales **E1–E5 sí están publicadas** en [`evidencias_integracion_guanabana/`](evidencias_integracion_guanabana/). Los PNG correspondientes a **E6–E20 aún no figuran en esa carpeta**. Las 20 capturas están descritas en este informe, pero solo cinco están disponibles como archivos originales en GitHub. Este documento transcribe la evidencia observable y registra lo que falta demostrar.
+Revisión inicial de **cinco capturas de pantalla registradas durante las pruebas del proyecto**, ampliada posteriormente con **quince capturas adicionales** (compilación CODESYS, escena Factory I/O, tabla GVL, emergencia, salidas detenidas, secuencia de rearme y estado de parada con indicador amarillo) de la simulación del sistema de riego para guanábana. Las capturas se obtuvieron durante una sesión operativa, con instantes simulados diferentes; **no se deben interpretar como una única medición sincronizada**. **Estado actual de archivos:** las **20 capturas PNG E1–E20** están publicadas en [`evidencias_integracion_guanabana/`](evidencias_integracion_guanabana/), y las veinte están descritas en este informe. La presencia de todos los archivos en GitHub se comprobó el 11/11/2026. Este documento transcribe la evidencia observable y registra lo que falta demostrar.
 
 **Software registrado:**
 - CODESYS IDE V3.5 SP9 Patch 1; CODESYS Control Win V3 3.5.9.10.
@@ -184,7 +184,7 @@ Por tanto, las capturas con `FO_STOP=TRUE` durante el riego o durante la emergen
 - No se ha observado una prueba dirigida donde se conmuten los pulsadores de Factory I/O y se verifique la variación correspondiente de `FO_START`, `FO_STOP`, válvulas, niveles y `FO_*` en CODESYS.
 - No se ha verificado numéricamente la transmisión real de todos los registros HR0–HR7 ni el retorno IR0 para valores de prueba conocidos, pese a mostrarse «COMUNICACIÓN OK».
 - No se ha comprobado en esta serie el cambio de modalidad entre riego normal y fertirriego, ni el cálculo efectivo de MobileNetV2.
-- Ya están publicadas las capturas **E1–E5**; todavía faltan los **15 PNG de E6–E20**, el archivo histórico `HistorialCultivo.csv`, la base Excel anunciada en la prueba y un acta de prueba independiente.
+- Ya están publicadas las **20 capturas E1–E20**. Aún falta aportar el archivo histórico `HistorialCultivo.csv`, la base Excel específica anunciada en aquella captura (si se requiere reproducir esa sesión) y un acta de prueba independiente.
 - No se aportan métricas independientes o trazabilidad completa de los modelos de IA.
 
 ## Control de versión del proyecto compilado
@@ -201,7 +201,7 @@ La barra de título de CODESYS muestra **`Grado.project*`**. El asterisco puede 
 6. Conservar las dos capturas E9/E10 de la transición de emergencia y comprobar el comportamiento seguro de las salidas después de activarla.
 7. **Rearme observado (E13–E16):** comprobar si `FO_Riego2` se habilita automáticamente al liberar emergencia o requiere orden de START, y corroborar con pulsación la polaridad NC declarada de `FO_STOP`. Las nuevas capturas no muestran chorro de llenado, pero falta corroborar el comportamiento en una prueba sincronizada.
 8. Documentar una prueba específica del mando STOP: valor del pulsador y de `FO_STOP` antes y después, salidas desactivadas e indicador amarillo; comprobar posterior START.
-9. **Publicar las 15 capturas restantes E6–E20** en [`evidencias_integracion_guanabana/`](evidencias_integracion_guanabana/) y conservar los nombres/identificadores en la tabla de este informe. E1–E5 ya están en GitHub.
+9. **Completado:** publicación de los 20 PNG E1–E20 en [`evidencias_integracion_guanabana/`](evidencias_integracion_guanabana/). Mantener nombres y correspondencia con las descripciones de este informe.
 
 ## Conclusión
 
