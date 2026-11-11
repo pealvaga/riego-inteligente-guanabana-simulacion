@@ -20,7 +20,8 @@ Publicar una versión **identificable y reproducible** del proyecto de simulaci�
 | Cuaderno que prepara múltiples sesiones RF | [x] | [`RF_Guanaba_todas_sesiones.ipynb`](../04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb), pendiente de ejecución sobre datos finales |
 | Guía de ejecución integrada | [x] | [`GUIA_REPRODUCCION_INTEGRAL.md`](GUIA_REPRODUCCION_INTEGRAL.md) |
 | Captura de versiones instaladas de Python y paquetes | [x] | [`ENTORNO_EJECUTADO.json`](ENTORNO_EJECUTADO.json): CPython 3.12.9, Windows AMD64. **Pendiente confirmar** que es el mismo intérprete con que se ejecuta el sistema y completar `pip freeze` |
-| Versiones instaladas y bibliotecas de CODESYS | [ ] | Registrar versión completa, dispositivos y bibliotecas desde CODESYS |
+| Versión del IDE CODESYS y componentes mostrados | [x] | [Registro del entorno CODESYS](ENTORNO_CODESYS_REGISTRADO.md): V3.5 SP9 Patch 1; Device Modbus TCP Slave 3.5.9.10 |
+| Runtime CODESYS Control Win y bibliotecas usadas por el proyecto | [ ] | Verificar en línea el runtime y las bibliotecas de `Grado.project`; capturar compilación sin errores |
 | Versión/driver activo y prueba OPC DA de Factory I/O | [ ] | Confirmar conexión con `CoDeSys.OPC.DA` y 14 señales |
 | Demostración de instalación desde cero | [ ] | Registrar errores, ajustes y evidencia de arranque de las tres plataformas |
 | `.pkl` RF definitivo, trazable y validado | [ ] | El artefacto publicado aún no tiene validación satisfactoria confirmada |
