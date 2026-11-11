@@ -25,6 +25,8 @@ El [simulador alternativo de registro](../04_Random_Forest/simulador_guanabana_g
 
 La salida actual **no validó** Random Forest: RMSE RF **0,6144**, frente a **0,1386** de persistencia. El archivo publicado `modelo_prediccion_humedad.pkl` aún no está ligado inequívocamente a esa ejecución (que exportó `_NO_VALIDADO.pkl`). No copiarlo a `01_Python/` hasta verificar formato, procedencia y desempeño en escenarios independientes. Ver [revisión del entrenamiento vigente](../04_Random_Forest/REVISION_ENTRENAMIENTO_ACTUAL.md) y [resumen de salida](../07_Resultados/RF_metricas_preliminares_notebook.json).
 
+**Corrección disponible (pendiente de ejecución):** [`RF_Guanaba_todas_sesiones.ipynb`](../04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb) parte de `Registro_10min` y reconstruye muestras con rezagos para todas las sesiones y escenarios, aplicando validaciones por ventana. Ver [guía de uso](../04_Random_Forest/COMO_ENTRENAR_CON_TODAS_LAS_SESIONES.md). Los resultados 813/647/163 corresponden al notebook anterior, no a la ejecución futura de este cuaderno corregido.
+
 ## Reproducción de MobileNetV2
 
 El [script original](../05_MobileNetV2/ia_imagen.py) y el [modelo fine-tuned](../05_MobileNetV2/mejor_modelo_hojas_finetuning.keras) están publicados. El script separa rutas con `train_test_split` (70/15/15, semilla 42), pero no conserva agrupación por imagen original o planta. Calcula métricas con umbral 0,50 **antes** del fine-tuning y luego guarda el checkpoint; la evaluación de dicho checkpoint debe realizarse de forma independiente, usando umbrales 0,50 y 0,90 y documentando la matriz de confusión. Ver [guía de evaluación final](../05_MobileNetV2/GUIA_EVALUACION_FINAL.md) y [plantilla del manifiesto](../06_Datos/plantilla_manifest_imagenes.csv).
