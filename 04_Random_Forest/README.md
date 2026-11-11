@@ -2,6 +2,18 @@
 
 Este componente del proyecto utiliza un regresor Random Forest para predecir la humedad disponible del suelo y apoyar la estimación del próximo riego dentro del entorno simulado.
 
+## Resultado del reentrenamiento con base ampliada (11/11/2026)
+
+Se ejecutó el [cuaderno actualizado](RF_Guanaba_todas_sesiones.ipynb) con el Excel vigente de GitHub, verificado mediante SHA-256. La [evaluación documentada](../07_Resultados/RF_INFORME_EVALUACION_BASE_ACTUALIZADA_20261111.md) utiliza **3.819 registros brutos**, **3.243 muestras reconstruidas** y división de **2.672 entrenamientos / 571 pruebas**, con **7 escenarios aptos** de un total de 11 grupos registrados.
+
+- **RMSE Random Forest: 1,7698**, **RMSE persistencia: 0,6304** (puntos porcentuales).
+- **MAE Random Forest: 0,8831**, **MAE persistencia: 0,2945**.
+- **R²: 0,9957**, insuficiente para avalar el rendimiento frente a persistencia.
+- **Estado: NO VALIDADO**; el `.pkl` exportado se denomina `modelo_prediccion_humedad_NO_VALIDADO.pkl`.
+- **No sustituir** el modelo de la aplicación con este artefacto. Los resultados completos deberán publicarse conservando el archivo de origen y las particiones.
+
+Los recuentos anteriores de 2.878 registros y 813 filas corresponden a una **base histórica**, no al Excel actualizado.
+
 ## Corrección: usar los registros de las tres sesiones
 
 **Para volver a entrenar con el Excel actual utiliza el [cuaderno corregido `RF_Guanaba_todas_sesiones.ipynb`](RF_Guanaba_todas_sesiones.ipynb) y las [instrucciones paso a paso](COMO_ENTRENAR_CON_TODAS_LAS_SESIONES.md).** La descarga ya no utiliza un commit antiguo ni conserva archivos de ejecuciones anteriores. El cuaderno anterior `RF_Guanaba (1).ipynb` se conserva como registro del entrenamiento exploratorio de 813 muestras.
