@@ -42,7 +42,8 @@ Publicar una versión **identificable y reproducible** del proyecto de simulaci�
 | `.pkl` RF definitivo, trazable y validado | [ ] | El artefacto publicado aún no tiene validación satisfactoria confirmada |
 | Excel consolidado final de RF y particiones | [ ] | Exportar y publicar desde nuevo cuaderno, conservar sesiones y criterios de filtrado |
 | Resultados RF de la misma ejecución: CSV, JSON y comparación con persistencia | [ ] | Publicar en `07_Resultados/`, además del error de próximo riego si se presenta |
-| Evaluación independiente del checkpoint MobileNetV2 a 0,90 | [ ] | Completar matrices, métricas y procedencia de particiones |
+| Script y cuaderno de evaluación MobileNetV2 | [x] | [Script y Colab disponibles](../05_MobileNetV2/COMO_EVALUAR_CHECKPOINT_FINAL.md), sin ejecución final todavía |
+| Evaluación independiente del checkpoint MobileNetV2 a 0,90 | [ ] | Preparar fotos independientes (no usadas en train/val), verificar su procedencia y ejecutar el cuaderno; publicar métricas, matrices 0,50/0,90 y CSV |
 | Imágenes originales de prueba y resultados cuantitativos completos | [ ] | Las **5 primeras capturas** ya están en [`07_Resultados/evidencias_integracion_guanabana/`](../07_Resultados/evidencias_integracion_guanabana/); **publicar E6–E20**, más pruebas detalladas, registros, condiciones y versiones; véase [informe preliminar](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md) |
 | Coherencia documental CODESYS/Factory I/O/tesis | [ ] | Corregir OPC DA versus OPC UA, límites de histéresis y mapa HR/IR según uso real |
 | Enlace de GitHub e instrucciones incorporados en Anexo C del documento | [ ] | Comprobar que apunte a la revisión final y a las rutas correctas |
