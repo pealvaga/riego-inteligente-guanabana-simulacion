@@ -1,6 +1,6 @@
 # Simulación de un sistema de riego inteligente para cultivos de guanábana
 
-**Actualización más reciente (11/11/2026).** [Random Forest `rf-v2`](https://github.com/pealvaga/riego-inteligente-guanabana-simulacion/releases/tag/rf-v2) está publicado como Release de 53 MB, con [base consolidada, CSV y métricas de prueba](07_Resultados/RF_INFORME_EVALUACION_V2_20261111.md). La última evaluación obtuvo **RMSE 0,114327**, mejor que persistencia **0,172037**, con **4.552 ejemplos de entrenamiento y 922 de prueba**. Los resultados inferiores de versiones anteriores se conservan como *históricos* y no describen el modelo actual. Queda pendiente cotejar la huella del `.pkl` original de Colab con la Release y verificar su carga e inferencia en Python.
+**Actualización más reciente (11/11/2026).** [Random Forest `rf-v2`](https://github.com/pealvaga/riego-inteligente-guanabana-simulacion/releases/tag/rf-v2) está publicado como Release de 53 MB, con [base consolidada, CSV y métricas de prueba](07_Resultados/RF_INFORME_EVALUACION_V2_20261111.md). La última evaluación obtuvo **RMSE 0,114327**, mejor que persistencia **0,172037**, con **4.552 ejemplos de entrenamiento y 922 de prueba**. Los resultados inferiores de versiones anteriores se conservan como *históricos* y no describen el modelo actual. **La huella SHA-256 de la copia local del `.pkl` coincide con la del adjunto de Release.** Queda pendiente verificar su carga e inferencia en Python.
 
 
 Proyecto de grado de Ingeniería Mecatrónica (Universitaria Agustiniana, 2026) orientado a la simulación de un sistema de riego para guanábana (*Annona muricata* L.) a cielo abierto. Integra un modelo ambiental, control automático, supervisión SCADA y dos componentes de inteligencia artificial.
@@ -51,7 +51,7 @@ La ejecución integral requiere los proyectos y modelos correspondientes, ademá
 
 ## Reentrenamiento desde el registro completo
 
-Para corregir la selección de solo 813 muestras de la base histórica de Random Forest se creó un [cuaderno alternativo que reconstruye los datos desde todas las sesiones](04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb). Actualmente descarga la versión **más reciente del Excel publicada en `06_Datos/` de la rama `main`**, incluso cuando mantiene el mismo nombre. Consulta las [instrucciones para Google Colab](04_Random_Forest/COMO_ENTRENAR_CON_TODAS_LAS_SESIONES.md). El cuaderno nuevo se ejecutó con la base actual y los resultados `rf-v2` están publicados; la compatibilidad e identidad del modelo todavía deben comprobarse.
+Para corregir la selección de solo 813 muestras de la base histórica de Random Forest se creó un [cuaderno alternativo que reconstruye los datos desde todas las sesiones](04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb). Actualmente descarga la versión **más reciente del Excel publicada en `06_Datos/` de la rama `main`**, incluso cuando mantiene el mismo nombre. Consulta las [instrucciones para Google Colab](04_Random_Forest/COMO_ENTRENAR_CON_TODAS_LAS_SESIONES.md). El cuaderno nuevo se ejecutó con la base actual y los resultados `rf-v2` están publicados; la identidad SHA-256 ya se comprobó y queda pendiente verificar su compatibilidad funcional en Python.
 
 ## Evaluación de MobileNetV2
 
