@@ -16,7 +16,7 @@ La rama `main` contiene el Excel original de entrenamiento y los archivos de la 
 
 **Identidad de la base de origen:** Git blob SHA `6b5a285bf66ea871ff190bd191a1220066652440`, idéntico al listado del árbol vigente; tamaño **729.049 bytes**; SHA-256 informado en `origen_excel_RF.json` `5c8618e1ada2a961301c8a4bd21bd671a0ea34cd7d88802909f453a20afc4bd7`. La descarga de Colab se registró el 11/11/2026 a las 20:12:14 UTC.
 
-**Identidad de la Release:** `rf-v2`, publicado el 11/11/2026 a las 20:24:55 UTC, modelo de **53.111.758 bytes**. SHA-256 que publica el servidor GitHub para el adjunto: `c3eba2fce1d49187249afef988d0848276eb4dd2e9e5f5e2bf33fa8446e09692`. La huella acredita la identidad del archivo *publicado*, pero **todavía no se ha contrastado con una huella del `.pkl` generado localmente en la ejecución de Colab**. Tampoco se ha deserializado para verificar estructura, versiones y compatibilidad con `Sensores.py`.
+**Identidad de la Release:** `rf-v2`, publicado el 11/11/2026 a las 20:24:55 UTC, modelo de **53.111.758 bytes**. SHA-256 que publica el servidor GitHub para el adjunto: `c3eba2fce1d49187249afef988d0848276eb4dd2e9e5f5e2bf33fa8446e09692`. **Identidad del archivo local y la Release comprobada el 11/11/2026:** la captura de PowerShell aportada desde la carpeta local `resultados_RF_guanabana (1)` muestra el **mismo SHA-256** `c3eba2fce1d49187249afef988d0848276eb4dd2e9e5f5e2bf33fa8446e09692`. Se confirma igualdad de bytes de ambas copias. **Todavía falta probar** su carga, estructura interna, versiones y compatibilidad con `Sensores.py`.
 
 ## Métricas verificadas contra el CSV de 922 predicciones
 
@@ -51,7 +51,7 @@ En los cuatro grupos se observa un RMSE inferior a persistencia. La separación 
 
 Pendientes:
 
-1. Comprobar que el `.pkl` descargable de Release proviene exactamente de esta ejecución de Colab: comparar SHA-256 de la copia original descargada desde Colab con el SHA-256 publicado para el adjunto.
+1. **Completado:** la copia local de `resultados_RF_guanabana (1)` y el `.pkl` de GitHub Release coinciden en SHA-256, según la captura de PowerShell aportada. Conservar esa captura como evidencia de trazabilidad.
 2. En un equipo confiable y usando el propio archivo generado, comprobar claves `modelo`, `variables`, `paso_minutos=10`, `simulador_modelo_version=balance_hidrico_temperatura_v2`, versión de `scikit-learn` y carga/estimación desde `01_Python/Sensores.py`. Los archivos `joblib/pickle` pueden ejecutar código al abrirse y no deben deserializarse si su origen no es confiable.
 3. Realizar una validación adicional con una **sesión nueva reservada para prueba**, sin reajustar el modelo después de verla.
 4. Reportar, si se mantiene el objetivo de pronosticar el próximo riego, la diferencia entre su hora real simulada y la estimada, en minutos simulados.
