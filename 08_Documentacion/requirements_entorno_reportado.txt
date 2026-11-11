@@ -1,0 +1,13 @@
+# Instantánea de versiones registradas en ENTORNO_EJECUTADO.json
+# NO corresponde a un entorno ya probado de punta a punta.
+# Requiere CPython 3.12.9 y verificar que los modelos carguen.
+numpy==2.5.3
+pandas==3.0.5
+Pillow==12.3.0
+pymodbus==3.15.0
+joblib==1.6.0
+scikit-learn==1.6.1
+tensorflow==2.21.0
+openpyxl==3.1.5
+matplotlib==3.11.2
+keras==3.15.1
