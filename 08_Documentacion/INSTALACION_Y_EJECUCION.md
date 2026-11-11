@@ -32,7 +32,7 @@ Colocar en el directorio de `Sensores.py` los archivos `modelo_prediccion_humeda
 
 ## Proyecto CODESYS incluido
 
-El archivo [`02_CODESYS/Codesys.zip`](../02_CODESYS/Codesys.zip) contiene `Grado.project` y `Grado.Device.Application.xml`, además de archivos auxiliares. En el proyecto se identifican CODESYS Control Win V3, Modbus TCP Slave (puerto 502), programas `OPERACIONES`, `RIEGO` y `REGISTRO_DATOS`, y una tarea cíclica `T#20ms`. Los metadatos mencionan componentes 3.5.9.0/3.5.9.10: las versiones de instalación deben cotejarse con el entorno de apertura. Consultar [documentación CODESYS](../02_CODESYS/README.md).
+El archivo [`02_CODESYS/Codesys.zip`](../02_CODESYS/Codesys.zip) contiene `Grado.project` y `Grado.Device.Application.xml`, además de archivos auxiliares. En el proyecto se identifican CODESYS Control Win V3, Modbus TCP Slave (puerto 502), programas `OPERACIONES`, `RIEGO` y `REGISTRO_DATOS`, y una tarea cíclica `T#20ms`. Los metadatos mencionan componentes 3.5.9.0/3.5.9.10 y las capturas del equipo identifican el **IDE CODESYS V3.5 SP9 Patch 1**, con **Device Modbus TCP Slave 3.5.9.10**; consultar el [registro del entorno](ENTORNO_CODESYS_REGISTRADO.md). La versión del runtime Control Win y las bibliotecas realmente requeridas por el proyecto deben verificarse en línea. Consultar [documentación CODESYS](../02_CODESYS/README.md).
 
 ## Comunicación e integración
 
