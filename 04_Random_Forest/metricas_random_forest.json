@@ -1,0 +1,13 @@
+{
+  "MAE": 0.0599762196446263,
+  "RMSE": 0.11432700519615449,
+  "R2": 0.9999423053548312,
+  "MAE_referencia": 0.14436796743894673,
+  "RMSE_referencia": 0.17203678861887498,
+  "registros_entrenamiento": 4552,
+  "registros_prueba": 922,
+  "metodo_division": "escenarios",
+  "escenarios_totales": 13,
+  "supera_referencia": true,
+  "apto_para_prueba_en_aplicacion": true
+}
