@@ -62,6 +62,12 @@ Ver el [análisis detallado](../06_Datos/ANALISIS_INVENTARIO_MOBILENETV2.md). No
 
 El preprocesamiento `mobilenet_v2.preprocess_input` está dentro de la red construida. Por ello la aplicación [`Sensores.py`](../01_Python/Sensores.py) envía RGB con valores 0–255, sin aplicar una segunda normalización.
 
+## Primera evaluación del checkpoint fine-tuned (11/11/2026)
+
+Se ejecutó el checkpoint final sobre un conjunto nuevo de **100 capturas PNG** (50 Sanas y 50 Deficiencia) y se archivaron las **[métricas agregadas y sus limitaciones](../07_Resultados/MobileNetV2/INFORME_PRELIMINAR_20261111.md)**. El resultado fue **accuracy 67 % con umbral 0,50 y 63 % con umbral 0,90**. La detección de la clase Deficiencia presentó **recall de 34 % y 26 %**, respectivamente; con el umbral operativo **37 de las 50 hojas etiquetadas con deficiencia** no se detectaron.
+
+**Estado: evaluación preliminar, independencia no acreditada.** El contraste SHA-256 no encontró copias exactas, pero no se declararon fotografías independientes ni se completaron campos de fuente/especie/grupo original. Los nombres de los 100 archivos indican que se utilizaron capturas de pantalla; las coincidencias visuales y la procedencia aún requieren verificación. No se debe presentar esta prueba como validación definitiva ni como diagnóstico agronómico.
+
 ## Lectura académica de los resultados
 
 El código realiza la partición de rutas **antes** del aumento aleatorio de datos; esto reduce el riesgo de filtrar transformaciones generadas en línea a la prueba. No obstante, no se agrupan imágenes por identificador de original, planta o fuente: no es posible descartar copias, variaciones o imágenes correlacionadas en particiones diferentes sin revisar las imágenes y sus metadatos.
