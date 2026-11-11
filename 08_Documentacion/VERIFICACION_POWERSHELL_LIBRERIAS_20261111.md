@@ -36,7 +36,7 @@ Para obtener la lista completa en una ruta de usuario, ejecutar:
 python -m pip freeze | Set-Content -Path "$env:USERPROFILE\versiones_librerias_python.txt" -Encoding UTF8
 ```
 
-El archivo completo `pip freeze` **todavía no se ha recibido**. El resumen de paquetes directos sí está registrado; **no debe presentarse como bloqueo completo de todas las dependencias transitivas**.
+**Actualización:** el archivo completo [`versiones_librerias_python_20261111.txt`](versiones_librerias_python_20261111.txt) **ya fue recibido y publicado**. Contiene **53 paquetes** fijados con `==`, sin duplicados ni registros mal formados. El inventario incluye dependencias directas y transitivas de este entorno global de Python; **su publicación no constituye una prueba de reinstalación desde cero**.
 
 Para relacionar este entorno con la ejecución efectiva, obtener `python -c "import sys; print(sys.executable)"` desde el mismo terminal con el que se abre la aplicación y confirmar que se trata de este intérprete. Si la aplicación se lanza con un entorno virtual o Python distinto, repetir allí el registro.
 
@@ -48,10 +48,11 @@ Se aportó una segunda salida de PowerShell en la que el comando:
 python -m pip freeze | Set-Content -Path "$env:USERPROFILE\versiones_librerias_python.txt" -Encoding UTF8
 ```
 
-terminó **sin mensajes de error**. Por ello, la exportación del inventario completo a la carpeta del usuario **parece haberse realizado correctamente**; todavía **no se ha recibido ni verificado el contenido del archivo generado**. Se confirmó además que `sys.executable` señala a la instalación normal de **Python 3.12** bajo `AppData/Local/Programs/Python/Python312/python.exe`. No se publica la ruta personal completa. Para acreditar que es el intérprete efectivo de la aplicación, falta comprobar cómo se lanza `Sensores.py`.
+terminó **sin mensajes de error**. El archivo resultante fue **recibido, revisado y publicado íntegramente** en GitHub con **53 paquetes**, tamaño **955 bytes** y huella SHA-256 **`e388edff914928f820bfe114b760df6d5c919ddfbabfc35889f86830ad34ff0b`**. Su identidad se verificó mediante el SHA-1 del objeto Git **`e7ae560b7362c2a27c46a7fbeb70528c3f5795a3`**, que coincide con el calculado para el archivo original. Se confirmó además que `sys.executable` señala a la instalación normal de **Python 3.12** bajo `AppData/Local/Programs/Python/Python312/python.exe`. No se publica la ruta personal completa. Para acreditar que es el intérprete efectivo de la aplicación, falta comprobar cómo se lanza `Sensores.py`.
 
 ## Estado
 
 - **Completado:** comprobación de Python, pip y diez librerías principales instaladas, con versiones coincidentes con la instantánea anterior.
-- **Por completar (recomendado):** adjuntar y revisar el archivo `pip freeze` ya generado sin errores aparentes, y comprobar que la aplicación ejecuta el intérprete identificado en PowerShell.
+- **Completado:** [`pip freeze` de 53 paquetes, idéntico al adjunto original](versiones_librerias_python_20261111.txt). El registro incluye NumPy, Pandas, Scikit-learn, Joblib, PyModbus, TensorFlow, Keras, Pillow, Matplotlib, OpenPyXL, SciPy y OpenCV.
+- **Por completar si se requiere reproducibilidad integral:** comprobar que `Sensores.py` se ejecuta usando este mismo intérprete, ejecutar `python -m pip check` y realizar una prueba desde una instalación limpia; la presencia de las bibliotecas no certifica la compatibilidad de todos los modelos.
 - **Sin cambios** en las versiones instaladas, el código de Python ni los archivos `.pkl`/`.keras`.
