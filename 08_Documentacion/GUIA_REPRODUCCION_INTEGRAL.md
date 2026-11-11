@@ -60,7 +60,7 @@ Un paquete RF apto debe incluir `modelo` con `predict`, `variables` en el orden 
 
 1. Descargar y descomprimir `02_CODESYS/Codesys.zip`.
 2. Abrir el proyecto `Codesys/Grado.project` en una instalación compatible de CODESYS, con CODESYS Control Win V3.
-3. Revisar y registrar versión del entorno, dispositivo, bibliotecas y dependencias requeridas. El paquete tiene referencias a componentes 3.5.9.0 / 3.5.9.10, **no una versión completa de instalación certificada**.
+3. La versión del IDE ya está [documentada mediante capturas](ENTORNO_CODESYS_REGISTRADO.md) como **CODESYS V3.5 SP9 Patch 1**, con componentes **3.5.9.0 / 3.5.9.10** y Device Modbus TCP Slave **3.5.9.10**. Verificar ahora la versión del **runtime CODESYS Control Win V3**, la configuración de dispositivos y las bibliotecas realmente requeridas por `Grado.project`.
 4. Compilar y comprobar errores; arrancar el controlador virtual y ejecutar la aplicación.
 5. Verificar el dispositivo Modbus TCP Slave/Server con puerto 502, y el mapa de HR0–HR7 e IR0 descrito en [MAPA_MODBUS.md](MAPA_MODBUS.md).
 6. Comprobar que las variables de símbolo `PLC1.Application.GVL.FO_*` estén expuestas al servidor OPC clásico.
