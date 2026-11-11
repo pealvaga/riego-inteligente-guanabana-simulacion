@@ -98,9 +98,9 @@ Realizar y guardar evidencia de las siguientes comprobaciones **en la aplicació
 
 Para registrar el histórico de CODESYS, comprobar la ubicación real de `HistorialCultivo.csv` y su contenido. El programa alternativo de Random Forest guarda por separado un Excel de sesiones; no confundir ambos orígenes de datos.
 
-## Capturas de una ejecución operativa aportadas
+## Evidencia de una ejecución operativa
 
-Se recibieron capturas con indicador de **Factory I/O conectado** al servidor `CoDeSys.OPC.DA (14)`, **Python Modbus COMUNICACIÓN OK**, y **CODESYS Device conectado / Application [ejecutar]** con HMI/SCADA. El [informe de evidencia integrada](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md) distingue el funcionamiento mostrado de las comprobaciones aún pendientes. Las capturas no sustituyen una ejecución desde cero ni demuestran métricas de las IA; el modelo RF mostrado como **cargado** no está validado por ese solo mensaje.
+Las capturas muestran un indicador de **Factory I/O conectado** al servidor `CoDeSys.OPC.DA (14)`, **Python Modbus COMUNICACIÓN OK**, y **CODESYS Device conectado / Application [ejecutar]** con HMI/SCADA. El [informe de evidencia integrada](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md) distingue el funcionamiento mostrado de las comprobaciones aún pendientes. Las capturas no sustituyen una ejecución desde cero ni demuestran métricas de las IA; el modelo RF mostrado como **cargado** no está validado por ese solo mensaje.
 
 ## 7. Reproducir los datos y los entrenamientos
 
@@ -116,7 +116,7 @@ Se recibieron capturas con indicador de **Factory I/O conectado** al servidor `C
 
 - Código de entrenamiento: [`05_MobileNetV2/ia_imagen.py`](../05_MobileNetV2/ia_imagen.py).
 - Modelo de imágenes: [`05_MobileNetV2/mejor_modelo_hojas_finetuning.keras`](../05_MobileNetV2/mejor_modelo_hojas_finetuning.keras).
-- Carpeta de imágenes proporcionada por el autor: [Google Drive — IA](https://drive.google.com/drive/folders/1dSFK86hFvjr4cZiNZvvqDZDGeydOIcys?usp=sharing), sujeta a permisos y licencias. El código de Colab utiliza `/content/drive/MyDrive/IA`, con carpetas `Sanas` y `Nutrientes`.
+- Carpeta de imágenes utilizada para el entrenamiento: [Google Drive — IA](https://drive.google.com/drive/folders/1dSFK86hFvjr4cZiNZvvqDZDGeydOIcys?usp=sharing), sujeta a permisos y licencias. El código de Colab utiliza `/content/drive/MyDrive/IA`, con carpetas `Sanas` y `Nutrientes`.
 - Reproducir la evaluación del checkpoint final siguiendo [la guía](../05_MobileNetV2/GUIA_EVALUACION_FINAL.md); comprobar independencia de imágenes originales y usar **0,90** como umbral operativo.
 - Las etiquetas construidas con CoLeaf (café) y SoursopBD (guanábana con enfermedades/plagas) no prueban diagnóstico nutricional específico en guanábana.
 
