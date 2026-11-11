@@ -2,6 +2,8 @@
 
 **Revisión del 11/11/2026:** la evaluación **Random Forest v2** ya está publicada y **supera persistencia** (RMSE 0,114327 frente a 0,172037). Los informes antiguos que reportan **NO VALIDADO** corresponden a entrenamientos **anteriores**, no al modelo publicado en [Release `rf-v2`](https://github.com/pealvaga/riego-inteligente-guanabana-simulacion/releases/tag/rf-v2). La identidad de bytes del `.pkl` **ya se verificó** mediante comparación SHA-256 de la copia local y GitHub Release; permanecen pendientes la prueba de carga/compatibilidad en Python y la evaluación de generalización.
 
+**Estado de publicación:** las **21 capturas E1–E21 están publicadas y el PNG 21 fue cotejado con su original**. La lista detallada incluye verificaciones opcionales y metodológicas que no significan que falten archivos. Para priorizar lo necesario para la entrega, ver [PENDIENTES_CIERRE_REPOSITORIO.md](PENDIENTES_CIERRE_REPOSITORIO.md).
+
 ## Objetivo del primer punto
 
 Publicar una versión **identificable y reproducible** del proyecto de simulación: fuentes, proyectos editables, modelos, datos pertinentes, entrenamiento, configuración, instrucciones y evidencia de funcionamiento. La existencia de los archivos en GitHub no demuestra automáticamente que el software funcione en otro equipo.
