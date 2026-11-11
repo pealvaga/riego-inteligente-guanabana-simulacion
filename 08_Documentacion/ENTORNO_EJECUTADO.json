@@ -1,0 +1,27 @@
+{
+  "fecha_utc": "2026-11-11T04:02:04+00:00",
+  "python_version": "3.12.9",
+  "python_implementation": "CPython",
+  "plataforma": "Windows",
+  "arquitectura": "AMD64",
+  "paquetes": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "Pillow": "12.3.0",
+    "pymodbus": "3.15.0",
+    "joblib": "1.6.0",
+    "scikit-learn": "1.6.1",
+    "tensorflow": "2.21.0",
+    "openpyxl": "3.1.5",
+    "matplotlib": "3.11.2",
+    "ipykernel": null,
+    "keras": "3.15.1"
+  },
+  "pendiente_registro_manual": {
+    "codesys": "Registrar version de IDE/controlador y bibliotecas",
+    "factory_io": "Registrar version, driver activo y conexion OPC DA",
+    "modbus": "Registrar que los HR0-HR7/IR0 se verificaron en ejecucion",
+    "modelos": "Registrar modelo y version con los que se comprobo inferencia"
+  },
+  "nota": "No implica que los componentes hayan sido ejecutados o validados."
+}
