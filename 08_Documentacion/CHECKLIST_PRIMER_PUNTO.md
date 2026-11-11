@@ -4,6 +4,8 @@
 
 **Estado de publicación:** las **21 capturas E1–E21 están publicadas y el PNG 21 fue cotejado con su original**. La lista detallada incluye verificaciones opcionales y metodológicas que no significan que falten archivos. Para priorizar lo necesario para la entrega, ver [PENDIENTES_CIERRE_REPOSITORIO.md](PENDIENTES_CIERRE_REPOSITORIO.md).
 
+**Seguimiento del punto 2:** [auditoría de evaluación de Random Forest y MobileNetV2](PUNTO_2_VALIDACION_METODOLOGICA_IA.md), con el [texto propuesto de actualización del capítulo 3.4](TEXTO_PROPUESTO_CORRECCION_IA_3_4.md).
+
 ## Objetivo del primer punto
 
 Publicar una versión **identificable y reproducible** del proyecto de simulación: fuentes, proyectos editables, modelos, datos pertinentes, entrenamiento, configuración, instrucciones y evidencia de funcionamiento. La existencia de los archivos en GitHub no demuestra automáticamente que el software funcione en otro equipo.
@@ -14,7 +16,7 @@ Publicar una versión **identificable y reproducible** del proyecto de simulaci�
 |---|---|---|
 | Repositorio público con descripción y componentes | [x] | [README principal](../README.md) |
 | Python original del sistema | [x] | [`Sensores.py`](../01_Python/Sensores.py) |
-| Paquete CODESYS final publicado | [x] | [`Simulación guanabana codesys (2).zip`](../02_CODESYS/Simulaci%C3%B3n%20guanabana%20codesys%20%282%29.zip), **8.906.941 bytes** (objeto Git `0154d1f7af90e3bec0958a563d9cbaed0d1a59a9`), subido tras guardar el proyecto. **Falta comprobar la extracción y apertura interna de `Grado.project`**; no altera la evidencia de compilación de la aplicación previamente ejecutada. |
+| Paquete CODESYS final publicado | [x] | [`Simulación guanabana codesys (2).zip`](../02_CODESYS/Simulaci%C3%B3n%20guanabana%20codesys%20%282%29.zip), **8.906.941 bytes** (objeto Git `0154d1f7af90e3bec0958a563d9cbaed0d1a59a9`), subido tras guardar el proyecto. **El equipo confirmó la revisión del ZIP definitivo en su instalación local**; no se ha extraído remotamente por limitación del conector. La evidencia previa de compilación del programa se conserva. |
 | Escena editable Factory I/O | [x] | [`Grado.factoryio`](../03_Factory_IO/Grado.factoryio) |
 | Código de entrenamiento MobileNetV2 y modelo `.keras` | [x] | [`05_MobileNetV2/`](../05_MobileNetV2/) |
 | Acceso documentado a imágenes y fuentes | [x] | [README MobileNetV2](../05_MobileNetV2/README.md); comprobar permisos y licencias |
