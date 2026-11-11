@@ -1,16 +1,25 @@
 Evidencias de integración del proyecto de grado (simulación)
 
-01. Factory I/O - OPC Client DA/UA y servidor CoDeSys.OPC.DA (14) con estado verde
-02. Python - Simulación en ejecución, COMUNICACIÓN OK, riego ACTIVO y registros RF
-03. Python - Configuración Modbus TCP, IP 127.0.0.1 puerto 502, Device ID 1
-04. CODESYS - Visualización HMI/SCADA con variables y tanques
-05. CODESYS - Grado.project, dispositivo conectado y Application [ejecutar]
+01–05: Conexión Factory I/O OPC DA (14 señales), Python Modbus TCP, visualización
+       SCADA y CODESYS conectado con aplicación en ejecución.
+06:    Compilación CODESYS sin errores ni advertencias.
+07–08: Escena Factory I/O de dos tanques y variables GVL online.
+09–14: Pulsador de emergencia, transición de señal y salidas de riego detenidas.
+15–16: Recuperación de salidas/indicadores tras el rearme observado.
+17–20: Escena y variables de salidas inactivas, indicador amarillo.
+21:    Simulación ambiental con RF cargado, humedad estimada a +10 minutos
+       y pronóstico de próximo riego: Día 3 - 23:30 con riego inactivo.
 
-Estas cinco capturas corresponden a una ejecución de la simulación. Por sí solas
-no muestran la compilación sin errores ni la evaluación independiente de las IA. Las horas simuladas
-en las capturas no son idénticas.
+ESTADO DE PUBLICACIÓN: las 21 capturas PNG E1–E21 están disponibles en esta carpeta.
+El PNG 21 es idéntico a la imagen original aportada (blob Git SHA-1
+1fc80448fbe235d34fd23dbf732926883e8efc86).
 
-Estado: estas cinco imágenes (E1–E5) están publicadas en esta carpeta.
-Pendientes de cargar: las quince imágenes restantes E6–E20, ya analizadas
-por separado en el informe de evidencias.
-Ver 07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md.
+IMPORTANTE: las capturas se obtuvieron en momentos distintos y no constituyen
+una medición sincronizada única. La fecha de próximo riego de E21 es una
+ESTIMACIÓN, no el instante real de activación validado. Las pruebas funcionales
+se reportaron como repetidas satisfactoriamente, pero no todas sus transiciones
+quedaron registradas en una misma secuencia de imágenes.
+
+Informes de referencia:
+  07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md (E1–E20)
+  07_Resultados/RF_EVIDENCIA_ESTIMACION_PROXIMO_RIEGO_20261111.md (E21)
