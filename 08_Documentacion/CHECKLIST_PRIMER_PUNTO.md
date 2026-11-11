@@ -24,9 +24,12 @@ Publicar una versión **identificable y reproducible** del proyecto de simulaci�
 | Versión del runtime CODESYS Control Win V3 | [x] | [Control Win **3.5.9.10**](VERSIONES_SOFTWARE_CONFIRMADAS.md), confirmada por captura de pantalla de inicio |
 | OPCConfig: versión instalada | [x] | [**3.5.9.0**](VERSIONES_SOFTWARE_CONFIRMADAS.md); **no es prueba de enlace OPC DA** |
 | Versión instalada de Factory I/O | [x] | [**2.5.10**](VERSIONES_SOFTWARE_CONFIRMADAS.md), confirmada por pantalla Update Checker |
-| Compilación CODESYS, runtime RUN y bibliotecas del proyecto | [ ] | Registrar compilación sin errores, aplicación en RUN y bibliotecas usadas por `Grado.project` |
+| Compilación de CODESYS sin errores ni advertencias | [x] | [Evidencia E6](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md): **0 errores, 0 advertencias**, 3 mensajes informativos |
+| CODESYS conectado y aplicación en ejecución | [x] | Captura con `Device [Conectado]` y `Application [ejecutar]` |
+| Monitorización GVL con valores del proceso | [x] | Captura E8: `FO_Riego1=TRUE`, `FO_S_NIVEL1=5.045404`, `FO_S_NIVEL2=9.539644`, `MB_Temp=350` |
+| Bibliotecas del proyecto y diagnóstico de Ethernet | [ ] | Registrar bibliotecas realmente usadas y verificar el icono de advertencia Ethernet |
 | Conexión y driver OPC DA de Factory I/O | [ ] | Confirmar conexión real con `CoDeSys.OPC.DA` y 14 señales; no basta con identificar versiones |
-| Evidencia visual de ejecución integrada | [x] | [Revisión de cinco capturas](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md): CODESYS conectado/en ejecución, Python con Modbus OK y Factory I/O con servidor OPC DA (14) conectado; **falta publicar los PNG** |
+| Evidencia visual de ejecución integrada | [x] | [Revisión de ocho capturas](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md): incluye compilación CODESYS sin errores, variables GVL, Python Modbus OK y Factory I/O OPC DA (14) conectado; **falta publicar los PNG** |
 | Demostración de instalación desde cero y validación funcional detallada | [ ] | Registrar compilación, errores, verificación individual de señales y evidencia de arranque en otra instalación o desde cero |
 | `.pkl` RF definitivo, trazable y validado | [ ] | El artefacto publicado aún no tiene validación satisfactoria confirmada |
 | Excel consolidado final de RF y particiones | [ ] | Exportar y publicar desde nuevo cuaderno, conservar sesiones y criterios de filtrado |
