@@ -5,7 +5,7 @@ Esta guía establece la secuencia de comprobación de la simulación y sus dos m
 ## Componentes de la simulación
 
 - **Python:** `01_Python/Sensores.py`, comunicación Modbus TCP y simulación ambiental.
-- **CODESYS:** `02_CODESYS/Codesys.zip` contiene `Grado.project`, servidor Modbus TCP, programas `OPERACIONES`, `RIEGO` y `REGISTRO_DATOS`.
+- **CODESYS:** `02_CODESYS/${newname}` (nuevo ZIP de 4.051.990 bytes) sustituyó al paquete anterior. **Falta cotejar su estructura interna**; la versión anterior incluía `Grado.project` con servidor Modbus y programas `OPERACIONES`, `RIEGO` y `REGISTRO_DATOS`. La versión final se declaró guardada antes de subirla.
 - **Factory I/O:** `03_Factory_IO/Grado.factoryio`, versión 2.5.10; escena con dos tanques, controles y **14 variables OPC DA** dirigidas al servidor `CoDeSys.OPC.DA`.
 - **Datos:** `HistorialCultivo.csv`, que contempla muestreo cada 10 minutos simulados mediante CAA File.
 
