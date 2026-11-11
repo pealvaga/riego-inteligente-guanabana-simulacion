@@ -98,6 +98,10 @@ Realizar y guardar evidencia de las siguientes comprobaciones **en la aplicació
 
 Para registrar el histórico de CODESYS, comprobar la ubicación real de `HistorialCultivo.csv` y su contenido. El programa alternativo de Random Forest guarda por separado un Excel de sesiones; no confundir ambos orígenes de datos.
 
+## Capturas de una ejecución operativa aportadas
+
+Se recibieron capturas con indicador de **Factory I/O conectado** al servidor `CoDeSys.OPC.DA (14)`, **Python Modbus COMUNICACIÓN OK**, y **CODESYS Device conectado / Application [ejecutar]** con HMI/SCADA. El [informe de evidencia integrada](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md) distingue el funcionamiento mostrado de las comprobaciones aún pendientes. Las capturas no sustituyen una ejecución desde cero ni demuestran métricas de las IA; el modelo RF mostrado como **cargado** no está validado por ese solo mensaje.
+
 ## 7. Reproducir los datos y los entrenamientos
 
 ### Random Forest
