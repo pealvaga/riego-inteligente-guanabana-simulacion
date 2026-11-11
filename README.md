@@ -56,6 +56,8 @@ Para evaluar el modelo fine-tuned sin modificar el entrenamiento existe un [cuad
 
 **Primer resultado del checkpoint MobileNetV2:** se dispone de un [informe preliminar de 100 imágenes](07_Resultados/MobileNetV2/INFORME_PRELIMINAR_20261111.md) (accuracy 67 % al umbral 0,50 y 63 % al umbral operativo 0,90). **No es una validación independiente acreditada**, por falta de procedencia y grupos originales de las fotografías. El reporte detalla los falsos negativos y la necesidad de corroborar etiquetas.
 
+**Resultado más reciente de Random Forest:** la nueva base generó **3.243 muestras aptas**, 2.672 para entrenamiento y 571 para prueba. En la [evaluación del 11/11/2026](07_Resultados/RF_INFORME_EVALUACION_BASE_ACTUALIZADA_20261111.md), el modelo obtuvo RMSE **1,7698** frente a **0,6304** de persistencia. **No validado**; no se sustituye el modelo de la simulación. Las cifras anteriores de 813 muestras son históricas.
+
 ## Reproducibilidad y alcance de las IA
 
 La evaluación de Random Forest debe preservar el orden temporal y separar las trayectorias destinadas a entrenamiento, validación y prueba. Sus resultados deben compararse con una referencia de persistencia y acompañarse de un error del momento estimado del próximo riego. **La ejecución actual del cuaderno utiliza el Excel publicado (813 muestras) y no supera la persistencia (RMSE 0,6144 frente a 0,1386)**; el archivo `.pkl` publicado requiere cotejar su procedencia y evaluación antes de utilizarlo en la aplicación.
