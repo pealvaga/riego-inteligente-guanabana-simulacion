@@ -2,6 +2,12 @@
 
 Este componente del proyecto utiliza un regresor Random Forest para predecir la humedad disponible del suelo y apoyar la estimación del próximo riego dentro del entorno simulado.
 
+## Corrección: usar los registros de las tres sesiones
+
+**Para volver a entrenar con el Excel publicado utiliza el [cuaderno corregido `RF_Guanaba_todas_sesiones.ipynb`](RF_Guanaba_todas_sesiones.ipynb) y las [instrucciones paso a paso](COMO_ENTRENAR_CON_TODAS_LAS_SESIONES.md).** El cuaderno anterior `RF_Guanaba (1).ipynb` se conserva como registro del entrenamiento exploratorio de 813 muestras.
+
+La versión corregida lee la hoja **`Registro_10min`** con 2.878 registros en lugar de leer `Entrenamiento_RF` con 813. Construye una base consolidada a partir de todas las sesiones/escenarios, aplicando filtros de continuidad temporal y estado Modbus. La cantidad final de muestras válidas y las métricas **aún no se han calculado con el nuevo cuaderno**. No reemplaza automáticamente el `.pkl` en `01_Python`.
+
 ## Archivos incorporados
 
 - [`simulador_guanabana_grado_registro_RF.py`](simulador_guanabana_grado_registro_RF.py): copia de la aplicación preparada para registrar y exportar datos en Excel sin modificar `01_Python/Sensores.py`.
