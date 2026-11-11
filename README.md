@@ -41,6 +41,8 @@ La arquitectura no equivale a una validación agronómica en campo. En particula
 - [Entorno CODESYS registrado: V3.5 SP9 Patch 1 y componentes](08_Documentacion/ENTORNO_CODESYS_REGISTRADO.md)
 - [Versiones de Control Win 3.5.9.10, OPCConfig 3.5.9.0 y Factory I/O 2.5.10](08_Documentacion/VERSIONES_SOFTWARE_CONFIRMADAS.md)
 - [Texto propuesto para el Anexo C](08_Documentacion/TEXTO_PROPUESTO_ANEXO_C.md)
+- [Punto 2 del docente: auditoría metodológica de evaluación de IA](08_Documentacion/PUNTO_2_VALIDACION_METODOLOGICA_IA.md)
+- [Texto de actualización para resultados de IA, resumen y conclusiones](08_Documentacion/TEXTO_PROPUESTO_CORRECCION_IA_3_4.md)
 - [Evidencia de ejecución integrada: Python–CODESYS–Factory I/O](07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md)
 - [Plantilla de evidencia de pruebas funcionales](07_Resultados/PLANTILLA_EVIDENCIAS_FUNCIONALES.md)
 - [Guía del entorno y secuencia de ejecución](08_Documentacion/INSTALACION_Y_EJECUCION.md)
