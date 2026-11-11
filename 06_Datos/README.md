@@ -35,6 +35,10 @@ Se revisó un inventario de **2.247 imágenes** (1.220 Sana y 1.027 Deficiencia)
 
 Consultar el [análisis del inventario](ANALISIS_INVENTARIO_MOBILENETV2.md) y el [resumen en JSON](resumen_inventario_mobilenetv2.json). Estos registros no sustituyen las imágenes originales ni los resultados de evaluación independientes.
 
+## Preparación completa de las sesiones para Random Forest
+
+La hoja `Entrenamiento_RF` del Excel original tiene 813 filas, pero `Registro_10min` contiene 2.878 registros de tres sesiones. El [nuevo notebook](../04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb) reconstruye las ventanas válidas para todas las sesiones, sin mezclar datos discontinuos y respetando el registro Modbus. El resultado se exporta como `Base_guanabana_consolidada_para_RF.xlsx`, archivo que se podrá publicar aquí después de ejecutar el cuaderno.
+
 ## Base de registros de Random Forest
 
 Se publicó [`Datos_entrenamiento_guanabana_20261110_103013.xlsx`](Datos_entrenamiento_guanabana_20261110_103013.xlsx). La hoja `Registro_10min` contiene **2.878 registros y tres identificadores de sesión**, mientras que `Entrenamiento_RF` tiene **813 filas correspondientes solo a la primera sesión**. Los datos son compatibles con la versión declarada `balance_hidrico_temperatura_v2`.
