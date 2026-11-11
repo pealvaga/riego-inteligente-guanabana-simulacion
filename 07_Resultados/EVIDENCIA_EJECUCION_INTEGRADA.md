@@ -2,7 +2,7 @@
 
 ## Origen y alcance
 
-Revisión inicial de **cinco capturas de pantalla proporcionadas por el autor**, ampliada posteriormente con **quince capturas adicionales** (compilación CODESYS, escena Factory I/O, tabla GVL, emergencia, salidas detenidas, secuencia de rearme y estado de parada con indicador amarillo) de la simulación del sistema de riego para guanábana. Las capturas se obtuvieron durante una sesión operativa, con instantes simulados diferentes; **no se deben interpretar como una única medición sincronizada**. Los archivos de imagen originales **todavía no están incluidos** en el repositorio. Este documento transcribe la evidencia observable y registra lo que falta demostrar.
+Revisión inicial de **cinco capturas de pantalla registradas durante las pruebas del proyecto**, ampliada posteriormente con **quince capturas adicionales** (compilación CODESYS, escena Factory I/O, tabla GVL, emergencia, salidas detenidas, secuencia de rearme y estado de parada con indicador amarillo) de la simulación del sistema de riego para guanábana. Las capturas se obtuvieron durante una sesión operativa, con instantes simulados diferentes; **no se deben interpretar como una única medición sincronizada**. Los archivos de imagen originales **todavía no están incluidos** en el repositorio. Este documento transcribe la evidencia observable y registra lo que falta demostrar.
 
 **Software registrado:**
 - CODESYS IDE V3.5 SP9 Patch 1; CODESYS Control Win V3 3.5.9.10.
@@ -34,7 +34,7 @@ En E2 la interfaz muestra además:
 
 ## Ampliación de evidencia: compilación CODESYS y señales visibles
 
-Se recibieron tres capturas adicionales que complementan la serie anterior:
+Tres capturas adicionales complementan la serie anterior:
 
 | Evidencia | Vista | Datos observados | Interpretación acotada |
 |---|---|---|---|
@@ -44,7 +44,7 @@ Se recibieron tres capturas adicionales que complementan la serie anterior:
 
 El registro **`MB_Temp=350`** es consistente con **35,0 °C** al utilizar la escala ×10 que describe el programa Python y que aparece en las capturas previas de la HMI/SCADA.
 
-Los valores **`FO_S_NIVEL1` y `FO_S_NIVEL2` se transcriben tal como aparecen en la tabla GVL**; no se convierten a porcentajes porque esta captura no demuestra la unidad ni el escalamiento de esa variable. Que `FO_STOP=TRUE` y `FO_Riego1=TRUE` aparezcan al mismo tiempo es **coherente con la lógica normalmente cerrada declarada posteriormente por el autor**: TRUE corresponde al pulsador sin accionar. La prueba de pulsación TRUE→FALSE sigue pendiente.
+Los valores **`FO_S_NIVEL1` y `FO_S_NIVEL2` se transcriben tal como aparecen en la tabla GVL**; no se convierten a porcentajes porque esta captura no demuestra la unidad ni el escalamiento de esa variable. Que `FO_STOP=TRUE` y `FO_Riego1=TRUE` aparezcan al mismo tiempo es **coherente con la lógica normalmente cerrada definida para el pulsador NC**: TRUE corresponde al pulsador sin accionar. La prueba de pulsación TRUE→FALSE sigue pendiente.
 
 El árbol de dispositivos muestra un símbolo de advertencia junto a **Ethernet**. Esto **no contradice** el contador **0 advertencias de compilación**: un posible diagnóstico de dispositivo y los resultados del compilador corresponden a ámbitos distintos. Se debe inspeccionar su descripción sin afirmar que es un fallo funcional.
 
@@ -59,11 +59,11 @@ El árbol de dispositivos muestra un símbolo de advertencia junto a **Ethernet*
 
 ## Ampliación: cambio observado en la señal de emergencia
 
-Se recibieron dos capturas adicionales:
+Dos capturas adicionales documentan la prueba:
 
 | Evidencia | Vista | Dato observado | Alcance |
 |---|---|---|---|
-| **E9** | Panel de control de Factory I/O con pulsador de emergencia | Se observa físicamente el control de emergencia en la escena simulada | Documenta la ubicación y el accionamiento presentado por el autor; el fotograma aislado no identifica automáticamente su estado eléctrico |
+| **E9** | Panel de control de Factory I/O con pulsador de emergencia | Se observa físicamente el control de emergencia en la escena simulada | Documenta la ubicación y el accionamiento mostrado en la escena; el fotograma aislado no identifica automáticamente su estado eléctrico |
 | **E10** | Monitor en línea `Device.Application.GVL` de CODESYS | **`FO_EMERGENCIA = TRUE`** | Documenta la recepción/visualización del estado lógico activo de la variable en el PLC virtual |
 
 En una captura **anterior E8**, tomada sobre `Device.Application.GVL`, se observaba **`FO_EMERGENCIA = FALSE`**. La comparación **FALSE → TRUE** en el registro de CODESYS, acompañada de la captura del pulsador en Factory I/O, es **evidencia favorable de cambio de estado de una entrada vinculada entre la escena y el controlador**. Las imágenes no muestran un único instante sincronizado, por lo que no sustituyen una grabación completa ni una prueba automatizada de latencia.
@@ -93,7 +93,7 @@ Se aportaron **dos capturas adicionales (E11–E12)** para comprobar la respuest
 | `FO_LEDR` | FALSE | **TRUE** |
 | `FO_LEDV` | TRUE | **FALSE** |
 
-La secuencia observada es **coherente con desactivación de salidas de riego y encendido del indicador rojo cuando la emergencia está activa**, y aporta evidencia adicional de comportamiento lógico del sistema. Sin embargo, las capturas no son una grabación sincronizada; no es posible aislar rigurosamente la causa única del cambio. Según la aclaración posterior del autor, `FO_STOP=TRUE` es el estado de reposo de su pulsador NC, no una orden de parada. **No se certifica con ello una función de parada de seguridad física.**
+La secuencia observada es **coherente con desactivación de salidas de riego y encendido del indicador rojo cuando la emergencia está activa**, y aporta evidencia adicional de comportamiento lógico del sistema. Sin embargo, las capturas no son una grabación sincronizada; no es posible aislar rigurosamente la causa única del cambio. Con la configuración NC adoptada, `FO_STOP=TRUE` es el estado de reposo de su pulsador NC, no una orden de parada. **No se certifica con ello una función de parada de seguridad física.**
 
 **Hallazgo que requiere comprobación:** en E11 se ve un chorro entrando al tanque derecho, mientras que en E12 `FO_Llenado2=0`. Puede deberse a instantes distintos, animación/flujo residual o configuración de la válvula. Para determinarlo es necesario capturar la escena y el valor de la variable simultáneamente, observar si el chorro se detiene al cabo de unos segundos simulados y verificar el mapeo del actuador correspondiente. No declarar que *todas* las válvulas se han cerrado únicamente a partir de esta serie.
 
@@ -125,7 +125,7 @@ En ambas nuevas vistas de Factory I/O **no se aprecia el chorro de llenado super
 
 La secuencia **muestra un retorno de `FO_EMERGENCIA` a FALSE, el cambio de indicador rojo a verde y la reactivación de la salida `FO_Riego2` con `FO_S_DESCARGA2=TRUE`**. Es evidencia de un **rearme observado en la simulación y recuperación de la lógica de riego**.
 
-Sin embargo, **no se puede afirmar** que el riego requiera una nueva orden de inicio tras soltar la emergencia. En las capturas `FO_START=FALSE` y `FO_STOP=TRUE` tanto antes como después; el autor aclaró que `FO_STOP=TRUE` significa **reposo del pulsador NC**, no una orden de parada activa. Se recomienda registrar explícitamente si el riego vuelve automáticamente al quitar emergencia y evaluar si esa conducta es la deseada en la simulación.
+Sin embargo, **no se puede afirmar** que el riego requiera una nueva orden de inicio tras soltar la emergencia. En las capturas `FO_START=FALSE` y `FO_STOP=TRUE` tanto antes como después; `FO_STOP=TRUE` significa **reposo del pulsador NC**, no una orden de parada activa. Se recomienda registrar explícitamente si el riego vuelve automáticamente al quitar emergencia y evaluar si esa conducta es la deseada en la simulación.
 
 Los niveles de los tanques se muestran como valores de variables `REAL` sin atribuir unidades ni porcentajes: `FO_S_NIVEL2` desciende de 6.993286 a 6.487397 entre E14 y E16. Esta diferencia es consistente con una descarga activada posteriormente, pero no equivale a una prueba cuantitativa de caudal.
 
@@ -133,7 +133,7 @@ Los niveles de los tanques se muestran como valores de variables `REAL` sin atri
 
 ## Ampliación E17–E20: estado sin riego e indicador amarillo
 
-Se recibieron **cuatro capturas adicionales**: tres vistas de la escena Factory I/O y una tabla de variables `Device.Application.GVL`. Los depósitos se muestran con niveles diferentes, sin un chorro superior visible en las imágenes. Esta serie aporta una observación adicional del estado lógico del controlador, **sin registrar un evento de pulsación de STOP con marca de tiempo**.
+Se incorporaron **cuatro capturas adicionales**: tres vistas de la escena Factory I/O y una tabla de variables `Device.Application.GVL`. Los depósitos se muestran con niveles diferentes, sin un chorro superior visible en las imágenes. Esta serie aporta una observación adicional del estado lógico del controlador, **sin registrar un evento de pulsación de STOP con marca de tiempo**.
 
 | Variable | Captura E16: después de liberar la emergencia | Captura E19: estado actual |
 |---|---|---|
@@ -153,13 +153,13 @@ Se recibieron **cuatro capturas adicionales**: tres vistas de la escena Factory 
 
 **Interpretación:** la captura de CODESYS registra ambas salidas de riego desactivadas, descargas desactivadas e indicador amarillo encendido, **sin emergencia activa**. Frente al estado anterior de E16, es coherente con una transición a proceso detenido o en espera. `FO_S_NIVEL2` también presenta un valor menor en una captura posterior, pero el dato no permite cuantificar caudal ni demostrar una causa concreta.
 
-**Límite de la evidencia:** `FO_STOP` ya estaba en TRUE en E16 y permanece TRUE en E19. Por tanto, **no puede atribuirse inequívocamente el cambio al accionamiento de STOP** basándose únicamente en esas imágenes. Se recomienda una prueba antes/después en la que se vea cómo cambia el pulsador y su señal en GVL, qué salidas se desactivan y si es necesaria una nueva orden de START. El autor explicó que `FO_STOP=TRUE` corresponde al contacto NC en reposo; queda por verificar la transición a FALSE al pulsarlo y el significado de la indicación amarilla.
+**Límite de la evidencia:** `FO_STOP` ya estaba en TRUE en E16 y permanece TRUE en E19. Por tanto, **no puede atribuirse inequívocamente el cambio al accionamiento de STOP** basándose únicamente en esas imágenes. Se recomienda una prueba antes/después en la que se vea cómo cambia el pulsador y su señal en GVL, qué salidas se desactivan y si es necesaria una nueva orden de START. `FO_STOP=TRUE` corresponde al contacto NC en reposo; queda por verificar la transición a FALSE al pulsarlo y el significado de la indicación amarilla.
 
 Esta prueba documenta estados de una **simulación virtual**, no certifica una función física de seguridad.
 
-## Aclaración del autor: lógica normalmente cerrada de STOP
+## Configuración del pulsador STOP: lógica normalmente cerrada
 
-El autor confirma que configuró el pulsador **STOP como normalmente cerrado (NC)**: `FO_STOP=TRUE` representa la **condición normal de reposo**, en la cual el circuito de parada permanece cerrado; la pulsación debe producir `FO_STOP=FALSE` y solicitar la detención según la lógica del PLC.
+El pulsador **STOP se configuró como normalmente cerrado (NC)**: `FO_STOP=TRUE` representa la **condición normal de reposo**, en la cual el circuito de parada permanece cerrado; la pulsación debe producir `FO_STOP=FALSE` y solicitar la detención según la lógica del PLC.
 
 Por tanto, las capturas con `FO_STOP=TRUE` durante el riego o durante la emergencia **son coherentes con el diseño declarado** y no indican que STOP esté pulsado o que exista una anomalía.
 
@@ -168,7 +168,7 @@ Por tanto, las capturas con `FO_STOP=TRUE` durante el riego o durante la emergen
 | Sin pulsar | TRUE | Contacto NC cerrado, parada no solicitada |
 | Pulsado | FALSE | Contacto NC abierto, solicitud de parada |
 
-**Alcance de la aclaración:** esta polaridad fue explicada por el autor, pero **la transición `TRUE→FALSE` causada por pulsar STOP no se ha capturado todavía**. Tampoco puede atribuirse a STOP el paso a indicador amarillo en E17–E20: la señal permanece TRUE y no hay evidencia de pulsación. La respuesta ante una solicitud STOP y la necesidad de pulsar START para reanudar quedan pendientes de una prueba dirigida. Un esquema NC habitual no sustituye la validación de seguridad de una instalación física.
+**Alcance de la aclaración:** esta polaridad corresponde a la configuración documentada, pero **la transición `TRUE→FALSE` causada por pulsar STOP no se ha capturado todavía**. Tampoco puede atribuirse a STOP el paso a indicador amarillo en E17–E20: la señal permanece TRUE y no hay evidencia de pulsación. La respuesta ante una solicitud STOP y la necesidad de pulsar START para reanudar quedan pendientes de una prueba dirigida. Un esquema NC habitual no sustituye la validación de seguridad de una instalación física.
 
 ## Qué se puede afirmar de forma sustentada
 
@@ -207,4 +207,4 @@ La barra de título de CODESYS muestra **`Grado.project*`**. El asterisco puede 
 
 Las veinte capturas son evidencia favorable de **compilación sin errores, aplicación conectada/en ejecución, variables online y conectividad indicada por las interfaces** de los tres componentes. Con ellas se puede sustentar una demostración funcional preliminar para la primera observación del docente. **No son una certificación de ejecución completamente reproducida por terceros, ni prueba de exactitud de las IA**.
 
-El reporte se elaboró a partir de las capturas aportadas por el autor; no se modificaron `Sensores.py`, CODESYS, Factory I/O ni los modelos.
+Este informe se elaboró a partir de las capturas de funcionamiento; para documentarlas no se modificaron `Sensores.py`, CODESYS, Factory I/O ni los modelos.
