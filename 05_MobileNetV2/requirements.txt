@@ -1,0 +1,9 @@
+# Dependencias de ia_imagen.py y la evaluación de MobileNetV2.
+# Ejecutar el script de entrenamiento en Google Colab o adaptar sus rutas.
+# Versiones por fijar a partir del entorno REAL donde se entrenó el modelo.
+numpy
+matplotlib
+tensorflow
+scikit-learn
+Pillow
+# El módulo google.colab es propio de Google Colab.
