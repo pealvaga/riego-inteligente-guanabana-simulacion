@@ -1,0 +1,12 @@
+# Dependencias del simulador alternativo y del notebook de Random Forest.
+# Versiones por fijar con las del entorno REAL donde se entrenó y evaluó.
+numpy
+pandas
+scikit-learn
+joblib
+matplotlib
+openpyxl
+pymodbus
+Pillow
+# Tkinter es parte de la instalación de Python, no un paquete pip.
+# Google Colab proporciona "google.colab" en su propio entorno.
