@@ -4,9 +4,9 @@ Este componente del proyecto utiliza un regresor Random Forest para predecir la 
 
 ## Corrección: usar los registros de las tres sesiones
 
-**Para volver a entrenar con el Excel publicado utiliza el [cuaderno corregido `RF_Guanaba_todas_sesiones.ipynb`](RF_Guanaba_todas_sesiones.ipynb) y las [instrucciones paso a paso](COMO_ENTRENAR_CON_TODAS_LAS_SESIONES.md).** El cuaderno anterior `RF_Guanaba (1).ipynb` se conserva como registro del entrenamiento exploratorio de 813 muestras.
+**Para volver a entrenar con el Excel actual utiliza el [cuaderno corregido `RF_Guanaba_todas_sesiones.ipynb`](RF_Guanaba_todas_sesiones.ipynb) y las [instrucciones paso a paso](COMO_ENTRENAR_CON_TODAS_LAS_SESIONES.md).** La descarga ya no utiliza un commit antiguo ni conserva archivos de ejecuciones anteriores. El cuaderno anterior `RF_Guanaba (1).ipynb` se conserva como registro del entrenamiento exploratorio de 813 muestras.
 
-La versión corregida lee la hoja **`Registro_10min`** con 2.878 registros en lugar de leer `Entrenamiento_RF` con 813. Construye una base consolidada a partir de todas las sesiones/escenarios, aplicando filtros de continuidad temporal y estado Modbus. La cantidad final de muestras válidas y las métricas **aún no se han calculado con el nuevo cuaderno**. No reemplaza automáticamente el `.pkl` en `01_Python`.
+La versión corregida lee la hoja **`Registro_10min`** del **Excel actualmente publicado en GitHub**, en lugar de leer `Entrenamiento_RF`. El Excel original tenía 2.878 registros brutos y solo 813 muestras preparadas, pero **el archivo fue reemplazado por una versión con más datos**. El cuaderno descarga siempre el archivo de la rama `main` e imprime el nuevo conteo. Construye una base consolidada a partir de todas las sesiones/escenarios, aplicando filtros de continuidad temporal y estado Modbus. La cantidad final de muestras válidas y las métricas **aún no se han calculado con el nuevo cuaderno**. No reemplaza automáticamente el `.pkl` en `01_Python`.
 
 ## Archivos incorporados
 
@@ -29,7 +29,7 @@ El historial de CODESYS se describe como `HistorialCultivo.csv` y contiene colum
 
 ## Archivo de entrada del cuaderno vigente
 
-La salida guardada en `RF_Guanaba (1).ipynb` confirma la lectura de [`Datos_entrenamiento_guanabana_20261110_103013.xlsx`](../06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx), ya disponible en `06_Datos`. Su hoja `Registro_10min` tiene **2.878 registros de tres sesiones**, pero la hoja `Entrenamiento_RF` usada por el notebook incluye **813 muestras de una sola sesión**. La [revisión del Excel](../06_Datos/REVISION_EXCEL_RANDOM_FOREST.md) explica esta diferencia.
+La salida guardada en `RF_Guanaba (1).ipynb` confirma la lectura de [`Datos_entrenamiento_guanabana_20261110_103013.xlsx`](../06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx), ya disponible en `06_Datos`. En la versión **histórica** de ese Excel, `Registro_10min` tenía **2.878 registros de tres sesiones**, mientras que el antiguo notebook utilizaba solo **813 muestras de una sesión**. Estas cifras **no deben atribuirse automáticamente al archivo reemplazado** en GitHub. La [revisión del Excel](../06_Datos/REVISION_EXCEL_RANDOM_FOREST.md) explica esta diferencia.
 
 La evaluación anterior con otro Excel consolidado de 2.502 muestras se conserva como antecedente histórico en [REVISION_ARCHIVOS_Y_RESULTADOS.md](REVISION_ARCHIVOS_Y_RESULTADOS.md), pero **no debe presentarse como resultado de la ejecución vigente**.
 
