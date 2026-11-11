@@ -47,7 +47,7 @@ Los componentes **3.5.9.0** y **3.5.9.10** vistos en las capturas concuerdan con
 Esta coincidencia respalda la identificación del entorno de programación, pero no certifica:
 
 1. Que el paquete `Grado.project` abra sin avisos de actualización o bibliotecas faltantes.
-2. Qué versión concreta de **CODESYS Control Win V3**, runtime/servicio de ejecución, bibliotecas IEC y servidor **OPC DA `CoDeSys.OPC.DA`** se encuentran instalados y activos.
+2. Si **CODESYS Control Win V3** está efectivamente en ejecución (RUN), cuáles son las bibliotecas IEC utilizadas por el proyecto y si el servidor **OPC DA `CoDeSys.OPC.DA`** está instalado y activo. La versión de Control Win ya quedó identificada como **3.5.9.10**.
 3. Que compile correctamente, se encuentre en ejecución o que los registros Modbus HR0–HR7/IR0 intercambien valores.
 4. Que Factory I/O reciba correctamente los 14 símbolos OPC DA.
 5. Que `HistorialCultivo.csv` se genere en el sistema de ejecución.
@@ -63,4 +63,14 @@ Esta coincidencia respalda la identificación del entorno de programación, pero
 
 La [guía integral](GUIA_REPRODUCCION_INTEGRAL.md) contiene el orden propuesto para comprobar esos elementos. Las imágenes de «Acerca de» se recibieron en la conversación; **no están publicadas como archivos binarios dentro de este repositorio**. Este documento registra los datos visibles en ellas para la trazabilidad de versiones.
 
-**Estado:** versión del IDE y componentes relevantes documentados; versión del runtime y pruebas de funcionamiento pendientes.
+## Actualización: runtime y configuración OPC identificados
+
+Se recibieron capturas adicionales:
+
+- Pantalla de inicio: **CODESYS Control Win V3 Version 3.5.9.10**.
+- Cuadro «Info about OPCConfig»: **OPCConfig Version 3.5.9.0**.
+- Pantalla «Update Checker» de Factory I/O: **versión instalada v2.5.10**.
+
+Con ello ya están documentadas las versiones del **IDE** y del **runtime virtual**. OPCConfig es una utilidad de configuración, **no una prueba de conectividad OPC DA**. Ver el [resumen conjunto de software](VERSIONES_SOFTWARE_CONFIRMADAS.md).
+
+**Estado actualizado:** versiones de IDE, Control Win y OPCConfig documentadas; compilación, bibliotecas efectivamente usadas, ejecución en RUN y comunicaciones por verificar.
