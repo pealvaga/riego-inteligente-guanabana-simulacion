@@ -58,7 +58,7 @@ Publicar una versión **identificable y reproducible** del proyecto de simulaci�
 
 ## Evidencia complementaria de predicción de humedad
 
-Se recibió una tabla con **21 parejas de humedad estimada y observada**, conservada en el [informe](../07_Resultados/RF_COMPROBACION_OPERATIVA_21_PREDICCIONES_20261111.md) y [CSV](../07_Resultados/RF_comparacion_operativa_21_pares_20261111.csv): **MAE 0,00429** y **RMSE 0,00655**, calculados con valores redondeados a dos decimales. La humedad real se mantuvo entre **75,52 y 76,61 %**. **Pendiente:** asociar cada pareja con instante de predicción `t` y lectura real `t+10` minutos simulados, así como demostrar carga de `rf-v2` en la aplicación mediante captura. No equivale a nueva evaluación independiente por escenarios.
+Se recibió una tabla con **21 parejas de humedad estimada y observada**, conservada en el [informe](../07_Resultados/RF_COMPROBACION_OPERATIVA_21_PREDICCIONES_20261111.md) y [CSV](../07_Resultados/RF_comparacion_operativa_21_pares_20261111.csv): **MAE 0,00429** y **RMSE 0,00655**, calculados con valores redondeados a dos decimales. La humedad real se mantuvo entre **75,52 y 76,61 %**. **Se confirmó que cada valor real se tomó exactamente 10 minutos simulados después de su predicción.** La tabla no conserva marcas de tiempo de cada pareja ni captura que identifique `rf-v2` en esa ejecución; adjuntar esas evidencias si están disponibles. No equivale a nueva evaluación independiente por escenarios.
 
 ## Estado aclarado tras la revisión con el equipo
 
