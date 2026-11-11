@@ -72,6 +72,18 @@ El bloque final realiza una prueba de una sola imagen con `UMBRAL = 0.50`. En ca
 
 Por claridad, no se atribuyen al modelo final métricas que el código calcula antes de la segunda etapa.
 
+## Evaluación reproducible del checkpoint final en Colab
+
+Se incorporaron herramientas **separadas del entrenamiento original**, sin modificar `ia_imagen.py` ni el modelo `.keras`:
+
+- **[Abrir cuaderno de evaluación en Colab](https://colab.research.google.com/github/pealvaga/riego-inteligente-guanabana-simulacion/blob/main/05_MobileNetV2/EVALUAR_MOBILENETV2.ipynb)**.
+- [`EVALUAR_MOBILENETV2.ipynb`](EVALUAR_MOBILENETV2.ipynb): configuración, ejecución y descarga.
+- [`evaluar_checkpoint_final.py`](evaluar_checkpoint_final.py): inferencia y cálculo de métricas 0,50/0,90.
+- [Instrucciones para preparar prueba independiente](COMO_EVALUAR_CHECKPOINT_FINAL.md).
+- [Plantilla para manifestar imágenes de prueba](plantilla_manifest_prueba.csv).
+
+**Estado:** código de evaluación publicado; **sin métricas finales ejecutadas o publicadas todavía**. Se requiere un conjunto de prueba independiente y documentar su procedencia, ya que el reparto 70/15/15 de entrenamiento no se conservó como un manifiesto verificable y el inventario encontró duplicados exactos.
+
 ## Cómo completar la evaluación sin reentrenar
 
 1. Conservar el modelo original `.keras` y el código de entrenamiento sin modificaciones.
