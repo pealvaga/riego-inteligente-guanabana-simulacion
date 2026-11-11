@@ -2,7 +2,7 @@
 
 ## Origen y alcance
 
-Revisión inicial de **cinco capturas de pantalla proporcionadas por el autor**, ampliada posteriormente con **tres capturas adicionales** (compilación CODESYS, escena Factory I/O y tabla de variables GVL) de la simulación del sistema de riego para guanábana. Las capturas se obtuvieron durante una sesión operativa, con instantes simulados diferentes; **no se deben interpretar como una única medición sincronizada**. Los archivos de imagen originales **todavía no están incluidos** en el repositorio. Este documento transcribe la evidencia observable y registra lo que falta demostrar.
+Revisión inicial de **cinco capturas de pantalla proporcionadas por el autor**, ampliada posteriormente con **cinco capturas adicionales** (compilación CODESYS, escena Factory I/O, tabla de variables GVL y dos evidencias del pulsador de emergencia) de la simulación del sistema de riego para guanábana. Las capturas se obtuvieron durante una sesión operativa, con instantes simulados diferentes; **no se deben interpretar como una única medición sincronizada**. Los archivos de imagen originales **todavía no están incluidos** en el repositorio. Este documento transcribe la evidencia observable y registra lo que falta demostrar.
 
 **Software registrado:**
 - CODESYS IDE V3.5 SP9 Patch 1; CODESYS Control Win V3 3.5.9.10.
@@ -57,6 +57,21 @@ El árbol de dispositivos muestra un símbolo de advertencia junto a **Ethernet*
 
 **Límite:** una tabla de valores instantáneos **no demuestra** una prueba de variación controlada de esas señales. Para cerrar la verificación funcional, tomar por lo menos dos capturas o un video breve con una entrada/actuador cambiando y observar la misma variable en CODESYS.
 
+## Ampliación: cambio observado en la señal de emergencia
+
+Se recibieron dos capturas adicionales:
+
+| Evidencia | Vista | Dato observado | Alcance |
+|---|---|---|---|
+| **E9** | Panel de control de Factory I/O con pulsador de emergencia | Se observa físicamente el control de emergencia en la escena simulada | Documenta la ubicación y el accionamiento presentado por el autor; el fotograma aislado no identifica automáticamente su estado eléctrico |
+| **E10** | Monitor en línea `Device.Application.GVL` de CODESYS | **`FO_EMERGENCIA = TRUE`** | Documenta la recepción/visualización del estado lógico activo de la variable en el PLC virtual |
+
+En una captura **anterior E8**, tomada sobre `Device.Application.GVL`, se observaba **`FO_EMERGENCIA = FALSE`**. La comparación **FALSE → TRUE** en el registro de CODESYS, acompañada de la captura del pulsador en Factory I/O, es **evidencia favorable de cambio de estado de una entrada vinculada entre la escena y el controlador**. Las imágenes no muestran un único instante sincronizado, por lo que no sustituyen una grabación completa ni una prueba automatizada de latencia.
+
+**No queda demostrada aún la actuación de seguridad**: para comprobar que la emergencia detiene realmente el riego simulado se requiere observar qué sucede, tras activarla, con `FO_Riego1`, `FO_Riego2`, las válvulas, el indicador de emergencia, y cómo se restablece el sistema. El hecho de que `FO_EMERGENCIA=TRUE` no demuestra por sí solo que el control pase a estado seguro.
+
+Esta es una prueba de **simulación industrial virtual**; no certifica una función de seguridad física ni un nivel de integridad de seguridad.
+
 ## Qué se puede afirmar de forma sustentada
 
 1. Factory I/O **muestra una conexión activa** con el servidor `CoDeSys.OPC.DA` y 14 símbolos.
@@ -85,10 +100,11 @@ La barra de título de CODESYS muestra **`Grado.project*`**. El asterisco puede 
 3. Ejecutar una prueba corta de **Python ↔ CODESYS**: comparar en el mismo instante `Temperatura`, `Precipitacion`, `HumedadSuelo` y `MB_RiegoOn` en ambos lados; comprobar HR0–HR7/IR0.
 4. Conservar evidencia del **evento de riego** (inicio y parada alrededor de los umbrales programados) y del histórico guardado; verificar qué señales representan `GVL.Riego` y `GVL.Regando`.
 5. Documentar una prueba de **MobileNetV2** con hoja de muestra y umbral 0,90, sin considerarla diagnóstico agronómico definitivo.
-6. Publicar las capturas originales, si se desea, en `07_Resultados/evidencias_integracion/` y vincularlas desde este reporte.
+6. Conservar las dos capturas E9/E10 de la transición de emergencia y comprobar el comportamiento seguro de las salidas después de activarla.
+7. Publicar las capturas originales, si se desea, en `07_Resultados/evidencias_integracion/` y vincularlas desde este reporte.
 
 ## Conclusión
 
-Las ocho capturas son evidencia favorable de **compilación sin errores, aplicación conectada/en ejecución, variables online y conectividad indicada por las interfaces** de los tres componentes. Con ellas se puede sustentar una demostración funcional preliminar para la primera observación del docente. **No son una certificación de ejecución completamente reproducida por terceros, ni prueba de exactitud de las IA**.
+Las diez capturas son evidencia favorable de **compilación sin errores, aplicación conectada/en ejecución, variables online y conectividad indicada por las interfaces** de los tres componentes. Con ellas se puede sustentar una demostración funcional preliminar para la primera observación del docente. **No son una certificación de ejecución completamente reproducida por terceros, ni prueba de exactitud de las IA**.
 
 El reporte se elaboró a partir de las capturas aportadas por el autor; no se modificaron `Sensores.py`, CODESYS, Factory I/O ni los modelos.
