@@ -29,17 +29,19 @@ Publicar una versión **identificable y reproducible** del proyecto de simulaci�
 | Monitorización GVL con valores del proceso | [x] | Captura E8: `FO_Riego1=TRUE`, `FO_S_NIVEL1=5.045404`, `FO_S_NIVEL2=9.539644`, `MB_Temp=350` |
 | Bibliotecas del proyecto y diagnóstico de Ethernet | [ ] | Registrar bibliotecas realmente usadas y verificar el icono de advertencia Ethernet |
 | Conexión y driver OPC DA de Factory I/O | [ ] | Confirmar conexión real con `CoDeSys.OPC.DA` y 14 señales; no basta con identificar versiones |
-| Evidencia visual de ejecución integrada | [x] | [Revisión de dieciséis capturas](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md): incluye compilación CODESYS sin errores, variables GVL, Python Modbus OK y Factory I/O OPC DA (14) conectado; **falta publicar los PNG** |
+| Evidencia visual de ejecución integrada | [x] | [Revisión de veinte capturas](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md): incluye compilación CODESYS sin errores, variables GVL, Python Modbus OK y Factory I/O OPC DA (14) conectado; **falta publicar los PNG** |
 | Cambio observado FO_EMERGENCIA en CODESYS | [x] | [Capturas E8 y E10](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md): antes **FALSE**, después **TRUE**, junto con captura del pulsador de emergencia en Factory I/O; falta comprobar el efecto sobre salidas |
 | Desactivación de salidas de riego con emergencia activa | [x] | [Comparación E8/E12](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md): `FO_Riego1` TRUE→FALSE, `FO_Riego2` FALSE, `FO_S_DESCARGA1` TRUE→FALSE, `FO_LEDR` FALSE→TRUE. Evidencia visual de secuencia, no certificación de seguridad. |
 | Rearme observado en simulación después de emergencia | [x] | [E14/E16](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md): `FO_EMERGENCIA` TRUE→FALSE, `FO_LEDR` TRUE→FALSE, `FO_LEDV` FALSE→TRUE, `FO_Riego2` FALSE→TRUE |
+| Estado sin riego e indicador amarillo observado | [x] | [E16/E19](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md): `FO_Riego2` TRUE→FALSE, `FO_S_DESCARGA2` TRUE→FALSE, `FO_LEDA` FALSE→TRUE, sin emergencia activa |
+| Efecto específico de pulsar STOP y orden START | [ ] | `FO_STOP` sigue TRUE en ambas capturas; verificar polaridad, secuencia de pulsación y orden necesaria para reactivar el sistema |
 | Confirmar lógica de reinicio, pulsador STOP y llenado | [ ] | `FO_STOP` permanece TRUE en ambos estados; verificar su polaridad y si el riego se habilita automáticamente al soltar emergencia o requiere START. No se ve chorro de llenado en las nuevas capturas, pero falta prueba sincronizada |
 | Demostración de instalación desde cero y validación funcional detallada | [ ] | Registrar compilación, errores, verificación individual de señales y evidencia de arranque en otra instalación o desde cero |
 | `.pkl` RF definitivo, trazable y validado | [ ] | El artefacto publicado aún no tiene validación satisfactoria confirmada |
 | Excel consolidado final de RF y particiones | [ ] | Exportar y publicar desde nuevo cuaderno, conservar sesiones y criterios de filtrado |
 | Resultados RF de la misma ejecución: CSV, JSON y comparación con persistencia | [ ] | Publicar en `07_Resultados/`, además del error de próximo riego si se presenta |
 | Evaluación independiente del checkpoint MobileNetV2 a 0,90 | [ ] | Completar matrices, métricas y procedencia de particiones |
-| Imágenes originales de prueba y resultados cuantitativos completos | [ ] | Publicar las 16 capturas originales en `07_Resultados/`, más pruebas detalladas, registros, condiciones y versiones; véase [informe preliminar](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md) |
+| Imágenes originales de prueba y resultados cuantitativos completos | [ ] | Publicar las 20 capturas originales en `07_Resultados/`, más pruebas detalladas, registros, condiciones y versiones; véase [informe preliminar](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md) |
 | Coherencia documental CODESYS/Factory I/O/tesis | [ ] | Corregir OPC DA versus OPC UA, límites de histéresis y mapa HR/IR según uso real |
 | Enlace de GitHub e instrucciones incorporados en Anexo C del documento | [ ] | Comprobar que apunte a la revisión final y a las rutas correctas |
 
