@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Documentar de forma reproducible la evaluación del modelo `mejor_modelo_hojas_finetuning.keras` aportado al proyecto, sin modificar el código de entrenamiento ni sus pesos.
+Documentar de forma reproducible la evaluación del modelo `mejor_modelo_hojas_finetuning.keras` incluido en el proyecto, sin modificar el código de entrenamiento ni sus pesos.
 
 ## Insumos requeridos
 
