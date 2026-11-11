@@ -56,6 +56,10 @@ Publicar una versión **identificable y reproducible** del proyecto de simulaci�
 | Coherencia documental CODESYS/Factory I/O/tesis | [ ] | Corregir OPC DA versus OPC UA, límites de histéresis y mapa HR/IR según uso real |
 | Enlace de GitHub e instrucciones incorporados en Anexo C del documento | [ ] | Comprobar que apunte a la revisión final y a las rutas correctas |
 
+## Evidencia complementaria de predicción de humedad
+
+Se recibió una tabla con **21 parejas de humedad estimada y observada**, conservada en el [informe](../07_Resultados/RF_COMPROBACION_OPERATIVA_21_PREDICCIONES_20261111.md) y [CSV](../07_Resultados/RF_comparacion_operativa_21_pares_20261111.csv): **MAE 0,00429** y **RMSE 0,00655**, calculados con valores redondeados a dos decimales. La humedad real se mantuvo entre **75,52 y 76,61 %**. **Pendiente:** asociar cada pareja con instante de predicción `t` y lectura real `t+10` minutos simulados, así como demostrar carga de `rf-v2` en la aplicación mediante captura. No equivale a nueva evaluación independiente por escenarios.
+
 ## Estado aclarado tras la revisión con el equipo
 
 - **Prueba funcional de Python, CODESYS y Factory I/O:** se reporta que se realizaron **múltiples veces con funcionamiento satisfactorio**. Las 20 capturas ya publicadas respaldan distintos estados y secuencias. Los controles específicos que todavía figuran como pendientes (p. ej., transición STOP NC en GVL) se refieren a la **evidencia documental de una transición concreta**, no a que el sistema se haya declarado averiado ni a la necesidad de repetirlo todo.
