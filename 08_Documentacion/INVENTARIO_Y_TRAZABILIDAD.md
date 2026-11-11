@@ -17,7 +17,8 @@ Cada artefacto del sistema se relaciona con su función, parámetros de configur
 - Archivo: `02_CODESYS/Codesys.zip`
 - Proyecto interno: `Codesys/Grado.project`
 - SHA-256 del ZIP: `5d0eeeca385fd6437f93a5bc6c887b8fa57304a7dda9498cdc42dfb0102cd60c`
-- Controlador identificado: CODESYS Control Win V3
+- IDE de programación registrado por capturas: **CODESYS V3.5 SP9 Patch 1** ([detalles de componentes](ENTORNO_CODESYS_REGISTRADO.md))
+- Controlador identificado en el proyecto: **CODESYS Control Win V3**; versión del runtime y ejecución aún sin verificar
 - Servidor de comunicación: Modbus TCP, puerto 502
 - Datos: histórico `HistorialCultivo.csv` con diez columnas y separación `;`
 - Configuración de símbolos: `Grado.Device.Application.xml` con variables `FO_*` para la planta virtual.
