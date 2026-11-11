@@ -23,7 +23,7 @@ El historial de CODESYS se describe como `HistorialCultivo.csv` y contiene colum
 
 ## Archivo de entrada requerido
 
-La ejecución conservada de `RF_Guanaba.ipynb` carga `Base_guanabana_consolidada_para_RF.xlsx` (2.502 registros, 3 escenarios) con hojas `Entrenamiento_RF` y `Parametros`. **Este archivo Excel no está publicado en GitHub** y es indispensable para volver a obtener la misma evaluación. Puede incorporarse a `06_Datos/` si su tamaño lo permite o documentarse mediante un enlace de descarga verificable.
+La ejecución conservada de `RF_Guanaba.ipynb` carga `Base_guanabana_consolidada_para_RF.xlsx` (2.502 registros, 3 escenarios) con hojas `Entrenamiento_RF` y `Parametros`. Se ha publicado un [Excel de registros](../06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx), pero **no es el consolidado usado en esa ejecución**: tiene 2.878 filas en `Registro_10min` y solo 813 en `Entrenamiento_RF`. Por tanto, el archivo `Base_guanabana_consolidada_para_RF.xlsx` sigue siendo el insumo exacto pendiente para reproducir la evaluación guardada. Consultar [revisión del Excel](../06_Datos/REVISION_EXCEL_RANDOM_FOREST.md).
 
 ## Datos y variables
 
