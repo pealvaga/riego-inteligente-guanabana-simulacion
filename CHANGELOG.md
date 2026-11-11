@@ -4,6 +4,14 @@
 
 El historial documenta cambios de código, datos, modelos, evaluaciones e interfaces que afecten la reproducción de la simulación. Cada actualización relevante debe identificar los archivos modificados y la compatibilidad con los modelos serializados.
 
+## 0.2.0 — Random Forest v2 publicado (2026-11-11)
+
+- Actualización del Excel de entrenamiento de guanábana (729.049 bytes) y del cuaderno con descarga desde la rama `main`.
+- Publicación de Excel consolidado, métricas JSON, CSV con 922 predicciones y origen SHA-256.
+- Publicación del modelo `modelo_prediccion_humedad.pkl` de 53.111.758 bytes en [Release `rf-v2`](https://github.com/pealvaga/riego-inteligente-guanabana-simulacion/releases/tag/rf-v2).
+- Evaluación por escenarios: RMSE Random Forest 0,114327 vs. persistencia 0,172037, y R² 0,999942; [informe](07_Resultados/RF_INFORME_EVALUACION_V2_20261111.md).
+- Se mantienen los informes históricos no validados. Penden de comprobación huella/compatibilidad del artefacto, generalización a una sesión nueva y error del próximo riego. No se modifica la simulación principal.
+
 ## 0.1.0 — Estructura documental (2026-11-09)
 
 - Organización del repositorio por componentes del sistema de simulación.
