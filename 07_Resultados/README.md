@@ -6,7 +6,7 @@ Antes de incorporar capturas o resultados, preparar una copia de la [plantilla d
 
 ## Integración: evidencia real de ejecución
 
-Se revisaron cinco capturas proporcionadas por el autor. El [reporte de ejecución integrada](EVIDENCIA_EJECUCION_INTEGRADA.md) registra **Factory I/O mostrando conexión OPC DA con 14 símbolos**, **Python indicando comunicación Modbus OK** y **CODESYS conectado con la aplicación en ejecución y SCADA visible**. El informe describe las limitaciones de esta evidencia: las capturas originales aún no se han publicado en el repositorio y faltan pruebas detalladas de señales, compilación y modelos. «Modelo cargado» **no significa** «modelo validado».
+Se revisaron **ocho capturas** proporcionadas por el autor, incluidas tres posteriores con compilación CODESYS (**0 errores, 0 advertencias**), escena virtual y monitorización de GVL. El [reporte de ejecución integrada](EVIDENCIA_EJECUCION_INTEGRADA.md) registra **Factory I/O mostrando conexión OPC DA con 14 símbolos**, **Python indicando comunicación Modbus OK** y **CODESYS conectado con la aplicación en ejecución y SCADA visible**. El informe describe las limitaciones de esta evidencia: las capturas originales aún no se han publicado en el repositorio y faltan pruebas dinámicas de señales y evaluaciones independientes de modelos. «Modelo cargado» **no significa** «modelo validado».
 
 ## Random Forest
 
