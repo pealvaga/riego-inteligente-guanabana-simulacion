@@ -23,11 +23,11 @@ Se recibió una captura de la pestaña **«Simulación ambiental»** del **«Sim
 
 ### Archivo de imagen
 
-- Nombre recomendado para el archivo: `21_rf_v2_pronostico_proximo_riego.png`.
-- Ubicación recomendada: `07_Resultados/evidencias_integracion_guanabana/21_rf_v2_pronostico_proximo_riego.png`.
+- Nombre del archivo publicado: [`21_rf_v2_pronostico_proximo_riego.png`](evidencias_integracion_guanabana/21_rf_v2_pronostico_proximo_riego.png).
+- Ubicación verificada: `07_Resultados/evidencias_integracion_guanabana/21_rf_v2_pronostico_proximo_riego.png`.
 - Formato de la imagen recibida: **PNG**, **1195 × 895** píxeles.
 - Huella SHA-256 de la captura **recibida**: `004ee0330a8b9a85ba39a93e97c235ddbf08c6e5b8a3ffab2b9344b8990ad54d`.
-- **Estado de archivo binario:** la imagen fue recibida y revisada en la conversación, pero **todavía no está cargada en esta ruta de GitHub**; adjuntarla desde el navegador conservando el archivo original. No se afirma que el PNG esté publicado antes de verificarlo.
+- **Estado verificado:** el PNG **sí está publicado en GitHub**. El objeto Git de la rama `main` tiene SHA-1 de blob `1fc80448fbe235d34fd23dbf732926883e8efc86` (144.776 bytes), **coincidente con el blob calculado a partir de la captura original recibida**. El SHA-256 original es `004ee0330a8b9a85ba39a93e97c235ddbf08c6e5b8a3ffab2b9344b8990ad54d`. Esto acredita identidad de la imagen publicada.
 
 ## Alcance y limitaciones
 
@@ -39,6 +39,6 @@ Se recibió una captura de la pestaña **«Simulación ambiental»** del **«Sim
 
 ## Resultado
 
-**Comprobada visualmente la capacidad de presentar una estimación concreta de próximo riego en el programa ejecutándose.** La validación del error temporal de ese pronóstico y la publicación del PNG original siguen siendo pasos distintos.
+**Comprobada visualmente la capacidad de presentar una estimación concreta de próximo riego en el programa ejecutándose.** La captura original **ya está publicada y se verificó su integridad**. Permanece pendiente la validación del **error temporal** de esa fecha estimada frente a la activación real de riego.
 
 Ver también el [diagnóstico del mensaje «NO ESTIMADO»](RF_DIAGNOSTICO_PROXIMO_RIEGO_NO_ESTIMADO.md) y la [comparación de 21 pronósticos a diez minutos simulados](RF_COMPROBACION_OPERATIVA_21_PREDICCIONES_20261111.md). No se modificaron archivos de Python, CODESYS, Factory I/O ni los modelos.
