@@ -2,7 +2,7 @@
 
 ## Origen y alcance
 
-Revisión inicial de **cinco capturas de pantalla proporcionadas por el autor**, ampliada posteriormente con **once capturas adicionales** (compilación CODESYS, escena Factory I/O, tabla GVL, emergencia, salidas detenidas y secuencia de rearme) de la simulación del sistema de riego para guanábana. Las capturas se obtuvieron durante una sesión operativa, con instantes simulados diferentes; **no se deben interpretar como una única medición sincronizada**. Los archivos de imagen originales **todavía no están incluidos** en el repositorio. Este documento transcribe la evidencia observable y registra lo que falta demostrar.
+Revisión inicial de **cinco capturas de pantalla proporcionadas por el autor**, ampliada posteriormente con **quince capturas adicionales** (compilación CODESYS, escena Factory I/O, tabla GVL, emergencia, salidas detenidas, secuencia de rearme y estado de parada con indicador amarillo) de la simulación del sistema de riego para guanábana. Las capturas se obtuvieron durante una sesión operativa, con instantes simulados diferentes; **no se deben interpretar como una única medición sincronizada**. Los archivos de imagen originales **todavía no están incluidos** en el repositorio. Este documento transcribe la evidencia observable y registra lo que falta demostrar.
 
 **Software registrado:**
 - CODESYS IDE V3.5 SP9 Patch 1; CODESYS Control Win V3 3.5.9.10.
@@ -131,6 +131,32 @@ Los niveles de los tanques se muestran como valores de variables `REAL` sin atri
 
 **Pendientes de esta prueba:** confirmar la polaridad y función de `FO_STOP`, comprobar si se exige rearme/START o si el restablecimiento es automático, observar valores y movimiento en el mismo instante, y conservar las capturas originales en GitHub. Este análisis **no certifica una función de seguridad física**.
 
+## Ampliación E17–E20: estado sin riego e indicador amarillo
+
+Se recibieron **cuatro capturas adicionales**: tres vistas de la escena Factory I/O y una tabla de variables `Device.Application.GVL`. Los depósitos se muestran con niveles diferentes, sin un chorro superior visible en las imágenes. Esta serie aporta una observación adicional del estado lógico del controlador, **sin registrar un evento de pulsación de STOP con marca de tiempo**.
+
+| Variable | Captura E16: después de liberar la emergencia | Captura E19: estado actual |
+|---|---|---|
+| `FO_EMERGENCIA` | FALSE | FALSE |
+| `FO_Riego1` | FALSE | FALSE |
+| `FO_Riego2` | **TRUE** | **FALSE** |
+| `FO_S_DESCARGA1` | FALSE | FALSE |
+| `FO_S_DESCARGA2` | **TRUE** | **FALSE** |
+| `FO_LEDV` (verde) | **TRUE** | **FALSE** |
+| `FO_LEDA` (amarillo) | FALSE | **TRUE** |
+| `FO_LEDR` (rojo) | FALSE | FALSE |
+| `FO_STOP` | TRUE | TRUE |
+| `FO_START` | FALSE | FALSE |
+| `FO_Llenado1` / `FO_Llenado2` | 0 / 0 | 0 / 0 |
+| `FO_S_NIVEL1` | 5.23745632 | 5.23745632 |
+| `FO_S_NIVEL2` | 6.487397 | **5.601132** |
+
+**Interpretación:** la captura de CODESYS registra ambas salidas de riego desactivadas, descargas desactivadas e indicador amarillo encendido, **sin emergencia activa**. Frente al estado anterior de E16, es coherente con una transición a proceso detenido o en espera. `FO_S_NIVEL2` también presenta un valor menor en una captura posterior, pero el dato no permite cuantificar caudal ni demostrar una causa concreta.
+
+**Límite de la evidencia:** `FO_STOP` ya estaba en TRUE en E16 y permanece TRUE en E19. Por tanto, **no puede atribuirse inequívocamente el cambio al accionamiento de STOP** basándose únicamente en esas imágenes. Se recomienda una prueba antes/después en la que se vea cómo cambia el pulsador y su señal en GVL, qué salidas se desactivan y si es necesaria una nueva orden de START. Conviene inspeccionar también cómo se ha programado la polaridad de `FO_STOP` y la indicación amarilla.
+
+Esta prueba documenta estados de una **simulación virtual**, no certifica una función física de seguridad.
+
 ## Qué se puede afirmar de forma sustentada
 
 1. Factory I/O **muestra una conexión activa** con el servidor `CoDeSys.OPC.DA` y 14 símbolos.
@@ -161,10 +187,11 @@ La barra de título de CODESYS muestra **`Grado.project*`**. El asterisco puede 
 5. Documentar una prueba de **MobileNetV2** con hoja de muestra y umbral 0,90, sin considerarla diagnóstico agronómico definitivo.
 6. Conservar las dos capturas E9/E10 de la transición de emergencia y comprobar el comportamiento seguro de las salidas después de activarla.
 7. **Rearme observado (E13–E16):** comprobar si `FO_Riego2` se habilita automáticamente al liberar emergencia o requiere orden de START, e identificar la polaridad real de `FO_STOP`. Las nuevas capturas no muestran chorro de llenado, pero falta corroborar el comportamiento en una prueba sincronizada.
-8. Publicar las capturas originales, si se desea, en `07_Resultados/evidencias_integracion/` y vincularlas desde este reporte.
+8. Documentar una prueba específica del mando STOP: valor del pulsador y de `FO_STOP` antes y después, salidas desactivadas e indicador amarillo; comprobar posterior START.
+9. Publicar las capturas originales, si se desea, en `07_Resultados/evidencias_integracion/` y vincularlas desde este reporte.
 
 ## Conclusión
 
-Las dieciséis capturas son evidencia favorable de **compilación sin errores, aplicación conectada/en ejecución, variables online y conectividad indicada por las interfaces** de los tres componentes. Con ellas se puede sustentar una demostración funcional preliminar para la primera observación del docente. **No son una certificación de ejecución completamente reproducida por terceros, ni prueba de exactitud de las IA**.
+Las veinte capturas son evidencia favorable de **compilación sin errores, aplicación conectada/en ejecución, variables online y conectividad indicada por las interfaces** de los tres componentes. Con ellas se puede sustentar una demostración funcional preliminar para la primera observación del docente. **No son una certificación de ejecución completamente reproducida por terceros, ni prueba de exactitud de las IA**.
 
 El reporte se elaboró a partir de las capturas aportadas por el autor; no se modificaron `Sensores.py`, CODESYS, Factory I/O ni los modelos.
