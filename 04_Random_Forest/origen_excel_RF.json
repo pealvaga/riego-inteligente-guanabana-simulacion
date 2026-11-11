@@ -1,0 +1,10 @@
+{
+  "repositorio": "pealvaga/riego-inteligente-guanabana-simulacion",
+  "rama": "main",
+  "ruta_github": "06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx",
+  "sha_blob_github": "6b5a285bf66ea871ff190bd191a1220066652440",
+  "sha256_excel": "5c8618e1ada2a961301c8a4bd21bd671a0ea34cd7d88802909f453a20afc4bd7",
+  "tamano_bytes": 729049,
+  "fecha_descarga_utc": "2026-11-11T20:12:14.189592+00:00",
+  "url_descarga_sin_parametro": "https://raw.githubusercontent.com/pealvaga/riego-inteligente-guanabana-simulacion/main/06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx"
+}
