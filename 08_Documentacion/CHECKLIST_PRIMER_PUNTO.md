@@ -26,12 +26,13 @@ Publicar una versión **identificable y reproducible** del proyecto de simulaci�
 | Versión instalada de Factory I/O | [x] | [**2.5.10**](VERSIONES_SOFTWARE_CONFIRMADAS.md), confirmada por pantalla Update Checker |
 | Compilación CODESYS, runtime RUN y bibliotecas del proyecto | [ ] | Registrar compilación sin errores, aplicación en RUN y bibliotecas usadas por `Grado.project` |
 | Conexión y driver OPC DA de Factory I/O | [ ] | Confirmar conexión real con `CoDeSys.OPC.DA` y 14 señales; no basta con identificar versiones |
-| Demostración de instalación desde cero | [ ] | Registrar errores, ajustes y evidencia de arranque de las tres plataformas |
+| Evidencia visual de ejecución integrada | [x] | [Revisión de cinco capturas](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md): CODESYS conectado/en ejecución, Python con Modbus OK y Factory I/O con servidor OPC DA (14) conectado; **falta publicar los PNG** |
+| Demostración de instalación desde cero y validación funcional detallada | [ ] | Registrar compilación, errores, verificación individual de señales y evidencia de arranque en otra instalación o desde cero |
 | `.pkl` RF definitivo, trazable y validado | [ ] | El artefacto publicado aún no tiene validación satisfactoria confirmada |
 | Excel consolidado final de RF y particiones | [ ] | Exportar y publicar desde nuevo cuaderno, conservar sesiones y criterios de filtrado |
 | Resultados RF de la misma ejecución: CSV, JSON y comparación con persistencia | [ ] | Publicar en `07_Resultados/`, además del error de próximo riego si se presenta |
 | Evaluación independiente del checkpoint MobileNetV2 a 0,90 | [ ] | Completar matrices, métricas y procedencia de particiones |
-| Archivos con métricas y evidencia visual del sistema en ejecución | [ ] | [`07_Resultados/`](../07_Resultados/) con datos, fecha, condiciones y versiones |
+| Imágenes originales de prueba y resultados cuantitativos completos | [ ] | Publicar las 5 capturas originales en `07_Resultados/`, más pruebas detalladas, registros, condiciones y versiones; véase [informe preliminar](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md) |
 | Coherencia documental CODESYS/Factory I/O/tesis | [ ] | Corregir OPC DA versus OPC UA, límites de histéresis y mapa HR/IR según uso real |
 | Enlace de GitHub e instrucciones incorporados en Anexo C del documento | [ ] | Comprobar que apunte a la revisión final y a las rutas correctas |
 
