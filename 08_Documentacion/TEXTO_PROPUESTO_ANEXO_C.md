@@ -1,6 +1,6 @@
 # Texto propuesto para el Anexo C: Repositorio y reproducibilidad
 
-> **Versión de trabajo.** Actualizar este apartado tras comprobar la ejecución, documentar las versiones y cotejar el modelo Random Forest v2 publicado con el archivo original generado por Colab y comprobar su carga en la aplicación, si procede. No declarar pruebas ni resultados que no se hayan realizado.
+> **Versión de trabajo.** Actualizar este apartado tras comprobar la ejecución, documentar las versiones y comprobar la carga en la aplicación del modelo Random Forest v2, cuya copia local ya coincidió en SHA-256 con GitHub Release, si procede. No declarar pruebas ni resultados que no se hayan realizado.
 
 ## Anexo C. Repositorio digital del sistema de riego inteligente
 
@@ -23,7 +23,7 @@ El modelo Random Forest se distribuye como archivo adjunto en [GitHub Release `r
 - Fecha y commit/tag de GitHub que corresponde a la entrega final.
 - Versiones instaladas con las que se reprodujo el funcionamiento (Python, librerías, CODESYS, Control Win y Factory I/O).
 - Ubicación de capturas de funcionamiento, archivos de registro y resultados de evaluación contrastados.
-- Verificación de identidad SHA-256 entre el paquete `.pkl` original de Colab y el adjunto de Release, y prueba de carga de ese paquete en la aplicación.
+- **Integridad del modelo comprobada:** la copia local y el adjunto de Release coincidieron en SHA-256. **Pendiente:** prueba funcional de carga de ese paquete en la aplicación.
 - Enlace a la versión definitiva de la metodología de evaluación de ambas IA.
 - Condiciones de acceso a los datasets publicados fuera del repositorio.
 
