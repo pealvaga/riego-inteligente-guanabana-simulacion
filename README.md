@@ -1,5 +1,8 @@
 # Simulación de un sistema de riego inteligente para cultivos de guanábana
 
+**Actualización más reciente (11/11/2026).** [Random Forest `rf-v2`](https://github.com/pealvaga/riego-inteligente-guanabana-simulacion/releases/tag/rf-v2) está publicado como Release de 53 MB, con [base consolidada, CSV y métricas de prueba](07_Resultados/RF_INFORME_EVALUACION_V2_20261111.md). La última evaluación obtuvo **RMSE 0,114327**, mejor que persistencia **0,172037**, con **4.552 ejemplos de entrenamiento y 922 de prueba**. Los resultados inferiores de versiones anteriores se conservan como *históricos* y no describen el modelo actual. Queda pendiente cotejar la huella del `.pkl` original de Colab con la Release y verificar su carga e inferencia en Python.
+
+
 Proyecto de grado de Ingeniería Mecatrónica (Universitaria Agustiniana, 2026) orientado a la simulación de un sistema de riego para guanábana (*Annona muricata* L.) a cielo abierto. Integra un modelo ambiental, control automático, supervisión SCADA y dos componentes de inteligencia artificial.
 
 ## Arquitectura del sistema
@@ -48,19 +51,19 @@ La ejecución integral requiere los proyectos y modelos correspondientes, ademá
 
 ## Reentrenamiento desde el registro completo
 
-Para corregir la selección de solo 813 muestras de la base histórica de Random Forest se creó un [cuaderno alternativo que reconstruye los datos desde todas las sesiones](04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb). Actualmente descarga la versión **más reciente del Excel publicada en `06_Datos/` de la rama `main`**, incluso cuando mantiene el mismo nombre. Consulta las [instrucciones para Google Colab](04_Random_Forest/COMO_ENTRENAR_CON_TODAS_LAS_SESIONES.md). El cuaderno nuevo está publicado **sin ejecutar**; se deben generar y documentar sus resultados antes de sustituir cualquier modelo.
+Para corregir la selección de solo 813 muestras de la base histórica de Random Forest se creó un [cuaderno alternativo que reconstruye los datos desde todas las sesiones](04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb). Actualmente descarga la versión **más reciente del Excel publicada en `06_Datos/` de la rama `main`**, incluso cuando mantiene el mismo nombre. Consulta las [instrucciones para Google Colab](04_Random_Forest/COMO_ENTRENAR_CON_TODAS_LAS_SESIONES.md). El cuaderno nuevo se ejecutó con la base actual y los resultados `rf-v2` están publicados; la compatibilidad e identidad del modelo todavía deben comprobarse.
 
 ## Evaluación de MobileNetV2
 
-Para evaluar el modelo fine-tuned sin modificar el entrenamiento existe un [cuaderno independiente de Google Colab](05_MobileNetV2/EVALUAR_MOBILENETV2.ipynb) y una [guía paso a paso](05_MobileNetV2/COMO_EVALUAR_CHECKPOINT_FINAL.md). Las métricas finales **siguen pendientes de ejecución** con fotografías de prueba que no hayan participado en entrenamiento ni validación.
+Para evaluar el modelo fine-tuned sin modificar el entrenamiento existe un [cuaderno independiente de Google Colab](05_MobileNetV2/EVALUAR_MOBILENETV2.ipynb) y una [guía paso a paso](05_MobileNetV2/COMO_EVALUAR_CHECKPOINT_FINAL.md). La evaluación exploratoria del checkpoint ya se ejecutó con 100 fotografías, pero **aún no se acreditó la independencia de los datos ni las etiquetas nutricionales**.
 
 **Primer resultado del checkpoint MobileNetV2:** se dispone de un [informe preliminar de 100 imágenes](07_Resultados/MobileNetV2/INFORME_PRELIMINAR_20261111.md) (accuracy 67 % al umbral 0,50 y 63 % al umbral operativo 0,90). **No es una validación independiente acreditada**, por falta de procedencia y grupos originales de las fotografías. El reporte detalla los falsos negativos y la necesidad de corroborar etiquetas.
 
-**Resultado más reciente de Random Forest:** la nueva base generó **3.243 muestras aptas**, 2.672 para entrenamiento y 571 para prueba. En la [evaluación del 11/11/2026](07_Resultados/RF_INFORME_EVALUACION_BASE_ACTUALIZADA_20261111.md), el modelo obtuvo RMSE **1,7698** frente a **0,6304** de persistencia. **No validado**; no se sustituye el modelo de la simulación. Las cifras anteriores de 813 muestras son históricas.
+**Antecedente histórico de Random Forest:** una ejecución anterior con 3.243 muestras obtuvo RMSE **1,7698** frente a **0,6304** de persistencia y quedó **NO VALIDADA**. Ver el [informe histórico](07_Resultados/RF_INFORME_EVALUACION_BASE_ACTUALIZADA_20261111.md). **El modelo actual es `rf-v2`, evaluado arriba con resultados mejores.**
 
 ## Reproducibilidad y alcance de las IA
 
-La evaluación de Random Forest debe preservar el orden temporal y separar las trayectorias destinadas a entrenamiento, validación y prueba. Sus resultados deben compararse con una referencia de persistencia y acompañarse de un error del momento estimado del próximo riego. **La ejecución actual del cuaderno utiliza el Excel publicado (813 muestras) y no supera la persistencia (RMSE 0,6144 frente a 0,1386)**; el archivo `.pkl` publicado requiere cotejar su procedencia y evaluación antes de utilizarlo en la aplicación.
+La evaluación de Random Forest debe preservar el orden temporal y separar las trayectorias destinadas a entrenamiento, validación y prueba. Sus resultados deben compararse con una referencia de persistencia y acompañarse de un error del momento estimado del próximo riego. **La ejecución histórica del cuaderno antiguo utilizó 813 muestras y no superó persistencia (RMSE 0,6144 frente a 0,1386)**. **La ejecución nueva v2 sí supera persistencia**; aún falta verificar huella y compatibilidad del `.pkl` antes de cargarlo en la aplicación.
 
 Para MobileNetV2, el script de entrenamiento utiliza 70/15/15 y crea sus métricas iniciales con umbral 0,50 antes de la fase fine-tuning. La evaluación del checkpoint final se documenta por separado y debe comprobar la independencia por imagen original y la matriz de confusión con el umbral operativo de **probabilidad de deficiencia ≥ 0,90**.
 
