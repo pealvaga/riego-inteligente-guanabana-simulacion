@@ -19,13 +19,17 @@ Esta guía establece la secuencia de comprobación de la simulación y sus dos m
 6. Ubicar el archivo `HistorialCultivo.csv`, comprobar sus diez columnas y guardar una ejecución de prueba.
 7. Comprobar el manejo de reinicios de reloj y separar las trayectorias antes de construir los conjuntos de aprendizaje.
 
-## Reproducción del entrenamiento Random Forest
+## Reproducción del entrenamiento Random Forest — modelo actual `rf-v2`
 
-El [simulador alternativo de registro](../04_Random_Forest/simulador_guanabana_grado_registro_RF.py), el [cuaderno vigente](../04_Random_Forest/RF_Guanaba%20(1).ipynb) y el [Excel usado en ese cuaderno](../06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx) están publicados. El Excel contiene **2.878 filas en `Registro_10min` (tres sesiones)**, pero solo **813 muestras en `Entrenamiento_RF` (un escenario)**. El cuaderno usa estas 813 muestras y una división temporal exploratoria: **647 para entrenamiento y 163 para prueba**.
+La nueva versión del modelo está publicada en [GitHub Release `rf-v2`](https://github.com/pealvaga/riego-inteligente-guanabana-simulacion/releases/tag/rf-v2) como `modelo_prediccion_humedad.pkl` (53.111.758 bytes). El repositorio incluye [cuaderno de entrenamiento](../04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb), [Excel de datos](../06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx), [consolidado](../04_Random_Forest/Base_guanabana_consolidada_para_RF.xlsx), [métricas](../04_Random_Forest/metricas_random_forest.json), [922 predicciones](../04_Random_Forest/resultados_prueba_random_forest.csv) y [registro de procedencia del Excel](../04_Random_Forest/origen_excel_RF.json).
 
-La salida actual **no validó** Random Forest: RMSE RF **0,6144**, frente a **0,1386** de persistencia. El archivo publicado `modelo_prediccion_humedad.pkl` aún no está ligado inequívocamente a esa ejecución (que exportó `_NO_VALIDADO.pkl`). No copiarlo a `01_Python/` hasta verificar formato, procedencia y desempeño en escenarios independientes. Ver [revisión del entrenamiento vigente](../04_Random_Forest/REVISION_ENTRENAMIENTO_ACTUAL.md) y [resumen de salida](../07_Resultados/RF_metricas_preliminares_notebook.json).
+Según el JSON, el entrenamiento utilizó **4.552 muestras**, la prueba **922**, con división por escenarios y **13 grupos** en total. **RMSE RF 0,114327 vs. persistencia 0,172037**, mejora relativa del **33,55 %**, `supera_referencia=true` y `apto_para_prueba_en_aplicacion=true`. Los resultados se recalcularon desde el CSV y se desglosan por escenarios en el [informe v2](../07_Resultados/RF_INFORME_EVALUACION_V2_20261111.md). Los **cuatro escenarios de prueba** pertenecen a una sesión; la validación con sesión nueva y el error del tiempo del siguiente riego siguen pendientes.
 
-**Corrección disponible (pendiente de ejecución):** [`RF_Guanaba_todas_sesiones.ipynb`](../04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb) parte de `Registro_10min` y reconstruye muestras con rezagos para todas las sesiones y escenarios, aplicando validaciones por ventana. Ver [guía de uso](../04_Random_Forest/COMO_ENTRENAR_CON_TODAS_LAS_SESIONES.md). Los resultados 813/647/163 corresponden al notebook anterior, no a la ejecución futura de este cuaderno corregido.
+El archivo del Release tiene SHA-256 publicado por GitHub `c3eba2fce1d49187249afef988d0848276eb4dd2e9e5f5e2bf33fa8446e09692`. **Falta cotejar esta huella con el archivo original de Colab y probar su carga/compatibilidad en la aplicación**. La publicación no implica que se haya instalado en `01_Python`.
+
+### Resultados históricos que no corresponden a `rf-v2`
+
+Los informes y métricas anteriores (813 muestras, o el entrenamiento posterior con 3.243 muestras) reportaron **NO VALIDADO** frente a persistencia. Permanecen conservados como antecedentes, no como estado actual del modelo. El cuaderno antiguo `RF_Guanaba (1).ipynb` ya no figura en el árbol actual de GitHub. Consultar la [revisión histórica](../04_Random_Forest/REVISION_ENTRENAMIENTO_ACTUAL.md).
 
 ## Reproducción de MobileNetV2
 
