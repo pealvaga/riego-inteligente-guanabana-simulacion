@@ -40,8 +40,18 @@ El archivo completo `pip freeze` **todavía no se ha recibido**. El resumen de p
 
 Para relacionar este entorno con la ejecución efectiva, obtener `python -c "import sys; print(sys.executable)"` desde el mismo terminal con el que se abre la aplicación y confirmar que se trata de este intérprete. Si la aplicación se lanza con un entorno virtual o Python distinto, repetir allí el registro.
 
+## Confirmación posterior del comando de exportación
+
+Se aportó una segunda salida de PowerShell en la que el comando:
+
+```powershell
+python -m pip freeze | Set-Content -Path "$env:USERPROFILE\versiones_librerias_python.txt" -Encoding UTF8
+```
+
+terminó **sin mensajes de error**. Por ello, la exportación del inventario completo a la carpeta del usuario **parece haberse realizado correctamente**; todavía **no se ha recibido ni verificado el contenido del archivo generado**. Se confirmó además que `sys.executable` señala a la instalación normal de **Python 3.12** bajo `AppData/Local/Programs/Python/Python312/python.exe`. No se publica la ruta personal completa. Para acreditar que es el intérprete efectivo de la aplicación, falta comprobar cómo se lanza `Sensores.py`.
+
 ## Estado
 
 - **Completado:** comprobación de Python, pip y diez librerías principales instaladas, con versiones coincidentes con la instantánea anterior.
-- **Por completar (recomendado):** exportación completa de `pip freeze` a una carpeta con permiso; identificación del intérprete efectivo de `Sensores.py`.
+- **Por completar (recomendado):** adjuntar y revisar el archivo `pip freeze` ya generado sin errores aparentes, y comprobar que la aplicación ejecuta el intérprete identificado en PowerShell.
 - **Sin cambios** en las versiones instaladas, el código de Python ni los archivos `.pkl`/`.keras`.
