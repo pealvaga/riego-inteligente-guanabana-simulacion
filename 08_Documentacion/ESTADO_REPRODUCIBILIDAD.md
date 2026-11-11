@@ -33,6 +33,12 @@ El [script original](../05_MobileNetV2/ia_imagen.py) y el [modelo fine-tuned](..
 
 El [inventario de 2.247 imágenes](../06_Datos/ANALISIS_INVENTARIO_MOBILENETV2.md) identificó **74 pares idénticos** en la clase Deficiencia. Debe evaluarse si los archivos duplicados u otras variantes quedaron en particiones distintas antes de presentar resultados del checkpoint final.
 
+## Evidencia de ejecución integrada aportada
+
+Se revisaron cinco capturas del entorno operativo: Factory I/O muestra servidor **`CoDeSys.OPC.DA (14)`** conectado, Python muestra **«COMUNICACIÓN OK»** mediante Modbus TCP a `127.0.0.1:502`, y CODESYS muestra el dispositivo conectado, la aplicación **`[ejecutar]`** y la visualización SCADA activa. La prueba incorpora el simulador alternativo con registro para Random Forest, cuyo mensaje **«MODELO NUEVO CARGADO» no certifica validez predictiva**. Para detalles y limitaciones consultar [reporte de evidencia integrada](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md).
+
+**Pendiente:** subir los archivos originales de captura, comprobar compilación sin errores, cambios reales de señales OPC, valores Modbus HR0–HR7/IR0 y evaluaciones independientes de ambos modelos.
+
 ## Correspondencia académica
 
 La documentación técnica debe acompañarse de evidencias de ejecución, configuración y resultados medidos con los mismos artefactos publicados. La comprobación de componentes a partir de archivos **no equivale** a una prueba funcional realizada en CODESYS/Factory I/O.
