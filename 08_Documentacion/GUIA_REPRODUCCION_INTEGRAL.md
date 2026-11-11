@@ -33,7 +33,7 @@ py -m venv .venv
 .\.venv\Scripts\python.exe -m pip freeze > .\08_Documentacion\DEPENDENCIAS_EJECUTADAS.txt
 ```
 
-Los `requirements.txt` actuales describen **nombres de bibliotecas sin versiones fijadas**; para una reproducción equivalente hay que completar la captura anterior desde el equipo original en que los programas y los modelos fueron probados.
+Los `requirements.txt` actuales describen **nombres de bibliotecas sin versiones fijadas**. Ya se recibió una [captura de Python 3.12.9 y dependencias instaladas](ENTORNO_PYTHON_REGISTRADO.md), conservada en [JSON](ENTORNO_EJECUTADO.json) y como [lista de versiones registradas](requirements_entorno_reportado.txt). **Todavía no está confirmado que todas esas versiones se hayan probado con la aplicación y sus dos modelos.** Es necesario capturar un `pip freeze` del mismo intérprete y documentar las pruebas de carga y comunicación antes de tratar esa lista como entorno reproducido.
 
 El script de captura no importa ni deserializa los modelos, no consulta la red y solo guarda información básica de Python y versiones de paquetes. No recopila credenciales.
 
