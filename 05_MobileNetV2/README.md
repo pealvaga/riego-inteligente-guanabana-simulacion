@@ -104,7 +104,7 @@ Se incorporaron herramientas **separadas del entrenamiento original**, sin modif
 - [Instrucciones para preparar prueba independiente](COMO_EVALUAR_CHECKPOINT_FINAL.md).
 - [Plantilla para manifestar imágenes de prueba](plantilla_manifest_prueba.csv).
 
-**Estado:** código de evaluación publicado; **sin métricas finales ejecutadas o publicadas todavía**. Se requiere un conjunto de prueba independiente y documentar su procedencia, ya que el reparto 70/15/15 de entrenamiento no se conservó como un manifiesto verificable y el inventario encontró duplicados exactos.
+**Estado actualizado:** el cuaderno de evaluación del checkpoint final **sí se ejecutó** y se publicaron [métricas preliminares de 100 fotografías](../07_Resultados/MobileNetV2/INFORME_PRELIMINAR_20261111.md). Se registró exactitud del **63 % al umbral 0,90**, con **50/50 sanas** y **13/50 imágenes etiquetadas como deficientes** detectadas. La independencia y el diagnóstico nutricional no fueron acreditados por sus fuentes, por lo que **estas métricas son preliminares**, no una validación final.
 
 ## Cómo completar la evaluación sin reentrenar
 
