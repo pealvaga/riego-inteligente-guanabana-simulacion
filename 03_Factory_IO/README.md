@@ -2,7 +2,7 @@
 
 ## Archivo de la escena
 
-[Grado.factoryio](Grado.factoryio) contiene la escena utilizada para representar los componentes físicos virtuales del sistema de riego. El encabezado del archivo identifica **Factory I/O 2.5.10** y la descripción `Proyecto de grado, simulación de riego`.
+[Grado.factoryio](Grado.factoryio) contiene la escena utilizada para representar los componentes físicos virtuales del sistema de riego. El encabezado del archivo identifica **Factory I/O 2.5.10** y la descripción `Proyecto de grado, simulación de riego`. Una captura posterior de «Update Checker» confirma que la versión **instalada en el equipo también es 2.5.10**. Consultar el [registro de versiones](../08_Documentacion/VERSIONES_SOFTWARE_CONFIRMADAS.md).
 
 ## Elementos de la escena
 
