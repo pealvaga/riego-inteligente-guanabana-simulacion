@@ -2,15 +2,28 @@
 
 Este componente del proyecto utiliza un regresor Random Forest para predecir la humedad disponible del suelo y apoyar la estimación del próximo riego dentro del entorno simulado.
 
+## Archivos incorporados
+
+- [`simulador_guanabana_grado_registro_RF.py`](simulador_guanabana_grado_registro_RF.py): copia de la aplicación preparada para registrar y exportar datos en Excel sin modificar `01_Python/Sensores.py`.
+- [`RF_Guanaba.ipynb`](RF_Guanaba.ipynb): notebook de entrenamiento con separación de escenarios y comparación con persistencia.
+- [`modelo_prediccion_humedad.pkl`](modelo_prediccion_humedad.pkl): modelo publicado; la procedencia y las métricas específicas de este artefacto deben verificarse antes de desplegarlo.
+- [Revisión técnica de archivos y resultados](REVISION_ARCHIVOS_Y_RESULTADOS.md): inventario, salida registrada del notebook y pasos de verificación.
+
+**Advertencia de evaluación:** la ejecución conservada en el notebook tiene **RMSE 23,3915**, frente a **0,6709 de persistencia**, por lo que se marca **NO VALIDADO**. El código de esa ejecución guardó un archivo con sufijo `_NO_VALIDADO.pkl`; el archivo de nombre estándar publicado en GitHub aún no se ha vinculado a resultados comprobados. No reemplazar el modelo de la aplicación basándose únicamente en su nombre.
+
 ## Separación del entrenamiento y la aplicación
 
 La versión de simulación instalada en `01_Python/Sensores.py` se conserva **sin modificaciones**. En esta carpeta se desarrollan de forma independiente los procesos de preparación de datos, entrenamiento, validación y evaluación del modelo.
 
-**Flujo de trabajo:** registros CSV originales → preparación y separación de trayectorias → entrenamiento y validación temporal → evaluación independiente → exportación del modelo `.pkl` → copia del modelo final a `01_Python/modelo_prediccion_humedad.pkl`.
+**Flujo de trabajo usado por los nuevos archivos:** simulador alternativo → Excel por sesión/escenario (hojas `Registro_10min`, `Entrenamiento_RF`, `Parametros`, etc.) → consolidación trazable de escenarios → entrenamiento y prueba por escenarios completos en Colab → evaluación frente a persistencia → exportación de modelo y métricas. La validación y el uso final requieren un resultado satisfactorio y una prueba independiente.
 
 La copia a `01_Python` debe realizarse únicamente después de comprobar la compatibilidad del paquete y las métricas. No es necesario modificar la interfaz Python, la lógica de CODESYS ni la escena Factory I/O para cambiar el modelo serializado si conserva su interfaz esperada.
 
 El historial de CODESYS se describe como `HistorialCultivo.csv` y contiene columnas `Dia`, `Hora`, `Minuto`, `Temperatura`, `Precipitacion`, `HumedadSuelo`, `NivelAgua`, `NivelNutrientes`, `RiegoActivo` y `TipoRiego`. Como no incorpora un identificador de sesión, los archivos de distintas ejecuciones se deben etiquetar **antes** de construir rezagos, de modo que no se combinen trayectorias discontinuas.
+
+## Archivo de entrada requerido
+
+La ejecución conservada de `RF_Guanaba.ipynb` carga `Base_guanabana_consolidada_para_RF.xlsx` (2.502 registros, 3 escenarios) con hojas `Entrenamiento_RF` y `Parametros`. **Este archivo Excel no está publicado en GitHub** y es indispensable para volver a obtener la misma evaluación. Puede incorporarse a `06_Datos/` si su tamaño lo permite o documentarse mediante un enlace de descarga verificable.
 
 ## Datos y variables
 
