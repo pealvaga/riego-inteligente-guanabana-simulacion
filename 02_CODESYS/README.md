@@ -2,17 +2,18 @@
 
 ## Proyecto fuente — paquete final publicado
 
-El archivo [**Simulación guanabana codesys.zip**](Simulaci%C3%B3n%20guanabana%20codesys.zip) es la **nueva versión final** del proyecto CODESYS, publicada en GitHub después de guardar nuevamente el proyecto en el entorno de programación. Reemplazó al antiguo `Codesys.zip`, que ya no está en el repositorio.
+El **archivo final actualmente publicado** es [`Simulación guanabana codesys (2).zip`](Simulaci%C3%B3n%20guanabana%20codesys%20%282%29.zip). Sustituye a `Codesys.zip` y a `Simulación guanabana codesys (2).zip`, ambos retirados de la rama `main`. La última carga fue declarada como una copia de la carpeta completa generada por CODESYS después de guardar el proyecto.
 
-**Metadatos confirmados desde GitHub (11/11/2026):**
-- **Tamaño del nuevo ZIP:** `4.051.990 bytes`.
-- **SHA-1 del objeto Git (blob):** `75d7a981d832f9fb671a070c5dde1904902d16ae`.
-- **Estado:** publicación confirmada; **la estructura interna de esta versión no se ha podido inspeccionar todavía**. El SHA-1 de Git **no** es un SHA-256 del ZIP.
-- **Comprobación pendiente:** abrir el ZIP, confirmar que contiene `Grado.project` (y archivos requeridos para la visualización y comunicación), cargarlo en CODESYS y comparar con la última revisión que se guardó y compiló.
+**Metadatos verificados en GitHub:**
+- Tamaño: **8.906.941 bytes**.
+- SHA-1 del objeto Git (blob): `0154d1f7af90e3bec0958a563d9cbaed0d1a59a9`.
+- **Comprobado:** el archivo ZIP binario existe en `02_CODESYS/` y forma parte del árbol de `main`.
+- **Aún por verificar:** extracción del ZIP final, presencia de `Grado.project`, archivos necesarios y posibilidad de abrir y compilar la copia. El conector GitHub devuelve metadatos, pero no permitió extraer el contenido binario.
+- El SHA-1 del **objeto Git** no es el hash SHA-256 del ZIP.
 
-**Precisión sobre la revisión anterior:** el archivo antiguo `Codesys.zip` había sido examinado y sí contenía `Grado.project`, `Grado.Device.Application.xml` y archivos auxiliares. Sus antiguos SHA-256 (ZIP `5d0eeeca385fd6437f93a5bc6c887b8fa57304a7dda9498cdc42dfb0102cd60c` y proyecto `670603ca32ab3f241f4c226eb9047cd0f57489dd9531abac82326fd297b79093`) **no identifican el nuevo ZIP** y se citan únicamente para distinguir versiones.
+**Identificación histórica:** el paquete anterior `Codesys.zip` de 8.906.589 bytes fue inspeccionado: contenía `Grado.project` (SHA-256 anterior `670603ca32ab3f241f4c226eb9047cd0f57489dd9531abac82326fd297b79093`), `Grado.Device.Application.xml` y auxiliares. **Esas huellas pertenecen a la versión antigua y no deben atribuirse al ZIP actual.** Los programas y configuraciones descritos en el resto de este README se identificaron originalmente en el paquete anterior y deben contrastarse con la nueva revisión.
 
-Las capturas del entorno identifican **CODESYS V3.5 SP9 Patch 1**, **CODESYS Control Win V3 3.5.9.10**, **Device Modbus TCP Slave 3.5.9.10** y **OPCConfig 3.5.9.0**, según los [registros de versiones](../08_Documentacion/VERSIONES_SOFTWARE_CONFIRMADAS.md). Los apartados siguientes describen la programación observada en la **versión previa**; aún no se han contrastado directamente con el contenido binario del ZIP nuevo.
+Las capturas del entorno de ejecución identifican **CODESYS V3.5 SP9 Patch 1**, **Control Win V3 3.5.9.10**, **Device Modbus TCP Slave 3.5.9.10** y **OPCConfig 3.5.9.0**. Ver [registro de versiones](../08_Documentacion/VERSIONES_SOFTWARE_CONFIRMADAS.md).
 
 ## Contenido identificado
 
@@ -101,7 +102,7 @@ Se recomienda comprobar la transición `TRUE→FALSE` accionando el pulsador en 
 
 ## Reproducción en CODESYS
 
-1. Descargar y extraer [`Simulación guanabana codesys.zip`](Simulaci%C3%B3n%20guanabana%20codesys.zip), **confirmar que contiene `Grado.project`** y abrir el proyecto en CODESYS.
+1. Descargar y extraer [`Simulación guanabana codesys (2).zip`](Simulaci%C3%B3n%20guanabana%20codesys%20%282%29.zip), **confirmar que contiene `Grado.project`** y abrir el proyecto en CODESYS.
 2. Comprobar versiones, bibliotecas y dispositivos; instalar los elementos que requiera el proyecto.
 3. Compilar y ejecutar el controlador virtual.
 4. Verificar la asignación de registros Modbus y la exposición de símbolos.
