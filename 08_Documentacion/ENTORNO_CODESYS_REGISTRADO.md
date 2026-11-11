@@ -4,7 +4,7 @@
 
 **CODESYS V3.5 SP9 Patch 1**. La ventana «Acerca de» muestra la denominación **«CODESYS V3.5 SP9 Patch 1 +»**; las ventanas «Información de versión» muestran **«CODESYS V3.5 SP9 Patch 1»**.
 
-La información se transcribió de las capturas del cuadro «Acerca de» y del listado de componentes aportadas por el autor. **No constituye una comprobación de instalación efectuada por el revisor** ni demuestra que el proyecto haya sido compilado o ejecutado.
+La información se transcribió de las capturas del cuadro «Acerca de» y del listado de componentes del entorno de desarrollo utilizado. **El registro de versiones no constituye, por sí solo, una prueba de compilación ni de ejecución del proyecto.**
 
 | Componente observado | Versión mostrada |
 |---|---|
@@ -61,11 +61,11 @@ Esta coincidencia respalda la identificación del entorno de programación, pero
 - Captura del enlace **OPC DA** desde Factory I/O y de la recepción de las variables.
 - Captura del archivo `HistorialCultivo.csv` generado en una sesión.
 
-La [guía integral](GUIA_REPRODUCCION_INTEGRAL.md) contiene el orden propuesto para comprobar esos elementos. Las imágenes de «Acerca de» se recibieron en la conversación; **no están publicadas como archivos binarios dentro de este repositorio**. Este documento registra los datos visibles en ellas para la trazabilidad de versiones.
+La [guía integral](GUIA_REPRODUCCION_INTEGRAL.md) contiene el orden propuesto para comprobar esos elementos. Las imágenes de «Acerca de» están documentadas mediante transcripción de sus datos; **los PNG originales aún no están publicados en este repositorio**. Este documento registra los datos visibles en ellas para la trazabilidad de versiones.
 
 ## Actualización: runtime y configuración OPC identificados
 
-Se recibieron capturas adicionales:
+Las capturas adicionales permiten identificar:
 
 - Pantalla de inicio: **CODESYS Control Win V3 Version 3.5.9.10**.
 - Cuadro «Info about OPCConfig»: **OPCConfig Version 3.5.9.0**.
