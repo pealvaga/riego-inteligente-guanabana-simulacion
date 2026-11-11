@@ -5,7 +5,7 @@ Este documento identifica **qué ya está publicado en GitHub** y separa los con
 ## Publicación completada
 
 - Código Python de la simulación y comunicación Modbus TCP: `01_Python/Sensores.py`.
-- Proyecto CODESYS comprimido: `02_CODESYS/Codesys.zip`, con `Grado.project`.
+- **Nuevo ZIP final de CODESYS publicado:** [`Simulación guanabana codesys.zip`](../02_CODESYS/Simulaci%C3%B3n%20guanabana%20codesys.zip) (**4.051.990 bytes**, blob Git SHA-1 `75d7a981d832f9fb671a070c5dde1904902d16ae`). El paquete anterior `Codesys.zip` fue retirado. La presencia de `Grado.project` **en el ZIP nuevo aún está por inspeccionar**.
 - Escena Factory I/O: `03_Factory_IO/Grado.factoryio` y enlaces OPC DA documentados.
 - Modelo Random Forest `rf-v2`: [GitHub Release](https://github.com/pealvaga/riego-inteligente-guanabana-simulacion/releases/tag/rf-v2) con `modelo_prediccion_humedad.pkl` (53.111.758 bytes). SHA-256 de la copia local **idéntico** al anunciado por GitHub: `c3eba2fce1d49187249afef988d0848276eb4dd2e9e5f5e2bf33fa8446e09692`.
 - Base original RF, base consolidada, cuaderno de Colab, CSV de **922 predicciones**, JSON de métricas y trazabilidad de origen. RMSE RF **0,114327** vs. persistencia **0,172037**, mejora de RMSE **33,55 %** en cuatro escenarios de prueba.
@@ -18,7 +18,7 @@ Este documento identifica **qué ya está publicado en GitHub** y separa los con
 
 | Prioridad | Comprobación | Estado |
 |---|---|---|
-| **Alta** | Confirmar que el `Grado.project` de `Codesys.zip` es **la misma revisión final guardada** que se compiló y ejecutó; la captura anterior tenía `Grado.project*`, que puede indicar cambios sin guardar. Reemplazar ZIP solo si hubo cambios reales. | **Pendiente de confirmación** |
+| **Alta** | Se confirmó en GitHub la **publicación del nuevo paquete CODESYS** indicado como versión definitiva; **falta comprobar el contenido del ZIP** (abrir `Grado.project`, confirmar versiones y compilación) para afirmar que es la revisión final guardada. | **Subida completada; inspección interna pendiente** |
 | **Alta** | Registrar las **versiones de dependencias del entorno de Python que ejecuta la simulación** (especialmente `scikit-learn`, `joblib`, `pymodbus`, `tensorflow`) y, si es posible, demostrar el arranque siguiendo la guía desde una copia limpia. | **Parcial** |
 | **Media** | Confirmar que la captura de la aplicación mostrando `MODELO NUEVO CARGADO` corresponde específicamente al archivo `rf-v2` publicado, no a un `.pkl` anterior con el mismo nombre; el SHA-256 de la copia local sí está confirmado. | **Parcial** |
 | **Media** | Revisar que README, guía integral y Anexo C **en el documento de grado** apunten a la carpeta E1–E21, a `rf-v2` y a los resultados actuales. El texto propuesto del anexo ya está en GitHub; su incorporación al documento es una tarea externa al repositorio. | **Parcial** |
@@ -34,4 +34,4 @@ Este documento identifica **qué ya está publicado en GitHub** y separa los con
 
 ## Criterio práctico de cierre
 
-**Para la publicación del trabajo de grado**, los componentes y las 21 evidencias están disponibles. Priorizar **CODESYS final guardado**, **entorno Python reproducible** y **coherencia con el documento entregado**. No hace falta reentrenar Random Forest, recopilar cientos de fotografías nuevas ni repetir todas las pruebas de control para cerrar la *publicación* del repositorio. Los límites de validación deben conservarse transparentemente en las conclusiones del trabajo.
+**Para la publicación del trabajo de grado**, los componentes y las 21 evidencias están disponibles. Priorizar **verificación del contenido del nuevo ZIP CODESYS**, **entorno Python reproducible** y **coherencia con el documento entregado**. No hace falta reentrenar Random Forest, recopilar cientos de fotografías nuevas ni repetir todas las pruebas de control para cerrar la *publicación* del repositorio. Los límites de validación deben conservarse transparentemente en las conclusiones del trabajo.
