@@ -48,7 +48,7 @@ La ejecución integral requiere los proyectos y modelos correspondientes, ademá
 
 ## Reentrenamiento desde el registro completo
 
-Para corregir la selección de solo 813 muestras del Excel de Random Forest se creó un [cuaderno alternativo que reconstruye datos desde las tres sesiones](04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb). Consulta las [instrucciones para Google Colab](04_Random_Forest/COMO_ENTRENAR_CON_TODAS_LAS_SESIONES.md). El cuaderno nuevo está publicado **sin ejecutar**; se deben generar y documentar sus resultados antes de sustituir cualquier modelo.
+Para corregir la selección de solo 813 muestras de la base histórica de Random Forest se creó un [cuaderno alternativo que reconstruye los datos desde todas las sesiones](04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb). Actualmente descarga la versión **más reciente del Excel publicada en `06_Datos/` de la rama `main`**, incluso cuando mantiene el mismo nombre. Consulta las [instrucciones para Google Colab](04_Random_Forest/COMO_ENTRENAR_CON_TODAS_LAS_SESIONES.md). El cuaderno nuevo está publicado **sin ejecutar**; se deben generar y documentar sus resultados antes de sustituir cualquier modelo.
 
 ## Evaluación de MobileNetV2
 
