@@ -32,11 +32,11 @@ Colocar en el directorio de `Sensores.py` los archivos `modelo_prediccion_humeda
 
 ## Proyecto CODESYS incluido
 
-El archivo [`02_CODESYS/Codesys.zip`](../02_CODESYS/Codesys.zip) contiene `Grado.project` y `Grado.Device.Application.xml`, además de archivos auxiliares. En el proyecto se identifican CODESYS Control Win V3, Modbus TCP Slave (puerto 502), programas `OPERACIONES`, `RIEGO` y `REGISTRO_DATOS`, y una tarea cíclica `T#20ms`. Los metadatos mencionan componentes 3.5.9.0/3.5.9.10 y las capturas del equipo identifican el **IDE CODESYS V3.5 SP9 Patch 1**, con **Device Modbus TCP Slave 3.5.9.10**; consultar el [registro del entorno](ENTORNO_CODESYS_REGISTRADO.md). La versión del runtime Control Win y las bibliotecas realmente requeridas por el proyecto deben verificarse en línea. Consultar [documentación CODESYS](../02_CODESYS/README.md).
+El archivo [`02_CODESYS/Simulación guanabana codesys.zip`](../02_CODESYS/Simulaci%C3%B3n%20guanabana%20codesys.zip) es la versión final publicada por el equipo. **El contenido interno del nuevo ZIP aún no se ha extraído para verificar los archivos**; el paquete anterior sí contenía `Grado.project` y `Grado.Device.Application.xml`, además de auxiliares. En el proyecto se identifican CODESYS Control Win V3, Modbus TCP Slave (puerto 502), programas `OPERACIONES`, `RIEGO` y `REGISTRO_DATOS`, y una tarea cíclica `T#20ms`. Los metadatos mencionan componentes 3.5.9.0/3.5.9.10 y las capturas del equipo identifican el **IDE CODESYS V3.5 SP9 Patch 1**, con **Device Modbus TCP Slave 3.5.9.10**; consultar el [registro del entorno](ENTORNO_CODESYS_REGISTRADO.md). La versión del runtime Control Win y las bibliotecas realmente requeridas por el proyecto deben verificarse en línea. Consultar [documentación CODESYS](../02_CODESYS/README.md).
 
 ## Comunicación e integración
 
-1. Descargar y extraer [`02_CODESYS/Codesys.zip`](../02_CODESYS/Codesys.zip); abrir el archivo de proyecto en CODESYS y seleccionar el controlador virtual.
+1. Descargar y extraer [`02_CODESYS/Simulación guanabana codesys.zip`](../02_CODESYS/Simulaci%C3%B3n%20guanabana%20codesys.zip); comprobar que contenga `Grado.project` y abrirlo en CODESYS y seleccionar el controlador virtual.
 2. Verificar las variables Modbus TCP para Python y los símbolos `FO_*` publicados por el controlador para Factory I/O.
 3. Abrir [`03_Factory_IO/Grado.factoryio`](../03_Factory_IO/Grado.factoryio) en Factory I/O. Revisar su configuración `OPCClientDA` hacia `CoDeSys.OPC.DA` y los 14 vínculos `PLC1.Application.GVL.FO_*`; comprobar la disponibilidad del servidor OPC clásico antes de ejecutar la planta.
 4. Ejecutar `Sensores.py`.
