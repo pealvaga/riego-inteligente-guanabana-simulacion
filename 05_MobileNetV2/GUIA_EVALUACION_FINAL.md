@@ -1,5 +1,7 @@
 # Guía para evaluar el checkpoint final de MobileNetV2
 
+Para ejecutar el procedimiento se dispone del [cuaderno Google Colab](EVALUAR_MOBILENETV2.ipynb), el [script de evaluación](evaluar_checkpoint_final.py) y la [guía operativa](COMO_EVALUAR_CHECKPOINT_FINAL.md). Estas herramientas no modifican el entrenamiento ni el checkpoint; sus resultados deberán generarse sobre imágenes independientes verificables.
+
 ## Objetivo
 
 Documentar de forma reproducible la evaluación del modelo `mejor_modelo_hojas_finetuning.keras` incluido en el proyecto, sin modificar el código de entrenamiento ni sus pesos.
