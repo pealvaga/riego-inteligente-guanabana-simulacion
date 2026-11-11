@@ -10,7 +10,7 @@ El paquete [Codesys.zip](Codesys.zip) contiene el proyecto **Grado.project**, la
 **Identidad del proyecto `Grado.project` (SHA-256):**
 `670603ca32ab3f241f4c226eb9047cd0f57489dd9531abac82326fd297b79093`
 
-Los metadatos internos incluyen referencias a componentes CODESYS **3.5.9.0 / 3.5.9.10**. Las capturas aportadas del entorno de programación identifican **CODESYS V3.5 SP9 Patch 1** (la ventana de inicio muestra «Patch 1 +»), con **Device Modbus TCP Slave 3.5.9.10**, **Engine 3.5.9.10** y otros componentes. Ver el [registro de versiones CODESYS](../08_Documentacion/ENTORNO_CODESYS_REGISTRADO.md). La versión de **CODESYS Control Win V3** quedó identificada por captura como **3.5.9.10** y la herramienta **OPCConfig** como **3.5.9.0**. Ver el [resumen de versiones](../08_Documentacion/VERSIONES_SOFTWARE_CONFIRMADAS.md). El estado RUN, las bibliotecas utilizadas por el proyecto y la conexión OPC DA siguen pendientes de prueba.
+Los metadatos internos incluyen referencias a componentes CODESYS **3.5.9.0 / 3.5.9.10**. Las capturas del entorno de programación muestran **CODESYS V3.5 SP9 Patch 1** (la ventana de inicio muestra «Patch 1 +»), con **Device Modbus TCP Slave 3.5.9.10**, **Engine 3.5.9.10** y otros componentes. Ver el [registro de versiones CODESYS](../08_Documentacion/ENTORNO_CODESYS_REGISTRADO.md). La versión de **CODESYS Control Win V3** quedó identificada por captura como **3.5.9.10** y la herramienta **OPCConfig** como **3.5.9.0**. Ver el [resumen de versiones](../08_Documentacion/VERSIONES_SOFTWARE_CONFIRMADAS.md). El estado RUN, las bibliotecas utilizadas por el proyecto y la conexión OPC DA siguen pendientes de prueba.
 
 ## Contenido identificado
 
@@ -93,7 +93,7 @@ Estas capturas evidencian compilación y valores instantáneos, pero no sustituy
 
 ## Lógica declarada del pulsador STOP
 
-El autor aclara que implementó el pulsador `FO_STOP` como **normalmente cerrado (NC)**: `TRUE` corresponde al contacto sin pulsar y `FALSE` al contacto accionado. El valor `FO_STOP=TRUE` mostrado en capturas mientras el sistema funciona es, por tanto, **coherente con su diseño declarado**; no indica una orden de parada.
+El pulsador `FO_STOP` se configuró como **normalmente cerrado (NC)**: `TRUE` corresponde al contacto sin pulsar y `FALSE` al contacto accionado. El valor `FO_STOP=TRUE` mostrado en capturas mientras el sistema funciona es, por tanto, **coherente con la configuración del sistema**; no indica una orden de parada.
 
 Se recomienda comprobar la transición `TRUE→FALSE` accionando el pulsador en Factory I/O y verificando su efecto en CODESYS, junto con el comportamiento de arranque/rearme. La declaración sobre la polaridad no equivale a una prueba de seguridad funcional. Ver [registro de evidencias](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md).
 
