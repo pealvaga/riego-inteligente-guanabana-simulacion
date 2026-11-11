@@ -4,7 +4,7 @@ Esta carpeta reúne la evidencia cuantitativa y de funcionamiento de los compone
 
 Antes de incorporar capturas o resultados, preparar una copia de la [plantilla de evidencias funcionales](PLANTILLA_EVIDENCIAS_FUNCIONALES.md). No marcar pruebas como aprobadas ni atribuir métricas a un modelo sin registrar la versión, los datos y la ejecución real.
 
-**Cierre de pruebas y verificación de modelos:** se reporta ejecución funcional repetida del sistema sin fallas observadas. Los 20 PNG E1–E20 permanecen publicados y el detalle de sus límites se conserva en el informe de integración. Para la prueba específica de carga de Random Forest `rf-v2` en Python existe el [protocolo mínimo de comprobación](PROTOCOLO_VERIFICACION_RF_V2_EN_PYTHON.md): no repetir el entrenamiento, solo registrar carga, inferencia y, de ser posible, una comparación puntual con la humedad real simulada.
+**Cierre de pruebas y verificación de modelos:** se reporta ejecución funcional repetida del sistema sin fallas observadas. Los 21 PNG E1–E21 permanecen publicados y el detalle de sus límites se conserva en el informe de integración. Para la prueba específica de carga de Random Forest `rf-v2` en Python existe el [protocolo mínimo de comprobación](PROTOCOLO_VERIFICACION_RF_V2_EN_PYTHON.md): no repetir el entrenamiento, solo registrar carga, inferencia y, de ser posible, una comparación puntual con la humedad real simulada.
 
 ## Comparación complementaria de humedad predicha frente a humedad real
 
@@ -12,7 +12,7 @@ Se registraron **21 parejas reportadas de humedad predicha y real** en [el infor
 
 ## Estimación concreta del próximo riego en la aplicación
 
-Se revisó una [captura de la interfaz Python](RF_EVIDENCIA_ESTIMACION_PROXIMO_RIEGO_20261111.md) con humedad inicial **70 %**, humedad observada **69,61 %**, predicción a +10 minutos **69,60 %**, riego recibido **INACTIVO** y **fecha prevista para próximo riego: Día 3 – 23:30**. Esta captura muestra que la función produce una **fecha estimada** bajo las condiciones indicadas, pero **no verifica aún el momento real de activación**. El PNG original está disponible para subir manualmente a GitHub; el informe registra su huella SHA-256.
+Se revisó una [captura de la interfaz Python](RF_EVIDENCIA_ESTIMACION_PROXIMO_RIEGO_20261111.md) con humedad inicial **70 %**, humedad observada **69,61 %**, predicción a +10 minutos **69,60 %**, riego recibido **INACTIVO** y **fecha prevista para próximo riego: Día 3 – 23:30**. Esta captura muestra que la función produce una **fecha estimada** bajo las condiciones indicadas, pero **no verifica aún el momento real de activación**. El [PNG original ya está publicado](evidencias_integracion_guanabana/21_rf_v2_pronostico_proximo_riego.png) en GitHub, con identidad de bytes verificada mediante la huella de objeto Git y SHA-256 documentada en el informe.
 
 ## Integración: evidencia real de ejecución
 
