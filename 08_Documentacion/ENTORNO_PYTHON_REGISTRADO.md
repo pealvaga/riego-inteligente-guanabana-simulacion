@@ -24,6 +24,10 @@
 
 La captura se conserva también en [`ENTORNO_EJECUTADO.json`](ENTORNO_EJECUTADO.json) como **declaración de las versiones registradas en un equipo Windows**, no como verificación ejecutada por el revisor.
 
+## Comprobación adicional con PowerShell (11/11/2026)
+
+La salida aportada de **Windows PowerShell 5.1** confirma **Python 3.12.9**, **pip 24.3.1** y las versiones de los **diez paquetes principales** consignados en la tabla anterior, incluida `scikit-learn 1.6.1`, `joblib 1.6.0`, `pymodbus 3.15.0`, `tensorflow 2.21.0` y `keras 3.15.1`. Se conserva un [informe específico](VERIFICACION_POWERSHELL_LIBRERIAS_20261111.md). El intento de `pip freeze` falló por permisos de escritura en una carpeta protegida; **no por problemas de instalación**. El inventario completo de dependencias transitivas continúa sin adjuntarse.
+
 ## Compatibilidad y limitaciones
 
 - El programa [`01_Python/Sensores.py`](../01_Python/Sensores.py) importa `ModbusTcpClient` de `pymodbus.client` y prueba el argumento `device_id`, con alternativa `slave` cuando aparece `TypeError`. La existencia de `pymodbus 3.15.0` **no certifica por sí sola** una conexión con CODESYS.
@@ -41,4 +45,4 @@ La captura se conserva también en [`ENTORNO_EJECUTADO.json`](ENTORNO_EJECUTADO.
 4. Registrar las versiones instaladas de CODESYS, Control Win, Factory I/O y del driver OPC DA.
 5. Si todas las comprobaciones son satisfactorias, conservar un `pip freeze` del mismo intérprete, diferenciando paquetes directos y transitivos.
 
-**Estado:** captura de dependencias obtenida; pruebas de ejecución y compatibilidad pendientes.
+**Estado:** versiones principales corroboradas por instantánea JSON y segunda salida de `pip show`; pendiente completar `pip freeze` y confirmar el intérprete efectivo usado para ejecutar `Sensores.py`. Las evidencias operativas de la aplicación se encuentran en `07_Resultados/`.
