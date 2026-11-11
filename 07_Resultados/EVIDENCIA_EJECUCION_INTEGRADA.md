@@ -2,7 +2,7 @@
 
 ## Origen y alcance
 
-Revisión inicial de **cinco capturas de pantalla proporcionadas por el autor**, ampliada posteriormente con **siete capturas adicionales** (compilación CODESYS, escena Factory I/O, tabla de variables GVL, pulsador de emergencia y estados de salidas con emergencia activa) de la simulación del sistema de riego para guanábana. Las capturas se obtuvieron durante una sesión operativa, con instantes simulados diferentes; **no se deben interpretar como una única medición sincronizada**. Los archivos de imagen originales **todavía no están incluidos** en el repositorio. Este documento transcribe la evidencia observable y registra lo que falta demostrar.
+Revisión inicial de **cinco capturas de pantalla proporcionadas por el autor**, ampliada posteriormente con **once capturas adicionales** (compilación CODESYS, escena Factory I/O, tabla GVL, emergencia, salidas detenidas y secuencia de rearme) de la simulación del sistema de riego para guanábana. Las capturas se obtuvieron durante una sesión operativa, con instantes simulados diferentes; **no se deben interpretar como una única medición sincronizada**. Los archivos de imagen originales **todavía no están incluidos** en el repositorio. Este documento transcribe la evidencia observable y registra lo que falta demostrar.
 
 **Software registrado:**
 - CODESYS IDE V3.5 SP9 Patch 1; CODESYS Control Win V3 3.5.9.10.
@@ -99,6 +99,38 @@ La secuencia observada es **coherente con desactivación de salidas de riego y e
 
 **Pendiente de completar:** registrar el rearme de la emergencia, la recuperación controlada de indicadores y salidas, y el comportamiento del llenado; preferiblemente con un video corto o capturas simultáneas de Factory I/O y el monitor GVL.
 
+## Ampliación E13–E16: rearme de emergencia y regreso de una salida de riego
+
+Se revisaron **cuatro capturas adicionales**: dos vistas de los tanques en Factory I/O (E13, E15) y dos capturas de `Device.Application.GVL` en CODESYS (E14, E16). Permiten describir los estados observados en diferentes instantes; **no son una grabación sincronizada del ciclo de rearme**.
+
+| Señal | Captura E14: emergencia activa | Captura E16: emergencia liberada |
+|---|---|---|
+| `FO_EMERGENCIA` | **TRUE** | **FALSE** |
+| `FO_Riego1` | FALSE | FALSE |
+| `FO_Riego2` | FALSE | **TRUE** |
+| `FO_S_DESCARGA1` | FALSE | FALSE |
+| `FO_S_DESCARGA2` | FALSE | **TRUE** |
+| `FO_LEDR` | **TRUE** | **FALSE** |
+| `FO_LEDV` | FALSE | **TRUE** |
+| `FO_STOP` | **TRUE** | **TRUE** |
+| `FO_START` | FALSE | FALSE |
+| `FO_Llenado1` | 0 | 0 |
+| `FO_Llenado2` | 0 | 0 |
+| `FO_S_NIVEL1` | 5.23745632 | 5.23745632 |
+| `FO_S_NIVEL2` | 6.993286 | 6.487397 |
+
+En ambas nuevas vistas de Factory I/O **no se aprecia el chorro de llenado superior del tanque derecho** que aparecía en E11. Esta observación es compatible con un llenado detenido en esos instantes, sin establecer su causa ni demostrar de manera concluyente el funcionamiento de todas las válvulas.
+
+### Interpretación y asuntos sin cerrar
+
+La secuencia **muestra un retorno de `FO_EMERGENCIA` a FALSE, el cambio de indicador rojo a verde y la reactivación de la salida `FO_Riego2` con `FO_S_DESCARGA2=TRUE`**. Es evidencia de un **rearme observado en la simulación y recuperación de la lógica de riego**.
+
+Sin embargo, **no se puede afirmar** que el riego requiera una nueva orden de inicio tras soltar la emergencia. En las capturas `FO_START=FALSE` y `FO_STOP=TRUE` tanto antes como después; sin documentar la polaridad del pulsador y el circuito de control, `FO_STOP=TRUE` **no demuestra por sí solo una falla** ni una parada aceptada. Se recomienda registrar explícitamente si el riego vuelve automáticamente al quitar emergencia y evaluar si esa conducta es la deseada en la simulación.
+
+Los niveles de los tanques se muestran como valores de variables `REAL` sin atribuir unidades ni porcentajes: `FO_S_NIVEL2` desciende de 6.993286 a 6.487397 entre E14 y E16. Esta diferencia es consistente con una descarga activada posteriormente, pero no equivale a una prueba cuantitativa de caudal.
+
+**Pendientes de esta prueba:** confirmar la polaridad y función de `FO_STOP`, comprobar si se exige rearme/START o si el restablecimiento es automático, observar valores y movimiento en el mismo instante, y conservar las capturas originales en GitHub. Este análisis **no certifica una función de seguridad física**.
+
 ## Qué se puede afirmar de forma sustentada
 
 1. Factory I/O **muestra una conexión activa** con el servidor `CoDeSys.OPC.DA` y 14 símbolos.
@@ -128,11 +160,11 @@ La barra de título de CODESYS muestra **`Grado.project*`**. El asterisco puede 
 4. Conservar evidencia del **evento de riego** (inicio y parada alrededor de los umbrales programados) y del histórico guardado; verificar qué señales representan `GVL.Riego` y `GVL.Regando`.
 5. Documentar una prueba de **MobileNetV2** con hoja de muestra y umbral 0,90, sin considerarla diagnóstico agronómico definitivo.
 6. Conservar las dos capturas E9/E10 de la transición de emergencia y comprobar el comportamiento seguro de las salidas después de activarla.
-7. Verificar si el chorro de llenado del tanque derecho se detiene cuando `FO_Llenado2=0`, y documentar la secuencia de rearme de emergencia.
+7. **Rearme observado (E13–E16):** comprobar si `FO_Riego2` se habilita automáticamente al liberar emergencia o requiere orden de START, e identificar la polaridad real de `FO_STOP`. Las nuevas capturas no muestran chorro de llenado, pero falta corroborar el comportamiento en una prueba sincronizada.
 8. Publicar las capturas originales, si se desea, en `07_Resultados/evidencias_integracion/` y vincularlas desde este reporte.
 
 ## Conclusión
 
-Las doce capturas son evidencia favorable de **compilación sin errores, aplicación conectada/en ejecución, variables online y conectividad indicada por las interfaces** de los tres componentes. Con ellas se puede sustentar una demostración funcional preliminar para la primera observación del docente. **No son una certificación de ejecución completamente reproducida por terceros, ni prueba de exactitud de las IA**.
+Las dieciséis capturas son evidencia favorable de **compilación sin errores, aplicación conectada/en ejecución, variables online y conectividad indicada por las interfaces** de los tres componentes. Con ellas se puede sustentar una demostración funcional preliminar para la primera observación del docente. **No son una certificación de ejecución completamente reproducida por terceros, ni prueba de exactitud de las IA**.
 
 El reporte se elaboró a partir de las capturas aportadas por el autor; no se modificaron `Sensores.py`, CODESYS, Factory I/O ni los modelos.
