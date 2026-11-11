@@ -8,7 +8,7 @@ Antes de incorporar capturas o resultados, preparar una copia de la [plantilla d
 
 ## Comparación complementaria de humedad predicha frente a humedad real
 
-Se registraron **21 parejas reportadas de humedad predicha y real** en [el informe de comprobación operativa](RF_COMPROBACION_OPERATIVA_21_PREDICCIONES_20261111.md) y en su [CSV reproducible](RF_comparacion_operativa_21_pares_20261111.csv). Con valores redondeados a dos decimales: **12 coincidencias exactas**, **9 diferencias de 0,01 puntos porcentuales**, **MAE 0,00429** y **RMSE 0,00655**. Las observaciones están en un intervalo estrecho de humedad (75,52–76,61 %); **aún falta confirmar las marcas de tiempo de t y t+10 para considerarlas pronósticos futuros correctamente alineados**. No sustituye el conjunto de **922 pruebas de Colab**.
+Se registraron **21 parejas reportadas de humedad predicha y real** en [el informe de comprobación operativa](RF_COMPROBACION_OPERATIVA_21_PREDICCIONES_20261111.md) y en su [CSV reproducible](RF_comparacion_operativa_21_pares_20261111.csv). Con valores redondeados a dos decimales: **12 coincidencias exactas**, **9 diferencias de 0,01 puntos porcentuales**, **MAE 0,00429** y **RMSE 0,00655**. Las observaciones están en un intervalo estrecho de humedad (75,52–76,61 %); **se confirmó el intervalo de +10 minutos simulados utilizado entre predicción y observación; no se conservaron marcas de tiempo por fila**. No sustituye el conjunto de **922 pruebas de Colab**.
 
 ## Integración: evidencia real de ejecución
 
