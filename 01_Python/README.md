@@ -15,7 +15,7 @@ python -m pip install -r requirements.txt
 python Sensores.py
 ```
 
-Las dependencias aún no están fijadas a versiones concretas en el archivo. Para registrar las versiones instaladas de forma verificable, utilizar **[`08_Documentacion/registrar_entorno.py`](../08_Documentacion/registrar_entorno.py)** en el equipo original donde los modelos funcionen, siguiendo [la guía integral](../08_Documentacion/GUIA_REPRODUCCION_INTEGRAL.md). Revisar el informe generado antes de publicarlo.
+Las dependencias aún no están fijadas a versiones concretas en el archivo. Se recibió una [captura del entorno instalado](../08_Documentacion/ENTORNO_PYTHON_REGISTRADO.md) que informa CPython 3.12.9 y versiones de los paquetes; esta captura **no constituye una prueba de ejecución**. Para registrar o actualizar las versiones, utilizar **[`08_Documentacion/registrar_entorno.py`](../08_Documentacion/registrar_entorno.py)** desde el mismo intérprete que utiliza la aplicación, siguiendo [la guía integral](../08_Documentacion/GUIA_REPRODUCCION_INTEGRAL.md).
 
 ## Archivos de modelo
 
