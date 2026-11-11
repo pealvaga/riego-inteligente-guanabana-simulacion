@@ -16,6 +16,10 @@ Archivos de esta ejecución: [Excel consolidado](Base_guanabana_consolidada_para
 
 **Huella confirmada:** el modelo local de la carpeta `resultados_RF_guanabana (1)` tiene el mismo SHA-256 que el adjunto de Release: `c3eba2fce1d49187249afef988d0848276eb4dd2e9e5f5e2bf33fa8446e09692`. **Pendiente:** confirmar que la aplicación carga el paquete y realiza inferencias. Aunque el archivo supera persistencia en esta evaluación, su desempeño frente a una sesión completamente nueva y la exactitud del momento de próximo riego aún no se han acreditado.
 
+## Comprobación complementaria de predicción en la aplicación
+
+Se archivaron [21 parejas de humedad predicha y real](../07_Resultados/RF_COMPROBACION_OPERATIVA_21_PREDICCIONES_20261111.md) aportadas durante las pruebas del sistema. En los valores con dos decimales se observa **MAE 0,00429** y **RMSE 0,00655 puntos porcentuales**. Se necesita todavía registrar el tiempo simulado de cada predicción y observación (`t` frente a `t+10`), y la identificación del modelo en ejecución. Estas comparaciones no sustituyen las métricas estadísticas del entrenamiento sobre 922 muestras.
+
 ## Evaluaciones históricas (no son el modelo rf-v2)
 
 El entrenamiento anterior sobre la base de 3.819 registros obtuvo **RMSE Random Forest 1,7698 vs. 0,6304 de persistencia**, y quedó **NO VALIDADO**. La evaluación aún más antigua con 813 muestras también quedó no validada. Se conservan los [informes históricos](../07_Resultados/RF_INFORME_EVALUACION_BASE_ACTUALIZADA_20261111.md) para trazabilidad, pero **no describen el nuevo modelo publicado en Release**.
