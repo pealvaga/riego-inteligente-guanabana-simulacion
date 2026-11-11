@@ -19,7 +19,7 @@ Publicar una versión **identificable y reproducible** del proyecto de simulaci�
 | Excel inicial de registros RF | [x] | [`06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx`](../06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx) |
 | Cuaderno que prepara múltiples sesiones RF | [x] | [`RF_Guanaba_todas_sesiones.ipynb`](../04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb), pendiente de ejecución sobre datos finales |
 | Guía de ejecución integrada | [x] | [`GUIA_REPRODUCCION_INTEGRAL.md`](GUIA_REPRODUCCION_INTEGRAL.md) |
-| Captura de versiones exactas de Python y dependencias | [ ] | [`registrar_entorno.py`](registrar_entorno.py) y `pip freeze`; ejecutar **en el equipo original** |
+| Captura de versiones instaladas de Python y paquetes | [x] | [`ENTORNO_EJECUTADO.json`](ENTORNO_EJECUTADO.json): CPython 3.12.9, Windows AMD64. **Pendiente confirmar** que es el mismo intérprete con que se ejecuta el sistema y completar `pip freeze` |
 | Versiones instaladas y bibliotecas de CODESYS | [ ] | Registrar versión completa, dispositivos y bibliotecas desde CODESYS |
 | Versión/driver activo y prueba OPC DA de Factory I/O | [ ] | Confirmar conexión con `CoDeSys.OPC.DA` y 14 señales |
 | Demostración de instalación desde cero | [ ] | Registrar errores, ajustes y evidencia de arranque de las tres plataformas |
