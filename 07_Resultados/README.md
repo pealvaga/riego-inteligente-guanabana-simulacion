@@ -6,7 +6,7 @@ Esta carpeta reúne la evidencia cuantitativa y de funcionamiento de los compone
 
 Los reportes deben incluir las cantidades de muestras y trayectorias por conjunto, los parámetros del modelo, el RMSE (en puntos porcentuales de humedad disponible) y una comparación con la persistencia. Se recomienda medir también el error de predicción del instante del siguiente riego (minutos simulados).
 
-La salida guardada en [`RF_Guanaba.ipynb`](../04_Random_Forest/RF_Guanaba.ipynb) corresponde a una prueba de **485 filas** sobre un escenario independiente, con RMSE RF **23,3915** y RMSE de persistencia **0,6709**. El cuaderno la identifica como **NO VALIDADA**. Publicar aquí el CSV `resultados_prueba_random_forest.csv` y el JSON `metricas_random_forest.json` de una ejecución trazable, además de la base que la originó. El `.pkl` de nombre estándar requiere cotejo con esa misma ejecución.
+La salida guardada en [`RF_Guanaba (1).ipynb`](../04_Random_Forest/RF_Guanaba%20(1).ipynb) utiliza el [Excel publicado](../06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx): **813 muestras**, 647 de entrenamiento y 163 de prueba cronológica, provenientes de **un solo escenario**. Reporta RMSE RF **0,6144** y RMSE de persistencia **0,1386**. El cuaderno identifica esta evaluación como **NO VALIDADA**. Se guardó un [resumen de los valores visibles](RF_metricas_preliminares_notebook.json), que **no sustituye** el CSV de predicciones ni el JSON exportado por Colab. Falta cotejar la procedencia del `.pkl` publicado y evaluar en escenarios independientes.
 
 ## MobileNetV2
 
