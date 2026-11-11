@@ -16,7 +16,7 @@ El [**informe de la nueva evaluación**](RF_INFORME_EVALUACION_V2_20261111.md) c
 
 ## Random Forest: entrenamiento con la base ampliada (histórico, NO VALIDADO)
 
-Se analizaron los resultados del [entrenamiento actualizado](RF_INFORME_EVALUACION_BASE_ACTUALIZADA_20261111.md) y se publicó su [resumen JSON](RF_metricas_base_actualizada_20261111.json). La base produjo **3.243 muestras aptas**, separadas en **2.672 de entrenamiento** y **571 de prueba** por escenarios. **RMSE Random Forest 1,7698 vs. persistencia 0,6304**: resultado **NO VALIDADO**, sin sustituir el `.pkl` operativo. Los CSV, Excel y artefacto `_NO_VALIDADO.pkl` aún deben publicarse si se decide conservar el conjunto íntegro de evidencia.
+La [evaluación histórica anterior](RF_INFORME_EVALUACION_BASE_ACTUALIZADA_20261111.md) reportó **3.243 muestras aptas**, con 2.672 de entrenamiento y 571 de prueba, y **RMSE Random Forest 1,7698 vs. persistencia 0,6304**, por lo que quedó **NO VALIDADA**. No corresponde al modelo `rf-v2`. El CSV, Excel y `_NO_VALIDADO.pkl` de aquella ejecución histórica no están publicados aquí, pero el CSV/Excel/JSON **de la nueva ejecución rf-v2 sí están disponibles** en `04_Random_Forest/`.
 
 Las cifras del notebook exploratorio de 813 muestras pertenecen a una **evaluación histórica** y no deben presentarse como si procedieran de la nueva base.
 
@@ -24,7 +24,7 @@ Las cifras del notebook exploratorio de 813 muestras pertenecen a una **evaluaci
 
 Los reportes deben incluir las cantidades de muestras y trayectorias por conjunto, los parámetros del modelo, el RMSE (en puntos porcentuales de humedad disponible) y una comparación con la persistencia. Se recomienda medir también el error de predicción del instante del siguiente riego (minutos simulados).
 
-La salida guardada en [`RF_Guanaba (1).ipynb`](../04_Random_Forest/RF_Guanaba%20(1).ipynb) utiliza el [Excel publicado](../06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx): **813 muestras**, 647 de entrenamiento y 163 de prueba cronológica, provenientes de **un solo escenario**. Reporta RMSE RF **0,6144** y RMSE de persistencia **0,1386**. El cuaderno identifica esta evaluación como **NO VALIDADA**. Se guardó un [resumen de los valores visibles](RF_metricas_preliminares_notebook.json), que **no sustituye** el CSV de predicciones ni el JSON exportado por Colab. Falta cotejar la procedencia del `.pkl` publicado y evaluar en escenarios independientes.
+El **cuaderno histórico retirado** `RF_Guanaba (1).ipynb` utilizó una versión anterior del Excel: **813 muestras**, 647 para entrenamiento y 163 de prueba cronológica, provenientes de un escenario. Reportó RMSE RF **0,6144** y RMSE persistencia **0,1386**, **NO VALIDADO**. Se conserva un [resumen histórico de sus resultados](RF_metricas_preliminares_notebook.json); el resultado **vigente** está documentado en el [informe rf-v2](RF_INFORME_EVALUACION_V2_20261111.md).
 
 ## Resultado preliminar de MobileNetV2
 
