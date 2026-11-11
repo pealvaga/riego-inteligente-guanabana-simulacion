@@ -2,7 +2,7 @@
 
 ## Origen y alcance
 
-Revisión inicial de **cinco capturas de pantalla proporcionadas por el autor**, ampliada posteriormente con **cinco capturas adicionales** (compilación CODESYS, escena Factory I/O, tabla de variables GVL y dos evidencias del pulsador de emergencia) de la simulación del sistema de riego para guanábana. Las capturas se obtuvieron durante una sesión operativa, con instantes simulados diferentes; **no se deben interpretar como una única medición sincronizada**. Los archivos de imagen originales **todavía no están incluidos** en el repositorio. Este documento transcribe la evidencia observable y registra lo que falta demostrar.
+Revisión inicial de **cinco capturas de pantalla proporcionadas por el autor**, ampliada posteriormente con **siete capturas adicionales** (compilación CODESYS, escena Factory I/O, tabla de variables GVL, pulsador de emergencia y estados de salidas con emergencia activa) de la simulación del sistema de riego para guanábana. Las capturas se obtuvieron durante una sesión operativa, con instantes simulados diferentes; **no se deben interpretar como una única medición sincronizada**. Los archivos de imagen originales **todavía no están incluidos** en el repositorio. Este documento transcribe la evidencia observable y registra lo que falta demostrar.
 
 **Software registrado:**
 - CODESYS IDE V3.5 SP9 Patch 1; CODESYS Control Win V3 3.5.9.10.
@@ -72,6 +72,33 @@ En una captura **anterior E8**, tomada sobre `Device.Application.GVL`, se observ
 
 Esta es una prueba de **simulación industrial virtual**; no certifica una función de seguridad física ni un nivel de integridad de seguridad.
 
+## Ampliación: salidas de riego con emergencia activada
+
+Se aportaron **dos capturas adicionales (E11–E12)** para comprobar la respuesta del sistema después de la activación de la emergencia.
+
+| Evidencia | Vista | Observación |
+|---|---|---|
+| **E11** | Escena Factory I/O | Dos depósitos con niveles distintos. En el depósito derecho se aprecia **un chorro de entrada de agua desde la parte superior**, mientras el panel de emergencia está visible. La imagen fija no indica en qué instante se inició o detuvo ese caudal. |
+| **E12** | Monitor CODESYS `Device.Application.GVL` | `FO_EMERGENCIA=TRUE`, `FO_Riego1=FALSE`, `FO_Riego2=FALSE`, `FO_S_DESCARGA1=FALSE`, `FO_S_DESCARGA2=FALSE`, `FO_LEDR=TRUE`, `FO_LEDV=FALSE`, `FO_Llenado1=0`, `FO_Llenado2=0`, `FO_S_NIVEL1=5.23745632`, `FO_S_NIVEL2=9.378026`, `FO_STOP=TRUE`. |
+
+### Comparación de salidas y señales
+
+| Variable | GVL anterior E8, emergencia FALSE | GVL actual E12, emergencia TRUE |
+|---|---|---|
+| `FO_EMERGENCIA` | FALSE | **TRUE** |
+| `FO_Riego1` | TRUE | **FALSE** |
+| `FO_Riego2` | FALSE | **FALSE** |
+| `FO_S_DESCARGA1` | TRUE | **FALSE** |
+| `FO_S_DESCARGA2` | FALSE | **FALSE** |
+| `FO_LEDR` | FALSE | **TRUE** |
+| `FO_LEDV` | TRUE | **FALSE** |
+
+La secuencia observada es **coherente con desactivación de salidas de riego y encendido del indicador rojo cuando la emergencia está activa**, y aporta evidencia adicional de comportamiento lógico del sistema. Sin embargo, las capturas no son una grabación sincronizada; no es posible aislar rigurosamente la causa única del cambio (por ejemplo, el valor de `FO_STOP` también aparece TRUE). **No se certifica con ello una función de parada de seguridad física.**
+
+**Hallazgo que requiere comprobación:** en E11 se ve un chorro entrando al tanque derecho, mientras que en E12 `FO_Llenado2=0`. Puede deberse a instantes distintos, animación/flujo residual o configuración de la válvula. Para determinarlo es necesario capturar la escena y el valor de la variable simultáneamente, observar si el chorro se detiene al cabo de unos segundos simulados y verificar el mapeo del actuador correspondiente. No declarar que *todas* las válvulas se han cerrado únicamente a partir de esta serie.
+
+**Pendiente de completar:** registrar el rearme de la emergencia, la recuperación controlada de indicadores y salidas, y el comportamiento del llenado; preferiblemente con un video corto o capturas simultáneas de Factory I/O y el monitor GVL.
+
 ## Qué se puede afirmar de forma sustentada
 
 1. Factory I/O **muestra una conexión activa** con el servidor `CoDeSys.OPC.DA` y 14 símbolos.
@@ -101,10 +128,11 @@ La barra de título de CODESYS muestra **`Grado.project*`**. El asterisco puede 
 4. Conservar evidencia del **evento de riego** (inicio y parada alrededor de los umbrales programados) y del histórico guardado; verificar qué señales representan `GVL.Riego` y `GVL.Regando`.
 5. Documentar una prueba de **MobileNetV2** con hoja de muestra y umbral 0,90, sin considerarla diagnóstico agronómico definitivo.
 6. Conservar las dos capturas E9/E10 de la transición de emergencia y comprobar el comportamiento seguro de las salidas después de activarla.
-7. Publicar las capturas originales, si se desea, en `07_Resultados/evidencias_integracion/` y vincularlas desde este reporte.
+7. Verificar si el chorro de llenado del tanque derecho se detiene cuando `FO_Llenado2=0`, y documentar la secuencia de rearme de emergencia.
+8. Publicar las capturas originales, si se desea, en `07_Resultados/evidencias_integracion/` y vincularlas desde este reporte.
 
 ## Conclusión
 
-Las diez capturas son evidencia favorable de **compilación sin errores, aplicación conectada/en ejecución, variables online y conectividad indicada por las interfaces** de los tres componentes. Con ellas se puede sustentar una demostración funcional preliminar para la primera observación del docente. **No son una certificación de ejecución completamente reproducida por terceros, ni prueba de exactitud de las IA**.
+Las doce capturas son evidencia favorable de **compilación sin errores, aplicación conectada/en ejecución, variables online y conectividad indicada por las interfaces** de los tres componentes. Con ellas se puede sustentar una demostración funcional preliminar para la primera observación del docente. **No son una certificación de ejecución completamente reproducida por terceros, ni prueba de exactitud de las IA**.
 
 El reporte se elaboró a partir de las capturas aportadas por el autor; no se modificaron `Sensores.py`, CODESYS, Factory I/O ni los modelos.
