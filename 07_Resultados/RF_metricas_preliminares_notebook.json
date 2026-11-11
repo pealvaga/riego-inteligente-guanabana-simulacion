@@ -1,0 +1,23 @@
+{
+  "tipo": "transcripcion_de_salidas_del_cuaderno_no_recalculada",
+  "notebook": "04_Random_Forest/RF_Guanaba (1).ipynb",
+  "datos": "06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx",
+  "n_muestras": 813,
+  "n_escenarios": 1,
+  "n_entrenamiento": 647,
+  "n_prueba": 163,
+  "particion": "cronologica_preliminar_con_3_filas_de_separacion",
+  "modelo": {
+    "algoritmo": "RandomForestRegressor",
+    "n_estimators": 300,
+    "MAE": 0.5033,
+    "RMSE": 0.6144,
+    "R2": 0.9715
+  },
+  "persistencia": {
+    "MAE": 0.1054,
+    "RMSE": 0.1386
+  },
+  "estado": "NO_VALIDADO",
+  "aclaracion": "Las métricas proceden de salidas guardadas en el notebook, no de una nueva ejecución; sin confirmación de correspondencia con el .pkl publicado."
+}
