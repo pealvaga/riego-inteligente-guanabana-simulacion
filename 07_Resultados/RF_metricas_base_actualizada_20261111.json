@@ -1,0 +1,48 @@
+{
+  "fecha_revision": "2026-11-11",
+  "estado": "NO_VALIDADO",
+  "origen": "resultados_RF_guanabana.zip",
+  "entrada_git_sha": "74a832fd6b1101ff21220526d983ce65e36cb61c",
+  "entrada_sha256": "73dd7c32d8473993a5523e224578964b7585ccc12171d0cbe0519780b83b3d56",
+  "datos": {
+    "registro_bruto": 3819,
+    "filas_rf": 3243,
+    "entrenamiento": 2672,
+    "prueba": 571,
+    "grupos_totales": 11,
+    "grupos_con_muestras": 7
+  },
+  "evaluacion": {
+    "metodo": "escenarios",
+    "MAE_RF": 0.8831388133463124,
+    "RMSE_RF": 1.7697996498706419,
+    "R2_RF": 0.9957433614235479,
+    "MAE_persistencia": 0.2944529606053519,
+    "RMSE_persistencia": 0.6303528865580698,
+    "supera_persistencia": false
+  },
+  "test_por_escenario": [
+    {
+      "sesion": "20261110_221621",
+      "escenario": 4,
+      "n": 421,
+      "rmse_rf": 0.7872,
+      "rmse_persistencia": 0.1989
+    },
+    {
+      "sesion": "20261110_221621",
+      "escenario": 5,
+      "n": 117,
+      "rmse_rf": 3.6082,
+      "rmse_persistencia": 1.3351
+    },
+    {
+      "sesion": "20261110_221621",
+      "escenario": 7,
+      "n": 33,
+      "rmse_rf": 0.3637,
+      "rmse_persistencia": 0.2255
+    }
+  ],
+  "nota": "Métricas del JSON de Colab cotejadas con el CSV. Cifras por escenario redondeadas a 4 decimales."
+}
