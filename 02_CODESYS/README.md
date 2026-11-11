@@ -8,7 +8,7 @@ El **archivo final actualmente publicado** es [`Simulación guanabana codesys (2
 - Tamaño: **8.906.941 bytes**.
 - SHA-1 del objeto Git (blob): `0154d1f7af90e3bec0958a563d9cbaed0d1a59a9`.
 - **Comprobado:** el archivo ZIP binario existe en `02_CODESYS/` y forma parte del árbol de `main`.
-- **Aún por verificar:** extracción del ZIP final, presencia de `Grado.project`, archivos necesarios y posibilidad de abrir y compilar la copia. El conector GitHub devuelve metadatos, pero no permitió extraer el contenido binario.
+- **Comprobación del equipo responsable:** se confirmó posteriormente que el ZIP final contiene los archivos requeridos y fue revisado localmente. **Limitación de auditoría remota:** el conector GitHub permitió verificar el archivo publicado, pero no extraer directamente el ZIP binario para comprobar su contenido interno de forma independiente.
 - El SHA-1 del **objeto Git** no es el hash SHA-256 del ZIP.
 
 **Identificación histórica:** el paquete anterior `Codesys.zip` de 8.906.589 bytes fue inspeccionado: contenía `Grado.project` (SHA-256 anterior `670603ca32ab3f241f4c226eb9047cd0f57489dd9531abac82326fd297b79093`), `Grado.Device.Application.xml` y auxiliares. **Esas huellas pertenecen a la versión antigua y no deben atribuirse al ZIP actual.** Los programas y configuraciones descritos en el resto de este README se identificaron originalmente en el paquete anterior y deben contrastarse con la nueva revisión.
