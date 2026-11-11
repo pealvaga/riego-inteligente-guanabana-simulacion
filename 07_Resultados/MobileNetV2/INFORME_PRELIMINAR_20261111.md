@@ -62,6 +62,16 @@ Los **100 nombres de archivo** del CSV de predicciones comienzan con «Captura d
 
 El conjunto de entrenamiento original usó material de **CoLeaf y SoursopBD** con etiquetas heterogéneas. La clase binaria «Deficiencia» no acredita por sí sola carencias nutricionales concretas de guanábana.
 
+## Procedencia declarada de las imágenes con deficiencia
+
+Las **50 imágenes etiquetadas como `Deficiencia`** para esta prueba se localizaron mediante **Google Imágenes**, según la información de recopilación proporcionada durante la revisión. Google Imágenes es un **buscador**, no necesariamente el creador, propietario ni fuente primaria de las fotografías.
+
+Por ello, **la búsqueda mediante Google Imágenes no acredita las etiquetas de deficiencia nutricional** ni permite identificar automáticamente especie, hoja/planta de origen, sitio de publicación o licencia. Las capturas de pantalla pueden además contener recortes de imágenes usadas previamente en otro conjunto, que no se detectarían mediante coincidencias exactas SHA-256.
+
+Esta información completa el **método de localización** de las 50 imágenes de deficiencia, **pero no llena todavía los campos de fuente original ni valida las etiquetas**. La procedencia de las 50 imágenes sanas permanece sin precisar. Se mantiene el estado **`EVALUACION_PRELIMINAR_INDEPENDENCIA_NO_ACREDITADA`** y las métricas no cambian.
+
+Para fortalecer la evaluación sin recopilar inmediatamente otras 100 fotografías, se recomienda localizar la **página original** de cada captura prioritaria, registrar URL, especie, diagnóstico original y condiciones de uso, y revisar en primer lugar las **37 imágenes con deficiencia clasificadas como sanas** al umbral operativo 0,90. Si un diagnóstico no puede verificarse, registrarlo como **etiqueta no acreditada**; no cambiarlo basándose solamente en la predicción del modelo.
+
 ## Acciones recomendadas
 
 1. **Conservar los 100 ejemplos y esta medición** como prueba exploratoria; no modificar cifras ni presentar el 63 % como validación final.
