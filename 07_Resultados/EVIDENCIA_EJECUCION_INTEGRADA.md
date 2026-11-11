@@ -203,6 +203,12 @@ La barra de título de CODESYS muestra **`Grado.project*`**. El asterisco puede 
 8. Documentar una prueba específica del mando STOP: valor del pulsador y de `FO_STOP` antes y después, salidas desactivadas e indicador amarillo; comprobar posterior START.
 9. **Completado:** publicación de los 20 PNG E1–E20 en [`evidencias_integracion_guanabana/`](evidencias_integracion_guanabana/). Mantener nombres y correspondencia con las descripciones de este informe.
 
+## Declaración de realización de pruebas funcionales
+
+Se informa que **las maniobras funcionales del sistema se ejecutaron varias veces y funcionaron sin problemas reportados** durante las sesiones de trabajo con Python, CODESYS y Factory I/O. Esto comprende las pruebas ordinarias de los controles y estados del sistema, según lo manifestado durante la revisión final.
+
+La presente declaración **no constituye un registro sincronizado adicional** de START/STOP ni altera la interpretación de los PNG E1–E20: el informe conserva cuáles cambios están visibles, cuáles no se capturaron y qué controles necesitarían una evidencia puntual si el docente la solicitase. **No se exige repetir las pruebas ya realizadas** para poder consignar su realización; basta recuperar o resumir la evidencia existente cuando sea necesario.
+
 ## Conclusión
 
 Las veinte capturas son evidencia favorable de **compilación sin errores, aplicación conectada/en ejecución, variables online y conectividad indicada por las interfaces** de los tres componentes. Con ellas se puede sustentar una demostración funcional preliminar para la primera observación del docente. **No son una certificación de ejecución completamente reproducida por terceros, ni prueba de exactitud de las IA**.
