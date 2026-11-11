@@ -61,6 +61,10 @@ Para evaluar el modelo fine-tuned sin modificar el entrenamiento existe un [cuad
 
 **Antecedente histórico de Random Forest:** una ejecución anterior con 3.243 muestras obtuvo RMSE **1,7698** frente a **0,6304** de persistencia y quedó **NO VALIDADA**. Ver el [informe histórico](07_Resultados/RF_INFORME_EVALUACION_BASE_ACTUALIZADA_20261111.md). **El modelo actual es `rf-v2`, evaluado arriba con resultados mejores.**
 
+**Comprobación funcional pendiente de RF `rf-v2`:** el nuevo modelo tiene SHA-256 coincidente con GitHub Release y métricas de prueba superiores a persistencia. El [protocolo de verificación de integración](07_Resultados/PROTOCOLO_VERIFICACION_RF_V2_EN_PYTHON.md) especifica las capturas mínimas para demostrar carga e inferencia en Python, sin modificar ni reentrenar el modelo.
+
+**Lectura del modelo foliar:** la [evaluación preliminar de MobileNetV2](07_Resultados/MobileNetV2/INFORME_PRELIMINAR_20261111.md) clasificó correctamente 50 de 50 hojas etiquetadas como sanas; al umbral conservador del 90 %, identificó 13 de 50 etiquetadas con deficiencia. Las imágenes de deficiencia se localizaron con Google Imágenes, sin diagnóstico nutricional independiente acreditado; se recomienda una base futura de guanábana con deficiencias confirmadas. **El 90 % es un umbral de autorización del fertirriego, no un margen de error estadístico.**
+
 ## Reproducibilidad y alcance de las IA
 
 La evaluación de Random Forest debe preservar el orden temporal y separar las trayectorias destinadas a entrenamiento, validación y prueba. Sus resultados deben compararse con una referencia de persistencia y acompañarse de un error del momento estimado del próximo riego. **La ejecución histórica del cuaderno antiguo utilizó 813 muestras y no superó persistencia (RMSE 0,6144 frente a 0,1386)**. **La ejecución nueva v2 sí supera persistencia**; aún falta verificar huella y compatibilidad del `.pkl` antes de cargarlo en la aplicación.
