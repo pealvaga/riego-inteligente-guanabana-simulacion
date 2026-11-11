@@ -14,7 +14,7 @@ Publicar una versión **identificable y reproducible** del proyecto de simulaci�
 |---|---|---|
 | Repositorio público con descripción y componentes | [x] | [README principal](../README.md) |
 | Python original del sistema | [x] | [`Sensores.py`](../01_Python/Sensores.py) |
-| Proyecto CODESYS editable | [x] | [`Codesys.zip`](../02_CODESYS/Codesys.zip), contiene `Grado.project` |
+| Paquete CODESYS actualizado publicado | [x] | [`Simulación guanabana codesys.zip`](../02_CODESYS/Simulaci%C3%B3n%20guanabana%20codesys.zip), **4.051.990 bytes**, objeto Git `75d7a981d832f9fb671a070c5dde1904902d16ae`, añadido tras retirar `Codesys.zip` anterior. **Falta inspeccionar el nuevo ZIP** para confirmar su contenido interno y cotejar que `Grado.project` coincide con el último proyecto compilado. |
 | Escena editable Factory I/O | [x] | [`Grado.factoryio`](../03_Factory_IO/Grado.factoryio) |
 | Código de entrenamiento MobileNetV2 y modelo `.keras` | [x] | [`05_MobileNetV2/`](../05_MobileNetV2/) |
 | Acceso documentado a imágenes y fuentes | [x] | [README MobileNetV2](../05_MobileNetV2/README.md); comprobar permisos y licencias |
