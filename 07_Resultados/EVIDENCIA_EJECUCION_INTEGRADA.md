@@ -74,6 +74,10 @@ El árbol de dispositivos muestra un símbolo de advertencia junto a **Ethernet*
 - No se han publicado aquí las capturas originales, el archivo histórico `HistorialCultivo.csv`, la base Excel anunciada o un acta de prueba independiente.
 - No se aportan métricas independientes o trazabilidad completa de los modelos de IA.
 
+## Control de versión del proyecto compilado
+
+La barra de título de CODESYS muestra **`Grado.project*`**. El asterisco puede indicar que hay cambios sin guardar. Por tanto, aunque la captura **sí demuestra compilación sin errores de la sesión mostrada**, todavía se debe confirmar que el archivo `Grado.project` guardado dentro de [`02_CODESYS/Codesys.zip`](../02_CODESYS/Codesys.zip) corresponde exactamente a esa revisión. Antes de cerrar el primer punto, guardar la versión definitiva, generar de nuevo el paquete (preferentemente un archivo de proyecto con dependencias) si cambió, y dejar constancia del commit/identificador usado.
+
 ## Próximas evidencias mínimas sugeridas
 
 1. **Compilación lograda (E6)**. Conservar el PNG original y, si procede, documentar el significado del icono de advertencia en Ethernet.
