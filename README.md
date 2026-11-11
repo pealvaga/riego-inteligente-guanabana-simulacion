@@ -33,6 +33,8 @@ La arquitectura no equivale a una validación agronómica en campo. En particula
 
 - **[Guía integral de reproducción del sistema](08_Documentacion/GUIA_REPRODUCCION_INTEGRAL.md)**
 - **[Lista de verificación de la primera corrección](08_Documentacion/CHECKLIST_PRIMER_PUNTO.md)**
+- [Texto propuesto para el Anexo C](08_Documentacion/TEXTO_PROPUESTO_ANEXO_C.md)
+- [Plantilla de evidencia de pruebas funcionales](07_Resultados/PLANTILLA_EVIDENCIAS_FUNCIONALES.md)
 - [Guía del entorno y secuencia de ejecución](08_Documentacion/INSTALACION_Y_EJECUCION.md)
 - [Configuración de la aplicación Python](01_Python/README.md)
 - [Mapa de registros Modbus TCP](08_Documentacion/MAPA_MODBUS.md)
