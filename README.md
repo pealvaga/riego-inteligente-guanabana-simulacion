@@ -50,6 +50,10 @@ La ejecución integral requiere los proyectos y modelos correspondientes, ademá
 
 Para corregir la selección de solo 813 muestras del Excel de Random Forest se creó un [cuaderno alternativo que reconstruye datos desde las tres sesiones](04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb). Consulta las [instrucciones para Google Colab](04_Random_Forest/COMO_ENTRENAR_CON_TODAS_LAS_SESIONES.md). El cuaderno nuevo está publicado **sin ejecutar**; se deben generar y documentar sus resultados antes de sustituir cualquier modelo.
 
+## Evaluación de MobileNetV2
+
+Para evaluar el modelo fine-tuned sin modificar el entrenamiento existe un [cuaderno independiente de Google Colab](05_MobileNetV2/EVALUAR_MOBILENETV2.ipynb) y una [guía paso a paso](05_MobileNetV2/COMO_EVALUAR_CHECKPOINT_FINAL.md). Las métricas finales **siguen pendientes de ejecución** con fotografías de prueba que no hayan participado en entrenamiento ni validación.
+
 ## Reproducibilidad y alcance de las IA
 
 La evaluación de Random Forest debe preservar el orden temporal y separar las trayectorias destinadas a entrenamiento, validación y prueba. Sus resultados deben compararse con una referencia de persistencia y acompañarse de un error del momento estimado del próximo riego. **La ejecución actual del cuaderno utiliza el Excel publicado (813 muestras) y no supera la persistencia (RMSE 0,6144 frente a 0,1386)**; el archivo `.pkl` publicado requiere cotejar su procedencia y evaluación antes de utilizarlo en la aplicación.
