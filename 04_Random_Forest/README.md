@@ -18,7 +18,7 @@ Archivos de esta ejecución: [Excel consolidado](Base_guanabana_consolidada_para
 
 ## Comprobación complementaria de predicción en la aplicación
 
-Se archivaron [21 parejas de humedad predicha y real](../07_Resultados/RF_COMPROBACION_OPERATIVA_21_PREDICCIONES_20261111.md) aportadas durante las pruebas del sistema. En los valores con dos decimales se observa **MAE 0,00429** y **RMSE 0,00655 puntos porcentuales**. Se necesita todavía registrar el tiempo simulado de cada predicción y observación (`t` frente a `t+10`), y la identificación del modelo en ejecución. Estas comparaciones no sustituyen las métricas estadísticas del entrenamiento sobre 922 muestras.
+Se archivaron [21 parejas de humedad predicha y real](../07_Resultados/RF_COMPROBACION_OPERATIVA_21_PREDICCIONES_20261111.md) aportadas durante las pruebas del sistema. En los valores con dos decimales se observa **MAE 0,00429** y **RMSE 0,00655 puntos porcentuales**. Se confirmó que cada observación real se tomó **10 minutos simulados después de la predicción correspondiente**; faltan las marcas de tiempo individualizadas y la identificación del modelo cargado en esa ejecución. Estas comparaciones no sustituyen las métricas estadísticas del entrenamiento sobre 922 muestras.
 
 ## Evaluaciones históricas (no son el modelo rf-v2)
 
