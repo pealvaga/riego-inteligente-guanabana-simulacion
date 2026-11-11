@@ -10,7 +10,7 @@ El paquete [Codesys.zip](Codesys.zip) contiene el proyecto **Grado.project**, la
 **Identidad del proyecto `Grado.project` (SHA-256):**
 `670603ca32ab3f241f4c226eb9047cd0f57489dd9531abac82326fd297b79093`
 
-Los metadatos internos incluyen referencias a componentes CODESYS **3.5.9.0 / 3.5.9.10**; la versión exacta del entorno y los paquetes instalados deberá registrarse desde CODESYS para facilitar una apertura reproducible.
+Los metadatos internos incluyen referencias a componentes CODESYS **3.5.9.0 / 3.5.9.10**. Las capturas aportadas del entorno de programación identifican **CODESYS V3.5 SP9 Patch 1** (la ventana de inicio muestra «Patch 1 +»), con **Device Modbus TCP Slave 3.5.9.10**, **Engine 3.5.9.10** y otros componentes. Ver el [registro de versiones CODESYS](../08_Documentacion/ENTORNO_CODESYS_REGISTRADO.md). La versión y el estado de ejecución de **CODESYS Control Win V3** y las bibliotecas realmente utilizadas por el proyecto siguen pendientes de verificación.
 
 ## Contenido identificado
 
