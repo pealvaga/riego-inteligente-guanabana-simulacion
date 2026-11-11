@@ -1,6 +1,6 @@
 # Versiones confirmadas del entorno de simulación
 
-Registro a partir de capturas de las ventanas de información de software proporcionadas por el autor (10/11/2026, hora local de Colombia). Se documentan las versiones **instaladas/mostradas**; no constituye una prueba de compilación, ejecución o comunicación.
+Registro a partir de capturas de las ventanas de información de software capturadas durante el desarrollo del proyecto (10/11/2026, hora local de Colombia). Se documentan las versiones **instaladas/mostradas**; no constituye una prueba de compilación, ejecución o comunicación.
 
 | Componente | Versión observada | Evidencia |
 |---|---|---|
@@ -28,6 +28,6 @@ Registro a partir de capturas de las ventanas de información de software propor
 
 ## Tratamiento de evidencias
 
-Las capturas fueron proporcionadas en la conversación y son la fuente de los valores transcritos. **Aún no se han guardado los PNG en el repositorio**. Para conservar evidencias visuales de entrega se pueden subir los tres PNG a `07_Resultados/evidencias_versiones/` con nombres descriptivos y referencias a este archivo.
+Los valores transcritos proceden de las capturas de las ventanas de información de cada programa. **Aún no se han guardado los PNG en el repositorio**. Para conservar evidencias visuales de entrega se pueden subir los tres PNG a `07_Resultados/evidencias_versiones/` con nombres descriptivos y referencias a este archivo.
 
 La [lista de verificación del primer punto](CHECKLIST_PRIMER_PUNTO.md) distingue los componentes documentados de las pruebas funcionales todavía por realizar.
