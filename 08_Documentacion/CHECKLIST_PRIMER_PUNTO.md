@@ -21,8 +21,11 @@ Publicar una versión **identificable y reproducible** del proyecto de simulaci�
 | Guía de ejecución integrada | [x] | [`GUIA_REPRODUCCION_INTEGRAL.md`](GUIA_REPRODUCCION_INTEGRAL.md) |
 | Captura de versiones instaladas de Python y paquetes | [x] | [`ENTORNO_EJECUTADO.json`](ENTORNO_EJECUTADO.json): CPython 3.12.9, Windows AMD64. **Pendiente confirmar** que es el mismo intérprete con que se ejecuta el sistema y completar `pip freeze` |
 | Versión del IDE CODESYS y componentes mostrados | [x] | [Registro del entorno CODESYS](ENTORNO_CODESYS_REGISTRADO.md): V3.5 SP9 Patch 1; Device Modbus TCP Slave 3.5.9.10 |
-| Runtime CODESYS Control Win y bibliotecas usadas por el proyecto | [ ] | Verificar en línea el runtime y las bibliotecas de `Grado.project`; capturar compilación sin errores |
-| Versión/driver activo y prueba OPC DA de Factory I/O | [ ] | Confirmar conexión con `CoDeSys.OPC.DA` y 14 señales |
+| Versión del runtime CODESYS Control Win V3 | [x] | [Control Win **3.5.9.10**](VERSIONES_SOFTWARE_CONFIRMADAS.md), confirmada por captura de pantalla de inicio |
+| OPCConfig: versión instalada | [x] | [**3.5.9.0**](VERSIONES_SOFTWARE_CONFIRMADAS.md); **no es prueba de enlace OPC DA** |
+| Versión instalada de Factory I/O | [x] | [**2.5.10**](VERSIONES_SOFTWARE_CONFIRMADAS.md), confirmada por pantalla Update Checker |
+| Compilación CODESYS, runtime RUN y bibliotecas del proyecto | [ ] | Registrar compilación sin errores, aplicación en RUN y bibliotecas usadas por `Grado.project` |
+| Conexión y driver OPC DA de Factory I/O | [ ] | Confirmar conexión real con `CoDeSys.OPC.DA` y 14 señales; no basta con identificar versiones |
 | Demostración de instalación desde cero | [ ] | Registrar errores, ajustes y evidencia de arranque de las tres plataformas |
 | `.pkl` RF definitivo, trazable y validado | [ ] | El artefacto publicado aún no tiene validación satisfactoria confirmada |
 | Excel consolidado final de RF y particiones | [ ] | Exportar y publicar desde nuevo cuaderno, conservar sesiones y criterios de filtrado |
