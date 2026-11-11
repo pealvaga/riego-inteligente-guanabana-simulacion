@@ -72,6 +72,8 @@ Se ejecutó el checkpoint final sobre un conjunto nuevo de **100 capturas PNG** 
 
 **Especie de la muestra con deficiencia:** las 50 imágenes de esta clase utilizadas en la evaluación exploratoria se identificaron como hojas de guanábana (`Annona muricata`). Se localizaron con Google Imágenes. La identificación se ha documentado como información de selección del conjunto, **sin verificar todavía las páginas originales ni los diagnósticos nutricionales**. No se presupone que las 50 imágenes sanas sean de la misma especie.
 
+**Ambas clases de la prueba:** las 50 fotografías sanas y las 50 etiquetadas como deficientes fueron seleccionadas como hojas de **guanábana (`Annona muricata`)**. El ZIP complementario revisado contiene 50 PNG con síntomas foliares visibles, sin duplicados exactos de bytes, pero con algunas composiciones semejantes. La especie declarada no valida el diagnóstico: manchas, necrosis y amarillamiento pueden tener causas nutricionales o no nutricionales. No se publican las fotografías sin verificar licencias y procedencia.
+
 ## Lectura académica de los resultados
 
 El código realiza la partición de rutas **antes** del aumento aleatorio de datos; esto reduce el riesgo de filtrar transformaciones generadas en línea a la prueba. No obstante, no se agrupan imágenes por identificador de original, planta o fuente: no es posible descartar copias, variaciones o imágenes correlacionadas en particiones diferentes sin revisar las imágenes y sus metadatos.
