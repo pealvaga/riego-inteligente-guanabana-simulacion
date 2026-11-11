@@ -15,7 +15,7 @@ python -m pip install -r requirements.txt
 python Sensores.py
 ```
 
-Las dependencias aún no están fijadas a versiones concretas en el archivo, por lo que deben contrastarse con el entorno utilizado para generar los modelos.
+Las dependencias aún no están fijadas a versiones concretas en el archivo. Para registrar las versiones instaladas de forma verificable, utilizar **[`08_Documentacion/registrar_entorno.py`](../08_Documentacion/registrar_entorno.py)** en el equipo original donde los modelos funcionen, siguiendo [la guía integral](../08_Documentacion/GUIA_REPRODUCCION_INTEGRAL.md). Revisar el informe generado antes de publicarlo.
 
 ## Archivos de modelo
 
