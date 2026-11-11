@@ -4,7 +4,7 @@
 
 Esta guía permite identificar y preparar los artefactos publicados, y describe las comprobaciones necesarias para ejecutar la simulación. **No constituye un certificado de prueba funcional**: el controlador, OPC DA, Modbus TCP, SCADA y modelos deben verificarse en el equipo de reproducción. **La nueva evaluación `rf-v2` ya supera la referencia de persistencia** ([informe](../07_Resultados/RF_INFORME_EVALUACION_V2_20261111.md)). La reproducibilidad completa de la instalación en otro equipo y la validación temporal del próximo riego siguen pendientes.
 
-Se mantiene intacta la simulación original en `01_Python/Sensores.py`, `02_CODESYS/Codesys.zip` y `03_Factory_IO/Grado.factoryio`.
+Se mantiene intacta la simulación original en `01_Python/Sensores.py`, `02_CODESYS/Simulación guanabana codesys.zip` y `03_Factory_IO/Grado.factoryio`.
 
 ## 1. Descargar el repositorio
 
@@ -58,7 +58,7 @@ Un paquete RF apto debe incluir `modelo` con `predict`, `variables` en el orden 
 
 ## 4. Preparar CODESYS
 
-1. Descargar y descomprimir `02_CODESYS/Codesys.zip`.
+1. Descargar y descomprimir `02_CODESYS/Simulación guanabana codesys.zip`.
 2. Abrir el proyecto `Codesys/Grado.project` en una instalación compatible de CODESYS, con CODESYS Control Win V3.
 3. La versión del IDE ya está [documentada mediante capturas](ENTORNO_CODESYS_REGISTRADO.md) como **CODESYS V3.5 SP9 Patch 1**, con componentes **3.5.9.0 / 3.5.9.10** y Device Modbus TCP Slave **3.5.9.10**. La versión del **runtime CODESYS Control Win V3 también quedó documentada como 3.5.9.10**, y OPCConfig como 3.5.9.0 ([resumen de versiones](VERSIONES_SOFTWARE_CONFIRMADAS.md)). Verificar ahora la aplicación **en RUN**, la configuración de dispositivos, las bibliotecas realmente requeridas por `Grado.project` y la disponibilidad del servidor OPC DA. OPCConfig no prueba conexión OPC.
 4. Compilar y comprobar errores; arrancar el controlador virtual y ejecutar la aplicación.
