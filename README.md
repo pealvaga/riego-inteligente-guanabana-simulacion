@@ -33,6 +33,7 @@ La arquitectura no equivale a una validación agronómica en campo. En particula
 
 - **[Guía integral de reproducción del sistema](08_Documentacion/GUIA_REPRODUCCION_INTEGRAL.md)**
 - **[Lista de verificación de la primera corrección](08_Documentacion/CHECKLIST_PRIMER_PUNTO.md)**
+- [Entorno Python registrado: CPython 3.12.9 y versiones de paquetes](08_Documentacion/ENTORNO_PYTHON_REGISTRADO.md)
 - [Texto propuesto para el Anexo C](08_Documentacion/TEXTO_PROPUESTO_ANEXO_C.md)
 - [Plantilla de evidencia de pruebas funcionales](07_Resultados/PLANTILLA_EVIDENCIAS_FUNCIONALES.md)
 - [Guía del entorno y secuencia de ejecución](08_Documentacion/INSTALACION_Y_EJECUCION.md)
