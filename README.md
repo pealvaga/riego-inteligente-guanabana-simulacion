@@ -54,6 +54,8 @@ Para corregir la selección de solo 813 muestras del Excel de Random Forest se c
 
 Para evaluar el modelo fine-tuned sin modificar el entrenamiento existe un [cuaderno independiente de Google Colab](05_MobileNetV2/EVALUAR_MOBILENETV2.ipynb) y una [guía paso a paso](05_MobileNetV2/COMO_EVALUAR_CHECKPOINT_FINAL.md). Las métricas finales **siguen pendientes de ejecución** con fotografías de prueba que no hayan participado en entrenamiento ni validación.
 
+**Primer resultado del checkpoint MobileNetV2:** se dispone de un [informe preliminar de 100 imágenes](07_Resultados/MobileNetV2/INFORME_PRELIMINAR_20261111.md) (accuracy 67 % al umbral 0,50 y 63 % al umbral operativo 0,90). **No es una validación independiente acreditada**, por falta de procedencia y grupos originales de las fotografías. El reporte detalla los falsos negativos y la necesidad de corroborar etiquetas.
+
 ## Reproducibilidad y alcance de las IA
 
 La evaluación de Random Forest debe preservar el orden temporal y separar las trayectorias destinadas a entrenamiento, validación y prueba. Sus resultados deben compararse con una referencia de persistencia y acompañarse de un error del momento estimado del próximo riego. **La ejecución actual del cuaderno utiliza el Excel publicado (813 muestras) y no supera la persistencia (RMSE 0,6144 frente a 0,1386)**; el archivo `.pkl` publicado requiere cotejar su procedencia y evaluación antes de utilizarlo en la aplicación.
