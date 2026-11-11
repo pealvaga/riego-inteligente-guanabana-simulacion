@@ -22,7 +22,7 @@ La exportación genera hojas:
 - `ResumenEscenarios`: recuentos y estado de cada escenario.
 - `Parametros`: versión del simulador y parámetros.
 
-Al producirse varios archivos de sesiones, se necesita documentar cómo se consolidaron. **El Excel `Base_guanabana_consolidada_para_RF.xlsx` cargado en la ejecución guardada del notebook no está publicado en el repositorio** en el momento de esta revisión.
+Al producirse varios archivos de sesiones, se necesita documentar cómo se consolidaron. Se publicó después [`Datos_entrenamiento_guanabana_20261110_103013.xlsx`](../06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx), que contiene 2.878 filas en `Registro_10min` y 813 en `Entrenamiento_RF`. **No es el mismo libro** que el `Base_guanabana_consolidada_para_RF.xlsx` de 2.502 muestras cargado en la ejecución guardada del notebook. Ver [análisis de la nueva base](../06_Datos/REVISION_EXCEL_RANDOM_FOREST.md).
 
 ## Configuración del cuaderno RF_Guanaba.ipynb
 
