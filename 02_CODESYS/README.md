@@ -1,16 +1,18 @@
 # Controlador virtual, automatización y SCADA — CODESYS
 
-## Proyecto fuente
+## Proyecto fuente — paquete final publicado
 
-El paquete [Codesys.zip](Codesys.zip) contiene el proyecto **Grado.project**, la configuración de símbolos `Grado.Device.Application.xml` y archivos auxiliares generados por el entorno de CODESYS. El paquete fue verificado íntegro (sin errores de extracción).
+El archivo [**Simulación guanabana codesys.zip**](Simulaci%C3%B3n%20guanabana%20codesys.zip) es la **nueva versión final** del proyecto CODESYS, publicada en GitHub después de guardar nuevamente el proyecto en el entorno de programación. Reemplazó al antiguo `Codesys.zip`, que ya no está en el repositorio.
 
-**Identidad del archivo ZIP (SHA-256):**
-`5d0eeeca385fd6437f93a5bc6c887b8fa57304a7dda9498cdc42dfb0102cd60c`
+**Metadatos confirmados desde GitHub (11/11/2026):**
+- **Tamaño del nuevo ZIP:** `4.051.990 bytes`.
+- **SHA-1 del objeto Git (blob):** `75d7a981d832f9fb671a070c5dde1904902d16ae`.
+- **Estado:** publicación confirmada; **la estructura interna de esta versión no se ha podido inspeccionar todavía**. El SHA-1 de Git **no** es un SHA-256 del ZIP.
+- **Comprobación pendiente:** abrir el ZIP, confirmar que contiene `Grado.project` (y archivos requeridos para la visualización y comunicación), cargarlo en CODESYS y comparar con la última revisión que se guardó y compiló.
 
-**Identidad del proyecto `Grado.project` (SHA-256):**
-`670603ca32ab3f241f4c226eb9047cd0f57489dd9531abac82326fd297b79093`
+**Precisión sobre la revisión anterior:** el archivo antiguo `Codesys.zip` había sido examinado y sí contenía `Grado.project`, `Grado.Device.Application.xml` y archivos auxiliares. Sus antiguos SHA-256 (ZIP `5d0eeeca385fd6437f93a5bc6c887b8fa57304a7dda9498cdc42dfb0102cd60c` y proyecto `670603ca32ab3f241f4c226eb9047cd0f57489dd9531abac82326fd297b79093`) **no identifican el nuevo ZIP** y se citan únicamente para distinguir versiones.
 
-Los metadatos internos incluyen referencias a componentes CODESYS **3.5.9.0 / 3.5.9.10**. Las capturas del entorno de programación muestran **CODESYS V3.5 SP9 Patch 1** (la ventana de inicio muestra «Patch 1 +»), con **Device Modbus TCP Slave 3.5.9.10**, **Engine 3.5.9.10** y otros componentes. Ver el [registro de versiones CODESYS](../08_Documentacion/ENTORNO_CODESYS_REGISTRADO.md). La versión de **CODESYS Control Win V3** quedó identificada por captura como **3.5.9.10** y la herramienta **OPCConfig** como **3.5.9.0**. Ver el [resumen de versiones](../08_Documentacion/VERSIONES_SOFTWARE_CONFIRMADAS.md). El estado RUN, las bibliotecas utilizadas por el proyecto y la conexión OPC DA siguen pendientes de prueba.
+Las capturas del entorno identifican **CODESYS V3.5 SP9 Patch 1**, **CODESYS Control Win V3 3.5.9.10**, **Device Modbus TCP Slave 3.5.9.10** y **OPCConfig 3.5.9.0**, según los [registros de versiones](../08_Documentacion/VERSIONES_SOFTWARE_CONFIRMADAS.md). Los apartados siguientes describen la programación observada en la **versión previa**; aún no se han contrastado directamente con el contenido binario del ZIP nuevo.
 
 ## Contenido identificado
 
@@ -99,7 +101,7 @@ Se recomienda comprobar la transición `TRUE→FALSE` accionando el pulsador en 
 
 ## Reproducción en CODESYS
 
-1. Extraer `Codesys.zip` y abrir `Grado.project`.
+1. Descargar y extraer [`Simulación guanabana codesys.zip`](Simulaci%C3%B3n%20guanabana%20codesys.zip), **confirmar que contiene `Grado.project`** y abrir el proyecto en CODESYS.
 2. Comprobar versiones, bibliotecas y dispositivos; instalar los elementos que requiera el proyecto.
 3. Compilar y ejecutar el controlador virtual.
 4. Verificar la asignación de registros Modbus y la exposición de símbolos.
