@@ -2,6 +2,8 @@
 
 Esta carpeta reúne la evidencia cuantitativa y de funcionamiento de los componentes de simulación, control, monitoreo e inteligencia artificial.
 
+Antes de incorporar capturas o resultados, preparar una copia de la [plantilla de evidencias funcionales](PLANTILLA_EVIDENCIAS_FUNCIONALES.md). No marcar pruebas como aprobadas ni atribuir métricas a un modelo sin registrar la versión, los datos y la ejecución real.
+
 ## Random Forest
 
 Los reportes deben incluir las cantidades de muestras y trayectorias por conjunto, los parámetros del modelo, el RMSE (en puntos porcentuales de humedad disponible) y una comparación con la persistencia. Se recomienda medir también el error de predicción del instante del siguiente riego (minutos simulados).
