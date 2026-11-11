@@ -26,7 +26,7 @@ La arquitectura no equivale a una validación agronómica en campo. En particula
 | [01_Python](01_Python/) | Aplicación de simulación, interfaz y comunicación |
 | [02_CODESYS](02_CODESYS/) | [Paquete CODESYS](02_CODESYS/Codesys.zip), controlador, automatización y SCADA |
 | [03_Factory_IO](03_Factory_IO/) | [Escena Grado.factoryio](03_Factory_IO/Grado.factoryio) y sus 14 señales OPC DA |
-| [04_Random_Forest](04_Random_Forest/) | [Simulador de registro](04_Random_Forest/simulador_guanabana_grado_registro_RF.py), [notebook de entrenamiento](04_Random_Forest/RF_Guanaba%20(1).ipynb), [modelo publicado](04_Random_Forest/modelo_prediccion_humedad.pkl) y [revisión técnica](04_Random_Forest/REVISION_ENTRENAMIENTO_ACTUAL.md) |
+| [04_Random_Forest](04_Random_Forest/) | [Simulador de registro](04_Random_Forest/simulador_guanabana_grado_registro_RF.py), [notebook actual](04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb), [modelo rf-v2 en Releases](https://github.com/pealvaga/riego-inteligente-guanabana-simulacion/releases/tag/rf-v2) y [evaluación nueva](07_Resultados/RF_INFORME_EVALUACION_V2_20261111.md) |
 | [05_MobileNetV2](05_MobileNetV2/) | [Script de entrenamiento](05_MobileNetV2/ia_imagen.py), [modelo fine-tuned](05_MobileNetV2/mejor_modelo_hojas_finetuning.keras) y [guía de evaluación](05_MobileNetV2/GUIA_EVALUACION_FINAL.md) |
 | [06_Datos](06_Datos/) | Datos, procedencia y particiones |
 | [07_Resultados](07_Resultados/) | Resultados, métricas y evidencias |
