@@ -1,30 +1,29 @@
-# Texto propuesto para el Anexo C: Repositorio y reproducibilidad
+# Anexo C. Repositorio digital y reproducibilidad del sistema de riego inteligente
 
-> **Versión de trabajo.** Actualizar este apartado tras comprobar la ejecución, documentar las versiones y comprobar la carga en la aplicación del modelo Random Forest v2, cuya copia local ya coincidió en SHA-256 con GitHub Release, si procede. No declarar pruebas ni resultados que no se hayan realizado.
+Como complemento al desarrollo del proyecto, se organizó un repositorio digital en GitHub que contiene los archivos de programación, modelos de inteligencia artificial, datos de simulación, resultados de evaluación y evidencias de funcionamiento del sistema de riego inteligente para cultivos de guanábana a cielo abierto.
 
-## Anexo C. Repositorio digital del sistema de riego inteligente
-
-Los archivos fuente de la simulación del sistema de riego inteligente para cultivos de guanábana se encuentran disponibles en el repositorio:
+El repositorio se encuentra disponible en el siguiente enlace:
 
 **https://github.com/pealvaga/riego-inteligente-guanabana-simulacion**
 
-El repositorio está organizado por componentes: aplicación Python de simulación ambiental e intercambio de datos mediante Modbus TCP; proyecto de controlador virtual y visualización SCADA de CODESYS; escena de Factory I/O para representar tanques, sensores y actuadores; código y artefactos de los modelos de inteligencia artificial Random Forest y MobileNetV2; bases de datos y documentación de respaldo.
+Su estructura permite consultar por separado los principales componentes del sistema: la aplicación de simulación ambiental desarrollada en Python, el proyecto de automatización y visualización SCADA en CODESYS, la escena virtual implementada en Factory I/O y los modelos de inteligencia artificial Random Forest y MobileNetV2.
 
-La carpeta `08_Documentacion` incluye instrucciones de instalación, mapa de comunicaciones, inventario técnico y una [guía de reproducción integral](GUIA_REPRODUCCION_INTEGRAL.md). La carpeta `06_Datos` contiene un archivo Excel de registros simulados y documentación de procedencia. El conjunto de imágenes empleado por MobileNetV2 se mantiene fuera de GitHub por su volumen; su acceso y sus fuentes se describen en el README del componente, sujeto a los permisos y licencias de las imágenes.
+La carpeta `01_Python` contiene el programa de simulación y comunicación Modbus TCP. En `02_CODESYS` se encuentra el [paquete final declarado del controlador virtual](../02_CODESYS/Simulaci%C3%B3n%20guanabana%20codesys%20%282%29.zip) y su configuración de supervisión, mientras que `03_Factory_IO` contiene la representación virtual de los tanques, sensores y actuadores. La integración entre CODESYS y Factory I/O se realiza mediante **OPC DA**, mientras que el intercambio de información entre Python y CODESYS utiliza **Modbus TCP**.
 
-La disponibilidad de código y proyectos permite la revisión del funcionamiento propuesto. La confirmación de compatibilidad, los resultados de evaluación independiente y la reproducción integral deben consultarse en los archivos de estado y evidencia del repositorio, identificando la versión de cada artefacto.
+En cuanto a la inteligencia artificial, la carpeta `04_Random_Forest` incluye el código de entrenamiento, la base de datos consolidada, las predicciones de prueba y las métricas del modelo encargado de estimar la humedad del suelo a intervalos de diez minutos simulados. La versión actualizada del modelo, identificada como `rf-v2`, se encuentra disponible en:
 
-### Modelo Random Forest actualizado
+**https://github.com/pealvaga/riego-inteligente-guanabana-simulacion/releases/tag/rf-v2**
 
-El modelo Random Forest se distribuye como archivo adjunto en [GitHub Release `rf-v2`](https://github.com/pealvaga/riego-inteligente-guanabana-simulacion/releases/tag/rf-v2), por exceder el límite de carga de la interfaz web para archivos normales. Se publicaron el Excel consolidado de entrenamiento, las predicciones de prueba y las métricas en la carpeta `04_Random_Forest`. La evaluación reportó 4.552 muestras de entrenamiento, 922 de prueba, RMSE de 0,114327 para Random Forest y 0,172037 para la referencia de persistencia. Es una mejora observada en escenarios simulados; queda pendiente la comprobación de compatibilidad en la aplicación y la evaluación del error del instante de próximo riego. Véase el [informe de resultados v2](../07_Resultados/RF_INFORME_EVALUACION_V2_20261111.md).
+La evaluación de esta versión comprendió **4.552 registros de entrenamiento y 922 registros de prueba**, obteniendo una raíz del error cuadrático medio (**RMSE**) de **0,1143 puntos porcentuales**, frente a **0,1720** de una referencia basada en persistencia. Adicionalmente, se documentaron **21 comparaciones** realizadas durante el funcionamiento de la aplicación, en las cuales la humedad observada se registró diez minutos simulados después de cada predicción.
 
-## Información para completar antes de entregar
+La carpeta `05_MobileNetV2` contiene el código y el modelo de clasificación de imágenes foliares para apoyar la selección entre riego normal y fertirriego. También se incluye una evaluación **preliminar** de **100 imágenes seleccionadas como hojas de guanábana**. Los resultados y las limitaciones del conjunto de prueba se describen en `07_Resultados`.
 
-- Fecha y commit/tag de GitHub que corresponde a la entrega final.
-- Versiones instaladas con las que se reprodujo el funcionamiento (Python, librerías, CODESYS, Control Win y Factory I/O).
-- Ubicación de capturas de funcionamiento, archivos de registro y resultados de evaluación contrastados.
-- **Integridad del modelo comprobada:** la copia local y el adjunto de Release coincidieron en SHA-256. **Pendiente:** prueba funcional de carga de ese paquete en la aplicación.
-- Enlace a la versión definitiva de la metodología de evaluación de ambas IA.
-- Condiciones de acceso a los datasets publicados fuera del repositorio.
+Las evidencias de funcionamiento están disponibles en la carpeta `07_Resultados/evidencias_integracion_guanabana`, que reúne **21 capturas** de la aplicación Python, CODESYS y Factory I/O. Estas permiten observar la comunicación entre componentes, el monitoreo de variables, la ejecución de la simulación, las respuestas de control y la visualización de una estimación del próximo riego.
 
-No presentar esta sección como demostración de ejecución por sí sola; anexar evidencia real y verificable.
+Finalmente, `08_Documentacion` reúne las instrucciones de instalación y ejecución, el mapa de comunicaciones, los registros de versiones y la información necesaria para reproducir el entorno. Se documentó el uso de **Python 3.12.9** y un [inventario de 53 paquetes](versiones_librerias_python_20261111.txt) con sus respectivas versiones, además de las versiones de CODESYS y Factory I/O utilizadas durante el desarrollo.
+
+La publicación del repositorio facilita la consulta y revisión técnica de la simulación. Los resultados corresponden al entorno virtual desarrollado y no constituyen una validación directa del desempeño del sistema en condiciones reales de cultivo. Las limitaciones de los modelos de inteligencia artificial y las recomendaciones para futuros trabajos se encuentran documentadas en los informes de resultados.
+
+---
+
+**Nota de control documental (no copiar al Anexo):** el equipo confirmó que el ZIP final se guardó y se abrió correctamente. La revisión remota del ZIP binario no se pudo extraer mediante la conexión a GitHub; esa limitación es de verificación independiente y no modifica la declaración sobre el equipo local. La prueba de RF a +10 min y su evaluación de 922 casos no demuestran todavía la exactitud de la **hora** estimada del siguiente riego. Las conclusiones de MobileNet se consideran preliminares, no diagnósticos nutricionales de campo.
