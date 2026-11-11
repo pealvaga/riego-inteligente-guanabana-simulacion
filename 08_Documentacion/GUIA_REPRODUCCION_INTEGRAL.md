@@ -2,7 +2,7 @@
 
 ## Alcance y estado
 
-Esta guía permite identificar y preparar los artefactos publicados, y describe las comprobaciones necesarias para ejecutar la simulación. **No constituye un certificado de prueba funcional**: el controlador, OPC DA, Modbus TCP, SCADA y modelos deben verificarse en el equipo de reproducción. Los resultados históricos de Random Forest todavía no demuestran un modelo definitivo validado.
+Esta guía permite identificar y preparar los artefactos publicados, y describe las comprobaciones necesarias para ejecutar la simulación. **No constituye un certificado de prueba funcional**: el controlador, OPC DA, Modbus TCP, SCADA y modelos deben verificarse en el equipo de reproducción. **La nueva evaluación `rf-v2` ya supera la referencia de persistencia** ([informe](../07_Resultados/RF_INFORME_EVALUACION_V2_20261111.md)). La reproducibilidad completa de la instalación en otro equipo y la validación temporal del próximo riego siguen pendientes.
 
 Se mantiene intacta la simulación original en `01_Python/Sensores.py`, `02_CODESYS/Codesys.zip` y `03_Factory_IO/Grado.factoryio`.
 
@@ -109,7 +109,7 @@ Las capturas muestran un indicador de **Factory I/O conectado** al servidor `CoD
 - El archivo original publicado se encuentra en [`06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx`](../06_Datos/Datos_entrenamiento_guanabana_20261110_103013.xlsx).
 - Contiene 2.878 filas en `Registro_10min`, pero solo 813 en la hoja original `Entrenamiento_RF`.
 - Para reconstruir las muestras de todas las sesiones usar [`04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb`](../04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb), siguiendo [sus instrucciones](../04_Random_Forest/COMO_ENTRENAR_CON_TODAS_LAS_SESIONES.md).
-- Separar escenarios completos para prueba independiente y comparar RMSE/MAE con persistencia. Los resultados del cuaderno corregido **aún requieren ejecución** y documentación.
+- Separar escenarios completos para prueba independiente y comparar RMSE/MAE con persistencia. Los resultados del cuaderno corregido **ya se ejecutaron y publicaron**, con **4.552 muestras de entrenamiento, 922 de prueba y RMSE RF 0,114327 vs persistencia 0,172037**. Consultar los [archivos del entrenamiento vigente](../04_Random_Forest/) y el [informe RF v2](../07_Resultados/RF_INFORME_EVALUACION_V2_20261111.md).
 - No usar el modelo no validado como evidencia de que mejoró el pronóstico.
 
 ### MobileNetV2
