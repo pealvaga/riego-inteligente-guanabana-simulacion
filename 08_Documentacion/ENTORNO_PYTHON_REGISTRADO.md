@@ -1,6 +1,6 @@
 # Entorno Python registrado — simulación de guanábana
 
-**Origen:** archivo `ENTORNO_EJECUTADO.json` aportado por el autor y generado por `registrar_entorno.py`.
+**Origen:** archivo `ENTORNO_EJECUTADO.json`, generado mediante `registrar_entorno.py`.
 
 **Fecha de captura (UTC):** 2026-11-11 04:02:04 +00:00  
 **Python:** CPython **3.12.9**  
