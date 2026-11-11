@@ -1,0 +1,15 @@
+Evidencias de integración del proyecto de grado (simulación)
+
+01. Factory I/O - OPC Client DA/UA y servidor CoDeSys.OPC.DA (14) con estado verde
+02. Python - Simulación en ejecución, COMUNICACIÓN OK, riego ACTIVO y registros RF
+03. Python - Configuración Modbus TCP, IP 127.0.0.1 puerto 502, Device ID 1
+04. CODESYS - Visualización HMI/SCADA con variables y tanques
+05. CODESYS - Grado.project, dispositivo conectado y Application [ejecutar]
+
+Estas capturas fueron aportadas por el autor. No demuestran por sí solas compilación
+sin errores ni evaluación independiente de los modelos de IA. Las horas simuladas
+en las capturas no son idénticas.
+
+Para subirlas a GitHub: abrir la carpeta 07_Resultados, crear/usar
+evidencias_integracion y cargar las cinco PNG. Mantener sus nombres.
+Ver el informe de texto en 07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md.
