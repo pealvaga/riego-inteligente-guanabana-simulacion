@@ -83,6 +83,14 @@ El archivo `Grado.Device.Application.xml` declara como símbolos `ReadWrite` las
 
 Los 14 símbolos de la escena coinciden por nombre con la lista de señales `FO_*` del proyecto CODESYS. La ejecución y comunicación efectivas aún deben validarse en ambos entornos abiertos.
 
+## Evidencia de compilación y señales en ejecución
+
+Una captura reciente del proyecto `Grado.project` abierto en CODESYS muestra el panel de compilación de `Device.Application`: **0 errores y 0 advertencias** (3 mensajes informativos), con «The application is up to date». El árbol muestra `Device [Conectado]` y `Application [ejecutar]`.
+
+Otra captura del monitor en línea `Device.Application.GVL` muestra, entre otras variables, `FO_Riego1=TRUE`, `FO_Riego2=FALSE`, `FO_S_DESCARGA1=TRUE`, `FO_S_NIVEL1=5.045404`, `FO_S_NIVEL2=9.539644` y `MB_Temp=350`, valor coherente con la temperatura mostrada en Python (**35,0 °C** con escala ×10).
+
+Estas capturas evidencian compilación y valores instantáneos, pero no sustituyen una prueba **antes/después** del cambio de señales OPC ni la comprobación del icono de advertencia presente en el dispositivo Ethernet. Consultar el [informe de ejecución integrada](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md). Las imágenes originales aún están pendientes de publicación en GitHub.
+
 ## Reproducción en CODESYS
 
 1. Extraer `Codesys.zip` y abrir `Grado.project`.
