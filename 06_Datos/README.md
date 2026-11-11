@@ -34,3 +34,9 @@ Después de comprobar procedencia, clases y licencias, se deben conservar en est
 Se revisó un inventario de **2.247 imágenes** (1.220 Sana y 1.027 Deficiencia). Se encontraron **74 pares de archivos exactamente duplicados**, todos dentro de la clase Deficiencia, lo que deja 2.173 hashes SHA-256 distintos. No hubo errores de lectura. Los campos de origen, especie, etiqueta original y partición permanecen sin verificar.
 
 Consultar el [análisis del inventario](ANALISIS_INVENTARIO_MOBILENETV2.md) y el [resumen en JSON](resumen_inventario_mobilenetv2.json). Estos registros no sustituyen las imágenes originales ni los resultados de evaluación independientes.
+
+## Base de registros de Random Forest
+
+Se publicó [`Datos_entrenamiento_guanabana_20261110_103013.xlsx`](Datos_entrenamiento_guanabana_20261110_103013.xlsx). La hoja `Registro_10min` contiene **2.878 registros y tres identificadores de sesión**, mientras que `Entrenamiento_RF` tiene **813 filas correspondientes solo a la primera sesión**. Los datos son compatibles con la versión declarada `balance_hidrico_temperatura_v2`.
+
+La ejecución archivada en `RF_Guanaba.ipynb` utilizó otro libro, `Base_guanabana_consolidada_para_RF.xlsx`, con **2.502 filas**; por tanto, el Excel publicado no reproduce directamente esa evaluación. Consultar la [revisión técnica del Excel](REVISION_EXCEL_RANDOM_FOREST.md) antes de entrenar o interpretar resultados.
