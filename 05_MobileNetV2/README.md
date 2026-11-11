@@ -74,6 +74,16 @@ Se ejecutó el checkpoint final sobre un conjunto nuevo de **100 capturas PNG** 
 
 **Ambas clases de la prueba:** las 50 fotografías sanas y las 50 etiquetadas como deficientes fueron seleccionadas como hojas de **guanábana (`Annona muricata`)**. El ZIP complementario revisado contiene 50 PNG con síntomas foliares visibles, sin duplicados exactos de bytes, pero con algunas composiciones semejantes. La especie declarada no valida el diagnóstico: manchas, necrosis y amarillamiento pueden tener causas nutricionales o no nutricionales. No se publican las fotografías sin verificar licencias y procedencia.
 
+## Interpretación operativa y limitación de la base de prueba
+
+En la comprobación exploratoria se utilizaron **100 capturas de hojas seleccionadas como guanábana** (50 sanas y 50 etiquetadas con deficiencia). Las fotografías de deficiencia se localizaron a través de **Google Imágenes**, un buscador, no necesariamente la fuente primaria ni una confirmación de diagnóstico nutricional.
+
+El checkpoint clasificó correctamente **las 50 hojas etiquetadas como sanas (50/50)** en esta muestra, tanto a 0,50 como a **0,90**. En particular, no produjo **falsos positivos de deficiencia** entre esas 50 imágenes. Esto respalda un resultado favorable **para la clase sana en la muestra utilizada**, sin demostrar que el modelo reconozca todas las hojas sanas de campo.
+
+En cambio, al umbral operativo **0,90**, identificó **13/50** imágenes etiquetadas como deficiencia y clasificó **37/50** como sanas. Para lograr resultados más confiables sería recomendable construir una base de datos de guanábana con **fotografías originales, de mayor calidad, procedencia verificable y síntomas de deficiencia nutricional confirmados**, además de revisar diagnósticos confundibles (plagas, enfermedades, estrés hídrico).
+
+El umbral de **90 % de probabilidad de deficiencia** se usa como **criterio conservador para autorizar fertirriego**: en la muestra reduce decisiones positivas de deficiencia no sustentadas, pero simultáneamente omite muchas alteraciones etiquetadas como deficiencia. **No equivale a un margen de error estadístico ni garantiza que el fertirriego sea agronómicamente correcto.** La clasificación foliar es un apoyo simulado a la decisión, no un diagnóstico nutricional de campo. Se conservan las métricas desfavorables y el carácter preliminar de la prueba.
+
 ## Lectura académica de los resultados
 
 El código realiza la partición de rutas **antes** del aumento aleatorio de datos; esto reduce el riesgo de filtrar transformaciones generadas en línea a la prueba. No obstante, no se agrupan imágenes por identificador de original, planta o fuente: no es posible descartar copias, variaciones o imágenes correlacionadas en particiones diferentes sin revisar las imágenes y sus metadatos.
