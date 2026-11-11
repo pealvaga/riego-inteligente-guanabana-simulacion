@@ -68,6 +68,8 @@ Se ejecutó el checkpoint final sobre un conjunto nuevo de **100 capturas PNG** 
 
 **Estado: evaluación preliminar, independencia no acreditada.** El contraste SHA-256 no encontró copias exactas, pero no se declararon fotografías independientes ni se completaron campos de fuente/especie/grupo original. Los nombres de los 100 archivos indican que se utilizaron capturas de pantalla; las coincidencias visuales y la procedencia aún requieren verificación. No se debe presentar esta prueba como validación definitiva ni como diagnóstico agronómico.
 
+**Procedencia de las imágenes de prueba:** las 50 fotografías etiquetadas con deficiencia se buscaron mediante Google Imágenes. Esto identifica el buscador utilizado, **no la fuente original ni un diagnóstico nutricional verificado**. Las etiquetas, especies y enlaces de origen deben contrastarse antes de considerar la prueba independiente y válida; las cifras preliminares se conservan sin cambios. Ver el [informe de resultados](../07_Resultados/MobileNetV2/INFORME_PRELIMINAR_20261111.md).
+
 ## Lectura académica de los resultados
 
 El código realiza la partición de rutas **antes** del aumento aleatorio de datos; esto reduce el riesgo de filtrar transformaciones generadas en línea a la prueba. No obstante, no se agrupan imágenes por identificador de original, planta o fuente: no es posible descartar copias, variaciones o imágenes correlacionadas en particiones diferentes sin revisar las imágenes y sus metadatos.
