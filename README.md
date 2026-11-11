@@ -38,6 +38,10 @@ La arquitectura no equivale a una validación agronómica en campo. En particula
 
 La ejecución integral requiere los proyectos y modelos correspondientes, además de las herramientas CODESYS y Factory I/O. La escena contiene configuración de **OPC DA** (`CoDeSys.OPC.DA`) para la conexión Factory I/O–CODESYS; Python se comunica con CODESYS mediante **Modbus TCP**. Los nombres y rutas de los modelos utilizados por Python están especificados en su documentación.
 
+## Reentrenamiento desde el registro completo
+
+Para corregir la selección de solo 813 muestras del Excel de Random Forest se creó un [cuaderno alternativo que reconstruye datos desde las tres sesiones](04_Random_Forest/RF_Guanaba_todas_sesiones.ipynb). Consulta las [instrucciones para Google Colab](04_Random_Forest/COMO_ENTRENAR_CON_TODAS_LAS_SESIONES.md). El cuaderno nuevo está publicado **sin ejecutar**; se deben generar y documentar sus resultados antes de sustituir cualquier modelo.
+
 ## Reproducibilidad y alcance de las IA
 
 La evaluación de Random Forest debe preservar el orden temporal y separar las trayectorias destinadas a entrenamiento, validación y prueba. Sus resultados deben compararse con una referencia de persistencia y acompañarse de un error del momento estimado del próximo riego. **La ejecución actual del cuaderno utiliza el Excel publicado (813 muestras) y no supera la persistencia (RMSE 0,6144 frente a 0,1386)**; el archivo `.pkl` publicado requiere cotejar su procedencia y evaluación antes de utilizarlo en la aplicación.
