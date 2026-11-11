@@ -14,7 +14,7 @@ La versión **[rf-v2](https://github.com/pealvaga/riego-inteligente-guanabana-si
 
 Archivos de esta ejecución: [Excel consolidado](Base_guanabana_consolidada_para_RF.xlsx), [CSV de predicciones](resultados_prueba_random_forest.csv), [JSON de métricas](metricas_random_forest.json) y [trazabilidad del Excel](origen_excel_RF.json), además del [cuaderno de Colab](RF_Guanaba_todas_sesiones.ipynb).
 
-**Verificación pendiente:** contrastar el SHA-256 del modelo original producido en Colab con la huella del adjunto de Release `c3eba2fce1d49187249afef988d0848276eb4dd2e9e5f5e2bf33fa8446e09692`; confirmar que la aplicación carga su contenido y realiza inferencias. Aunque el archivo supera persistencia en esta evaluación, su desempeño frente a una sesión completamente nueva y la exactitud del momento de próximo riego aún no se han acreditado.
+**Huella confirmada:** el modelo local de la carpeta `resultados_RF_guanabana (1)` tiene el mismo SHA-256 que el adjunto de Release: `c3eba2fce1d49187249afef988d0848276eb4dd2e9e5f5e2bf33fa8446e09692`. **Pendiente:** confirmar que la aplicación carga el paquete y realiza inferencias. Aunque el archivo supera persistencia en esta evaluación, su desempeño frente a una sesión completamente nueva y la exactitud del momento de próximo riego aún no se han acreditado.
 
 ## Evaluaciones históricas (no son el modelo rf-v2)
 
