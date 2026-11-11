@@ -91,6 +91,12 @@ Otra captura del monitor en línea `Device.Application.GVL` muestra, entre otras
 
 Estas capturas evidencian compilación y valores instantáneos, pero no sustituyen una prueba **antes/después** del cambio de señales OPC ni la comprobación del icono de advertencia presente en el dispositivo Ethernet. Consultar el [informe de ejecución integrada](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md). Las imágenes originales aún están pendientes de publicación en GitHub.
 
+## Lógica declarada del pulsador STOP
+
+El autor aclara que implementó el pulsador `FO_STOP` como **normalmente cerrado (NC)**: `TRUE` corresponde al contacto sin pulsar y `FALSE` al contacto accionado. El valor `FO_STOP=TRUE` mostrado en capturas mientras el sistema funciona es, por tanto, **coherente con su diseño declarado**; no indica una orden de parada.
+
+Se recomienda comprobar la transición `TRUE→FALSE` accionando el pulsador en Factory I/O y verificando su efecto en CODESYS, junto con el comportamiento de arranque/rearme. La declaración sobre la polaridad no equivale a una prueba de seguridad funcional. Ver [registro de evidencias](../07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md).
+
 ## Reproducción en CODESYS
 
 1. Extraer `Codesys.zip` y abrir `Grado.project`.
