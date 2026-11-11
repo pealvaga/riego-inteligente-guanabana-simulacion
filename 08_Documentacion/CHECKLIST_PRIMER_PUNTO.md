@@ -56,6 +56,12 @@ Publicar una versión **identificable y reproducible** del proyecto de simulaci�
 | Coherencia documental CODESYS/Factory I/O/tesis | [ ] | Corregir OPC DA versus OPC UA, límites de histéresis y mapa HR/IR según uso real |
 | Enlace de GitHub e instrucciones incorporados en Anexo C del documento | [ ] | Comprobar que apunte a la revisión final y a las rutas correctas |
 
+## Estado aclarado tras la revisión con el equipo
+
+- **Prueba funcional de Python, CODESYS y Factory I/O:** se reporta que se realizaron **múltiples veces con funcionamiento satisfactorio**. Las 20 capturas ya publicadas respaldan distintos estados y secuencias. Los controles específicos que todavía figuran como pendientes (p. ej., transición STOP NC en GVL) se refieren a la **evidencia documental de una transición concreta**, no a que el sistema se haya declarado averiado ni a la necesidad de repetirlo todo.
+- **Integridad del modelo RF:** el archivo de PowerShell aportado confirma SHA-256 idéntico entre la copia local y GitHub Release. **Queda pendiente la prueba específica de carga e inferencia con `rf-v2` en Python**; se preparó el [protocolo mínimo](../07_Resultados/PROTOCOLO_VERIFICACION_RF_V2_EN_PYTHON.md).
+- **MobileNetV2:** se propone cerrar la explicación académica con el desempeño observado: **50/50 sanas correctamente clasificadas**, **13/50 deficientes detectadas a 0,90**; fotos deficientes recopiladas mediante Google Imágenes; umbral **0,90** conservador para **autorizar fertirriego**, no margen de error estadístico. Se recomienda una base futura de imágenes de guanábana **con deficiencia nutricional verificada**. La prueba independiente/diagnóstica no queda acreditada solo por esta explicación.
+
 ## Trabajo que puede completarse mientras se generan datos RF
 
 - Capturar versiones de Python, scikit-learn, TensorFlow, pymodbus y demás dependencias **desde el ordenador donde funciona el sistema**.
