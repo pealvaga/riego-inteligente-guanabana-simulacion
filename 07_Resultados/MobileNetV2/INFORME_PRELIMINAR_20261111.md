@@ -72,6 +72,14 @@ Esta información completa el **método de localización** de las 50 imágenes d
 
 Para fortalecer la evaluación sin recopilar inmediatamente otras 100 fotografías, se recomienda localizar la **página original** de cada captura prioritaria, registrar URL, especie, diagnóstico original y condiciones de uso, y revisar en primer lugar las **37 imágenes con deficiencia clasificadas como sanas** al umbral operativo 0,90. Si un diagnóstico no puede verificarse, registrarlo como **etiqueta no acreditada**; no cambiarlo basándose solamente en la predicción del modelo.
 
+## Especie de las imágenes de prueba
+
+Las **50 fotografías de la clase `Deficiencia` corresponden a hojas de guanábana (`Annona muricata`)**, según la identificación realizada durante la selección de la prueba. Estas imágenes se localizaron mediante Google Imágenes, como se indica en la sección de procedencia.
+
+La identificación de la especie se considera **declarada para esta muestra**, pero todavía no se ha corroborado individualmente mediante las páginas de origen. Asimismo, que una hoja sea de guanábana no confirma que su alteración corresponda a **deficiencia nutricional**: pueden existir otros factores (enfermedades, plagas o estrés ambiental) y errores de etiquetado.
+
+Los resultados cuantitativos **no cambian**: al umbral 0,90 se detectaron **13 de 50** hojas de guanábana etiquetadas con deficiencia y hubo **37 falsos negativos bajo las etiquetas actuales**. La procedencia y especie de las **50 imágenes sanas** no se han especificado todavía. Se mantiene el carácter preliminar de la evaluación.
+
 ## Acciones recomendadas
 
 1. **Conservar los 100 ejemplos y esta medición** como prueba exploratoria; no modificar cifras ni presentar el 63 % como validación final.
