@@ -26,7 +26,7 @@ La captura se conserva también en [`ENTORNO_EJECUTADO.json`](ENTORNO_EJECUTADO.
 
 ## Comprobación adicional con PowerShell (11/11/2026)
 
-La salida aportada de **Windows PowerShell 5.1** confirma **Python 3.12.9**, **pip 24.3.1** y las versiones de los **diez paquetes principales** consignados en la tabla anterior, incluida `scikit-learn 1.6.1`, `joblib 1.6.0`, `pymodbus 3.15.0`, `tensorflow 2.21.0` y `keras 3.15.1`. Se conserva un [informe específico](VERIFICACION_POWERSHELL_LIBRERIAS_20261111.md). El intento de `pip freeze` falló por permisos de escritura en una carpeta protegida; **no por problemas de instalación**. El inventario completo de dependencias transitivas continúa sin adjuntarse.
+La salida aportada de **Windows PowerShell 5.1** confirma **Python 3.12.9**, **pip 24.3.1** y las versiones de los **diez paquetes principales** consignados en la tabla anterior, incluida `scikit-learn 1.6.1`, `joblib 1.6.0`, `pymodbus 3.15.0`, `tensorflow 2.21.0` y `keras 3.15.1`. Se conserva un [informe específico](VERIFICACION_POWERSHELL_LIBRERIAS_20261111.md). El intento de `pip freeze` falló por permisos de escritura en una carpeta protegida; **no por problemas de instalación**. El inventario completo de dependencias directas y transitivas **ya fue recibido y publicado** como [`versiones_librerias_python_20261111.txt`](versiones_librerias_python_20261111.txt): **53 paquetes**, sin entradas repetidas, SHA-256 **`e388edff914928f820bfe114b760df6d5c919ddfbabfc35889f86830ad34ff0b`**.
 
 ## Compatibilidad y limitaciones
 
@@ -43,6 +43,6 @@ La salida aportada de **Windows PowerShell 5.1** confirma **Python 3.12.9**, **p
 2. Abrir la aplicación y documentar el estado de carga de MobileNetV2 y del modelo RF (solo si el artefacto RF está validado).
 3. Probar la conexión Modbus con CODESYS y guardar evidencia de HR0–HR7 / IR0.
 4. Registrar las versiones instaladas de CODESYS, Control Win, Factory I/O y del driver OPC DA.
-5. Si todas las comprobaciones son satisfactorias, conservar un `pip freeze` del mismo intérprete, diferenciando paquetes directos y transitivos.
+5. **Realizado:** conservar el [`pip freeze` de 53 paquetes](versiones_librerias_python_20261111.txt), diferenciando los paquetes directos especificados en `01_Python/requirements.txt` de las dependencias transitivas.
 
-**Estado:** versiones principales corroboradas por instantánea JSON y segunda salida de `pip show`; pendiente completar `pip freeze` y confirmar el intérprete efectivo usado para ejecutar `Sensores.py`. Las evidencias operativas de la aplicación se encuentran en `07_Resultados/`.
+**Estado:** versiones principales corroboradas por instantánea JSON, salida de `pip show` y **`pip freeze` completo de 53 paquetes publicado y verificado por hash**. Queda por confirmar explícitamente que ese intérprete es el mismo utilizado para ejecutar `Sensores.py`. Las evidencias operativas de la aplicación se encuentran en `07_Resultados/`.
