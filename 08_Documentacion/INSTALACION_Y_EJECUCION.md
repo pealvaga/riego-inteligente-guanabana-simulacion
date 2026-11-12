@@ -1,6 +1,6 @@
 # Instalación y ejecución del sistema de simulación
 
-Esta guía describe la arquitectura del sistema y el procedimiento de configuración de la aplicación Python. Para una secuencia reproducible desde la descarga del repositorio y con pasos concretos de verificación, consultar **[la guía integral](GUIA_REPRODUCCION_INTEGRAL.md)** y **[la lista de verificación del primer punto](CHECKLIST_PRIMER_PUNTO.md)**. El funcionamiento integral depende de los proyectos CODESYS, Factory I/O y los modelos de IA utilizados en la simulación.
+Esta guía describe la arquitectura del sistema y el procedimiento de configuración de la aplicación Python. Para una secuencia reproducible desde la descarga del repositorio y con pasos concretos de verificación, consultar **[la guía integral](GUIA_REPRODUCCION_INTEGRAL.md)**. El funcionamiento integral depende de los proyectos CODESYS, Factory I/O y los modelos de IA utilizados en la simulación.
 
 ## Software necesario
 
