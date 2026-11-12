@@ -35,14 +35,10 @@ La arquitectura no equivale a una validación agronómica en campo. En particula
 ## Instalación y ejecución
 
 - **[Guía integral de reproducción del sistema](08_Documentacion/GUIA_REPRODUCCION_INTEGRAL.md)**
-- **[Lista de verificación de la primera corrección](08_Documentacion/CHECKLIST_PRIMER_PUNTO.md)**
 - [Entorno Python registrado: CPython 3.12.9 y versiones de paquetes](08_Documentacion/ENTORNO_PYTHON_REGISTRADO.md)
 - [Instantánea completa de Python 3.12.9: 53 paquetes de pip freeze](08_Documentacion/versiones_librerias_python_20261111.txt)
 - [Entorno CODESYS registrado: V3.5 SP9 Patch 1 y componentes](08_Documentacion/ENTORNO_CODESYS_REGISTRADO.md)
 - [Versiones de Control Win 3.5.9.10, OPCConfig 3.5.9.0 y Factory I/O 2.5.10](08_Documentacion/VERSIONES_SOFTWARE_CONFIRMADAS.md)
-- [Texto propuesto para el Anexo C](08_Documentacion/TEXTO_PROPUESTO_ANEXO_C.md)
-- [Punto 2 del docente: auditoría metodológica de evaluación de IA](08_Documentacion/PUNTO_2_VALIDACION_METODOLOGICA_IA.md)
-- [Texto de actualización para resultados de IA, resumen y conclusiones](08_Documentacion/TEXTO_PROPUESTO_CORRECCION_IA_3_4.md)
 - [Evidencia de ejecución integrada: Python–CODESYS–Factory I/O](07_Resultados/EVIDENCIA_EJECUCION_INTEGRADA.md)
 - [Plantilla de evidencia de pruebas funcionales](07_Resultados/PLANTILLA_EVIDENCIAS_FUNCIONALES.md)
 - [Guía del entorno y secuencia de ejecución](08_Documentacion/INSTALACION_Y_EJECUCION.md)
@@ -68,7 +64,7 @@ Para evaluar el modelo fine-tuned sin modificar el entrenamiento existe un [cuad
 
 **Lectura del modelo foliar:** la [evaluación preliminar de MobileNetV2](07_Resultados/MobileNetV2/INFORME_PRELIMINAR_20261111.md) clasificó correctamente 50 de 50 hojas etiquetadas como sanas; al umbral conservador del 90 %, identificó 13 de 50 etiquetadas con deficiencia. Las imágenes de deficiencia se localizaron con Google Imágenes, sin diagnóstico nutricional independiente acreditado; se recomienda una base futura de guanábana con deficiencias confirmadas. **El 90 % es un umbral de autorización del fertirriego, no un margen de error estadístico.**
 
-**Estado de publicación:** las **21 capturas E1–E21** ya están en [evidencias_integracion_guanabana/](07_Resultados/evidencias_integracion_guanabana/), incluida la [captura E21 de fecha estimada de próximo riego](07_Resultados/evidencias_integracion_guanabana/21_rf_v2_pronostico_proximo_riego.png). Para conocer las pocas comprobaciones pendientes antes de la entrega, ver el [resumen de cierre del repositorio](08_Documentacion/PENDIENTES_CIERRE_REPOSITORIO.md). No se requiere repetir el entrenamiento ni las pruebas funcionales realizadas para completar la publicación.
+**Evidencias:** las **21 capturas E1–E21** están en [evidencias_integracion_guanabana/](07_Resultados/evidencias_integracion_guanabana/), incluida la [captura E21 con la estimación del próximo riego](07_Resultados/evidencias_integracion_guanabana/21_rf_v2_pronostico_proximo_riego.png).
 
 ## Reproducibilidad y alcance de las IA
 
