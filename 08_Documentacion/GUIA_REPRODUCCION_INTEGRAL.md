@@ -124,6 +124,6 @@ Las capturas muestran un indicador de **Factory I/O conectado** al servidor `CoD
 
 Publicar en `07_Resultados/` exclusivamente resultados con procedencia clara: fecha de prueba, versiones instaladas, captura de interfaz/SCADA, parámetros usados, CSV de registros, resultados de evaluación y cualquier error o incidencia con su solución.
 
-Consultar [la lista de verificación del primer requerimiento](CHECKLIST_PRIMER_PUNTO.md) y [el documento de estado](ESTADO_REPRODUCIBILIDAD.md).
+Consultar [el procedimiento de verificación y reproducibilidad](ESTADO_REPRODUCIBILIDAD.md).
 
 **Estado de esta guía:** instrucciones preparadas a partir de archivos publicados; la reproducibilidad integral sigue **pendiente de verificación práctica en el equipo original**.
